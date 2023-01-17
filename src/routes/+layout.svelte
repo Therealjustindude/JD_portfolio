@@ -1,21 +1,72 @@
 <script>
-	import Logo from './components/Logo.svelte'
+	import NavigationBar from './components/NavigationBar.svelte'
+  import ThemeWrapper from '../theme/ThemeWrapper.svelte'
+  const base = {
+    font: {
+      size: {
+        _: '18px',
+      },
+      weight: {
+        lightest: 100,
+        lighter: 200,
+        light: 300,
+        base: 400,
+        medium: 500,
+        bold: 700,
+        boldest: 900,
+      },
+    },
+  }
 </script>
 
-<nav>
-	<Logo />
-  <a href="/resume">Resume</a>
-  <a href="/contact">Contact</a>
-</nav>
-
-<slot></slot>
+<ThemeWrapper base={base}>
+  <div id="main-layout-container">
+		<div id="slot-container">
+			<slot></slot>
+		</div>
+		<div id="nav-container">
+			<NavigationBar />
+		</div>
+	</div>
+</ThemeWrapper>
+	
 
 <style>
-	nav {
-		padding: 8px;
+	:global(html),
+	:global(body) {
+		height: 100%;
+	}
+	:global(html) {
+    background-color: var(--theme-palette-common-background, initial);
+    color: var(--theme-palette-common-text, initial);
+		margin: 0;
+  	padding: 0;	
+  }
+
+  :global(body) {
+		position: relative;
+		margin: 0;
+		box-sizing: border-box;
+    font-size: var(--theme-font-size);
+  }
+
+	#main-layout-container {
+		width: 100vw;
+		height: 100vh;
 		display: flex;
-    justify-content: space-around;
-    align-items: center;
-		border-bottom: solid #80808012;
+		flex-direction: column;
+	}
+
+	#slot-container {
+		margin: 16px 16px;
+	}
+
+	#nav-container {
+		position: sticky;
+    bottom: 0;
+    margin-top: auto;
+    background-color: var(--theme-palette-common-background);
+		border-top: 1px solid var(--theme-palette-secondary);
+    border-radius: 24px 24px 0px 0px;
 	}
 </style>

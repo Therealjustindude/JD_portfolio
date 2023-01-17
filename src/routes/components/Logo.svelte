@@ -63,11 +63,12 @@
 		justify-content: center;
     align-items: center;
     flex-direction: row;
-		font-family: 'Caveat', cursive;
+		font-family: 'Whisper', cursive;
 		font-size: xx-large;
 		text-decoration: none;
 		/* add var */
-    color: black;
+    color: var(--theme-palette-primary);
+		text-shadow: 1px 1px var(--theme-palette-shadow-light);
 	}
 
 	#logo_dv,
@@ -84,7 +85,7 @@
 	}
 	#logo_e {
 		position: relative;
-		left: -50px;
+		left: -44px;
 		animation-delay: 2.5s;
 		animation-timing-function: ease-out;
 		animation-duration: 0.5s;

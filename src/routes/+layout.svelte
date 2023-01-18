@@ -4,7 +4,7 @@
   const base = {
     font: {
       size: {
-        _: '18px',
+        _: '14px',
       },
       weight: {
         lightest: 100,
@@ -24,9 +24,7 @@
 		<div id="slot-container">
 			<slot></slot>
 		</div>
-		<div id="nav-container">
-			<NavigationBar />
-		</div>
+		<NavigationBar />
 	</div>
 </ThemeWrapper>
 	
@@ -58,15 +56,12 @@
 	}
 
 	#slot-container {
-		margin: 16px 16px;
+		margin: 0px 16px 48px 16px;
 	}
 
-	#nav-container {
-		position: sticky;
-    bottom: 0;
-    margin-top: auto;
-    background-color: var(--theme-palette-common-background);
-		border-top: 1px solid var(--theme-palette-secondary);
-    border-radius: 24px 24px 0px 0px;
+	@media screen and (min-width: 601px) {
+		#slot-container {
+			margin: 64px 16px 0px 16px;
+		}
 	}
 </style>

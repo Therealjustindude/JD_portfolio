@@ -14,7 +14,7 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 18px;
+  width: 32px;
   height: 10px;
 }
 
@@ -57,9 +57,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(8px);
-  -ms-transform: translateX(8px);
-  transform: translateX(8px);
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
 }
 
 /* Rounded sliders */
@@ -71,5 +71,46 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* When the browser is below 600px */
+@media screen and (max-width: 600px) {
+  input:checked + .slider:before {
+    -webkit-transform: translateX(12px);
+    -ms-transform: translateX(12px);
+    transform: translateX(12px);
+  }
+}
+
+/* When the browser is below 600px */
+@media screen and (max-width: 450px) {
+  .switch {
+    width: 36px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .switch {
+    width: 40px;
+  }
+}
+
+@media screen and (max-width: 295px) {
+  input:checked + .slider:before {
+    -webkit-transform: translateX(8px);
+    -ms-transform: translateX(8px);
+    transform: translateX(8px);
+  }
+}
+
+@media screen and (max-width: 281px) {
+  input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+  }
+  .switch {
+    width: 24px;
+  }
 }
 </style>

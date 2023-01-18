@@ -113,4 +113,21 @@
 		animation-name: slideInFromLeft;
 		margin-right: 4px;
 	}
+
+	/* When the browser is below 400px */
+	@media screen and (max-width: 400px) {
+		#logo_container {
+			font-size: x-large;
+		}
+
+		#logo_e {
+			position: relative;
+			left: -33px;
+			animation-delay: 2.5s;
+			animation-timing-function: ease-out;
+			animation-duration: 0.5s;
+			animation-name: slideDown;
+			animation-fill-mode: forwards;
+		}
+	}
 </style>

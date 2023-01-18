@@ -6,8 +6,8 @@
 <nav id="nav-container">
 	<Logo />
 	<div id="link-container">
-		<a href="/">One</a>
-		<a href="/">Two</a>
+		<a href="/">Contact</a>
+		<a href="/">Resume</a>
 	</div>
 	<ThemeToggle />
 </nav>
@@ -79,8 +79,8 @@
 		}
 	}
 
-	/* When the browser is below 295px */
-	@media screen and (max-width: 295px) {
+	/* When the browser is below 330px */
+	@media screen and (max-width: 330px) {
 		#nav-container {
 			display: flex;
 			justify-content: space-around;

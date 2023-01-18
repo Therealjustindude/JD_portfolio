@@ -18,6 +18,7 @@
     justify-content: space-between;
     align-items: center;
 		font-family: 'Sofia Sans Extra Condensed', sans-serif;
+		background-color: var(--theme-palette-common-background);
 		padding: 4px 32px 4px 32px;
 		left: 0;
 		right: 0;
@@ -35,8 +36,6 @@
 		#nav-container {
 			position: absolute;
 			top: 0;
-			background-color: var(--theme-palette-common-background);
-			border-bottom: 1px solid var(--theme-palette-secondary);
 		}
 	}
 	
@@ -45,8 +44,6 @@
 		#nav-container {
 			position: sticky;
 			bottom: 0;
-			background-color: var(--theme-palette-common-background);
-			border-top: 1px solid var(--theme-palette-secondary);
 		}	
 	}
 

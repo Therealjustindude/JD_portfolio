@@ -1,0 +1,56 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+	margin: 0
+}
+
+body {
+  position: relative;
+  margin: 0;
+	padding: 0;	
+  box-sizing: border-box;
+  font-family: "Calibre","Inter","San Francisco","SF Pro Text",-apple-system,system-ui,sans-serif;
+	background-color: var(--theme-palette-common-background, initial);
+	color: var(--theme-palette-common-text, initial);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+label {
+  display: block;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0.4em;
+  margin: 0 0 0.5em 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+input:disabled {
+  color: #ccc;
+}
+
+input[type='range'] {
+  height: 0;
+}
+
+button:disabled {
+  color: #999;
+}

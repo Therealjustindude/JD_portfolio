@@ -1,4 +1,5 @@
 <script>
+	import '../global.css'
 	import NavigationBar from './components/NavigationBar.svelte'
   import ThemeWrapper from '../theme/ThemeWrapper.svelte'
   const base = {
@@ -30,29 +31,12 @@
 	
 
 <style>
-	:global(html),
-	:global(body) {
-		height: 100%;
-	}
-	:global(html) {
-    background-color: var(--theme-palette-common-background, initial);
-    color: var(--theme-palette-common-text, initial);
-		margin: 0;
-  	padding: 0;	
-  }
-
-  :global(body) {
-		position: relative;
-		margin: 0;
-		box-sizing: border-box;
-    font-size: var(--theme-font-size);
-  }
-
 	#main-layout-container {
 		width: 100vw;
 		height: 100vh;
 		display: flex;
 		flex-direction: column;
+		justify-content: space-between;
 	}
 
 	#slot-container {

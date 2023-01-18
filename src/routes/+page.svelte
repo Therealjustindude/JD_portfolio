@@ -1,14 +1,11 @@
-<h1>HOME</h1>
-<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquet nisl non sapien ullamcorper, ac porttitor erat dictum. Nulla laoreet quam eget neque scelerisque, ultrices aliquet erat luctus. Vestibulum nisi nisi, tristique non erat vitae, ultrices lobortis risus. Cras vel neque eu ipsum molestie rutrum interdum non quam. Aenean semper risus vel erat tristique venenatis. Quisque vestibulum consequat dui at fringilla. Proin risus odio, congue non diam nec, feugiat iaculis tellus. Nulla ut luctus massa. Vivamus pharetra porttitor porta. Duis tincidunt tortor libero, sed mattis tellus volutpat at. Aliquam erat volutpat. Maecenas ac feugiat est. Etiam vitae lorem id felis facilisis lacinia. Quisque vitae leo sit amet velit dapibus auctor. Pellentesque aliquet enim vel porttitor auctor. Vivamus nec ipsum congue, blandit dui non, mollis felis.
+<div id="hero">
+	<div>Hi,</div>
+	<h1>I'm Justin.</h1>
+	<div>I build things for the Web.</div>
+	<div>I'm a Software Engineer who builds beautiful, some what simple, and accessible experiences.</div>
+</div>
 
-	Etiam ac tempor quam. Cras in velit a sem egestas egestas. Integer eu ante felis. Nulla eu congue diam. Fusce eu neque eu ligula ullamcorper mattis. Curabitur aliquet diam at hendrerit blandit. Quisque vel molestie arcu.
-	
-	Phasellus eget posuere nisl, nec dignissim dolor. Fusce nec neque arcu. Nam condimentum eros ut felis malesuada, non viverra erat luctus. Vivamus ullamcorper mollis aliquam. Aliquam pellentesque libero quis purus sodales, a gravida nunc congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec ut feugiat turpis. Nullam pellentesque dignissim velit.
-	
-	Ut sed pharetra leo. Fusce augue tellus, hendrerit in sodales at, hendrerit quis magna. Aliquam posuere nec enim quis cursus. Cras vulputate erat arcu. Phasellus vel venenatis quam, et fermentum lorem. Vestibulum nec ipsum in orci dictum semper. Duis sit amet purus vel diam sodales egestas. Aenean magna massa, cursus non iaculis ac, pharetra in elit. Ut ornare tempor feugiat. Duis nec tellus iaculis augue gravida tincidunt at quis nulla. Nam egestas lacus quis cursus feugiat. Praesent tempor non erat in bibendum. In erat leo, euismod ut vulputate ut, auctor eu est. Sed id sapien scelerisque libero viverra pharetra. Maecenas eu leo tincidunt, accumsan ante at, rutrum odio.
-	
-	Etiam auctor placerat lorem a fermentum. Fusce semper ut tortor eget cursus. Cras sed lorem nec elit iaculis scelerisque. Aliquam sed ipsum ut mauris aliquet dignissim consequat non sem. Vestibulum egestas tellus in turpis ultrices, quis ultricies dui finibus. Etiam quis diam justo. Suspendisse potenti. Maecenas sed odio orci. Pellentesque vel porta tellus, a egestas dui. Maecenas semper diam ut purus ornare faucibus. Mauris efficitur nibh massa, at varius augue auctor vitae. Suspendisse pellentesque ligula non tortor mattis convallis. Integer nec ipsum sed lectus vulputate accumsan.</div>
 
 <style>
-	
+
 </style>

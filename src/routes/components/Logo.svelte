@@ -66,7 +66,6 @@
 		font-family: 'Whisper', cursive;
 		font-size: xx-large;
 		text-decoration: none;
-		/* add var */
     color: var(--theme-palette-primary);
 		text-shadow: 1px 1px var(--theme-palette-shadow-light);
 	}

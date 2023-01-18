@@ -79,8 +79,8 @@
 		}
 	}
 
-	/* When the browser is below 280px */
-	@media screen and (max-width: 280px) {
+	/* When the browser is below 295px */
+	@media screen and (max-width: 295px) {
 		#nav-container {
 			display: flex;
 			justify-content: space-around;

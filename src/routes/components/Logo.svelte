@@ -21,7 +21,7 @@
 		}
 	}
 
-	@keyframes slideUp {
+	@keyframes slideFromTop {
 		0% {
 			transform: translateY(-1000%);
 			opacity: 0;
@@ -88,7 +88,7 @@
 		left: -44px;
 		animation-delay: 2.5s;
 		animation-timing-function: ease-out;
-		animation-duration: 0.5s;
+		animation-duration: 0.1s;
 		animation-name: slideDown;
 		animation-fill-mode: forwards;
 	}
@@ -96,8 +96,8 @@
 		opacity: 0;
 		animation-delay: 2s;
 		animation-timing-function: ease-in-out;
-		animation-duration: 1s;
-		animation-name: slideUp;
+		animation-duration: 0.85s;
+		animation-name: slideFromTop;
 		animation-fill-mode: forwards;
 	}
 	#logo_ies {

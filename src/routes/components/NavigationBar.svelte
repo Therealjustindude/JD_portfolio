@@ -14,6 +14,7 @@
 
 <style>
 	#nav-container {
+		height: 40px;
 		display: flex;
     justify-content: space-between;
     align-items: center;
@@ -77,6 +78,7 @@
 			flex-wrap: wrap;
 			align-items: center;
 			padding: 4px 16px 4px 16px;
+			height: auto;
 		}
 
 		#link-container {

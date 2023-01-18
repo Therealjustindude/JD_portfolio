@@ -1,5 +1,5 @@
 <a href="/" id="logo_container">
-	<div id="logo_justin">Justin</div>
+	<div id="logo_j">J </div>
 	<div id="logo_dv">
 		D<div id="logo_a">a</div>v<div id="logo_ies">ies</div>
 	</div>
@@ -75,7 +75,7 @@
 	#logo_e,
 	#logo_a,
 	#logo_ies,
-	#logo_justin {
+	#logo_j {
 		transition: all 1s ease;
 	}
 
@@ -106,7 +106,7 @@
 		animation-duration: 2s;
 		animation-name: slideInFromRight;
 	}
-	#logo_justin {
+	#logo_j {
 		animation-delay: 0s;
 		animation-timing-function: ease-in-out;
 		animation-duration: 2s;

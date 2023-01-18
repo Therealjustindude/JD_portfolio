@@ -73,6 +73,15 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+/* When the browser is above 910px */
+@media screen and (min-width: 910px) {
+  input:checked + .slider:before {
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translateX(18px);
+  }
+}
+
 /* When the browser is below 600px */
 @media screen and (max-width: 600px) {
   input:checked + .slider:before {
@@ -96,14 +105,6 @@ input:checked + .slider:before {
 }
 
 @media screen and (max-width: 295px) {
-  input:checked + .slider:before {
-    -webkit-transform: translateX(8px);
-    -ms-transform: translateX(8px);
-    transform: translateX(8px);
-  }
-}
-
-@media screen and (max-width: 281px) {
   input:checked + .slider:before {
     -webkit-transform: translateX(16px);
     -ms-transform: translateX(16px);

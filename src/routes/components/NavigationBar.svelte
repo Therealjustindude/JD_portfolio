@@ -50,29 +50,22 @@
 	a {
 		color: var(--theme-palette-common-link);
 		text-decoration: none;
-		background-color: var(--theme-palette-common-hover);
-		border-radius: 8px;
 		padding: 2px 16px;
+		
 	}
+	
 	a:hover {
 		color: var(--theme-palette-common-hover);
-		background-color: var(--theme-palette-common-link);
-		border-radius: 8px;
 		padding: 2px 16px;
 	}
 
 	/* When the browser is below 400px */
 	@media screen and (max-width: 400px) {
 		a {
-			border-radius: 6px;
-			padding: 0px 16px;
 			font-size: small;
 		}
 		a:hover {
 			font-size: small;
-			border-radius: 6px;
-			padding: 0px 16px;
-			box-shadow: 0px 1px grey;
 		}
 	}
 

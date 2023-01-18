@@ -4,7 +4,7 @@ export const theme = {
       common: {
         text: '#F9FBF2',
         background: '#282B28',
-        link: '#455E5B',
+        link: '#F9FBF2',
         hover: '#A8AEC1',
         shadow: {
         }
@@ -18,8 +18,8 @@ export const theme = {
       common: {
         text: '#0A0908',
         background: '#DDD6CF',
-        link: '#455E5B',
-        hover: '#A8AEC1',
+        link: '#0A0908',
+        hover: '#455E5B',
         shadow: {
         }
       },

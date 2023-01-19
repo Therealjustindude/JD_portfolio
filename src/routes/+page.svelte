@@ -55,11 +55,13 @@
 	#statement {
 		font-size: large;
 		color: var(--theme-palette-primary);
+    filter: drop-shadow(-1px 2px 0.5px var(--theme-palette-secondary));
 	}
 	#my-name {
 		font-size: x-large;
 		color: var(--theme-palette-primary);
 		font-family: 'Press Start 2P', cursive;
+    filter: drop-shadow(-2px 2px 1px var(--theme-palette-secondary));
 	}
 	#short-about {
 		font-size: small;
@@ -77,6 +79,7 @@
 		background-color: var(--theme-palette-accent);
 		color: var(--theme-palette-common-black);
 		padding: 9px 17px;
+    filter: drop-shadow(-2px 3px 2px var(--theme-palette-secondary));
 	}
 
 	/* When the browser is below 690px */

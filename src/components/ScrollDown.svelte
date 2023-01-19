@@ -36,6 +36,7 @@
 	.arrow {
 		writing-mode: vertical-rl;
 		animation: bounce 3s infinite;	
+    filter: drop-shadow(0 0 0.1rem var(--theme-palette-primary));
 	}
 
 	/* When the browser is below 420px */

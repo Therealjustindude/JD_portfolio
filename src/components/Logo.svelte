@@ -61,6 +61,7 @@
 	#logo-container {
 		display: flex;
 		justify-content: center;
+    filter: drop-shadow(-2px 2px 1px var(--theme-palette-secondary));
     align-items: center;
     flex-direction: row;
 		/* font-family: 'Baskerville', cursive; */

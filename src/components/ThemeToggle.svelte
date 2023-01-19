@@ -19,6 +19,7 @@
 <style>
   #icon-moon, #icon-sun {
     border: none;
+    filter: drop-shadow(0 0 0.15rem var(--theme-palette-primary));
     color: var(--theme-palette-primary);
     background: none;
     width: 36px;

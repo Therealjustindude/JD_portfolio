@@ -63,8 +63,9 @@
 		justify-content: center;
     align-items: center;
     flex-direction: row;
-		font-family: 'Baskerville', cursive;
-		font-size: x-large;
+		/* font-family: 'Baskerville', cursive; */
+		font-family: 'Press Start 2P', cursive;
+		font-size: medium;
 		text-decoration: none;
     color: var(--theme-palette-primary);
 		text-shadow: 1px 1px var(--theme-palette-shadow-light);
@@ -87,8 +88,7 @@
 	}
 	#logo-ev {
 		position: relative;
-		left: -6px;
-		top: -2px;
+		left: -14px;
 		animation-delay: 2.5s;
 		animation-timing-function: ease-out;
 		animation-duration: 0.1s;
@@ -97,6 +97,7 @@
 	}
 	#logo-dot {
 		opacity: 0;
+		margin-left: -4px;
 		animation-delay: 2s;
 		animation-timing-function: ease-in-out;
 		animation-duration: 0.85s;
@@ -113,7 +114,7 @@
 	/* When the browser is below 400px */
 	@media screen and (max-width: 400px) {
 		#logo-container {
-			font-size: large;
+			font-size: small;
 		}
 
 		#logo-ev {

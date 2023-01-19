@@ -1,9 +1,9 @@
-<a href="/" id="logo_container">
-	<div id="logo_j">J </div>
-	<div id="logo_dv">
-		D<div id="logo_a">a</div>v<div id="logo_ies">ies</div>
+<a href="/" id="logo-container">
+	<div id="logo-j">J </div>
+	<div id="logo-dv">
+		D<div id="logo-a">a</div>v<div id="logo-ies">ies</div>
 	</div>
-	<div id="logo_e">e</div>
+	<div id="logo-e">e</div>
 	
 	
 </a>
@@ -58,7 +58,7 @@
 		}
 	}
 
-	#logo_container {
+	#logo-container {
 		display: flex;
 		justify-content: center;
     align-items: center;
@@ -70,19 +70,23 @@
 		text-shadow: 1px 1px var(--theme-palette-shadow-light);
 	}
 
-	#logo_dv,
-	#logo_e,
-	#logo_a,
-	#logo_ies,
-	#logo_j {
+	#logo-container:hover {
+		color: var(--theme-palette-accent);
+	}
+
+	#logo-dv,
+	#logo-e,
+	#logo-a,
+	#logo-ies,
+	#logo-j {
 		transition: all 1s ease;
 	}
 
-	#logo_dv {
+	#logo-dv {
 		display: flex;
 		opacity: 1;
 	}
-	#logo_e {
+	#logo-e {
 		position: relative;
 		left: -44px;
 		animation-delay: 2.5s;
@@ -91,7 +95,7 @@
 		animation-name: slideDown;
 		animation-fill-mode: forwards;
 	}
-	#logo_a {
+	#logo-a {
 		opacity: 0;
 		animation-delay: 2s;
 		animation-timing-function: ease-in-out;
@@ -99,13 +103,13 @@
 		animation-name: slideFromTop;
 		animation-fill-mode: forwards;
 	}
-	#logo_ies {
+	#logo-ies {
 		animation-delay: 0s;
 		animation-timing-function: ease-in-out;
 		animation-duration: 2s;
 		animation-name: slideInFromRight;
 	}
-	#logo_j {
+	#logo-j {
 		animation-delay: 0s;
 		animation-timing-function: ease-in-out;
 		animation-duration: 2s;
@@ -115,11 +119,11 @@
 
 	/* When the browser is below 400px */
 	@media screen and (max-width: 400px) {
-		#logo_container {
+		#logo-container {
 			font-size: x-large;
 		}
 
-		#logo_e {
+		#logo-e {
 			position: relative;
 			left: -33px;
 			animation-delay: 2.5s;

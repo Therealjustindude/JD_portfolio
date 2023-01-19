@@ -36,7 +36,7 @@
    * Sets the specified theme as active
    * @type {string | null} [theme='dark']
    */
-  export let theme = null
+  export let theme = 'dark'
   /**
    * Specify custom CSS variable prefix
    * @type {string | null} [prefix='theme']

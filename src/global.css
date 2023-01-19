@@ -3,16 +3,12 @@ html {
   padding: 0;
 }
 
-h1 {
-	margin: 0
-}
-
 body {
   position: relative;
   margin: 0;
 	padding: 0;	
   box-sizing: border-box;
-  font-family: "Calibre","Inter","San Francisco","SF Pro Text",-apple-system,system-ui,sans-serif;
+  font-family: 'Titillium Web', 'Passion One', 'Whisper', Mark Pro, cursive, sans-serif;
 	background-color: var(--theme-palette-common-background, initial);
 	color: var(--theme-palette-common-text, initial);
 }
@@ -22,8 +18,25 @@ body {
   height: 100%;
 }
 
+h1 {
+  font-family: 'Passion One', cursive;
+}
+
+p {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+h1, p {
+	margin: 0
+}
+
+button {
+  border-style: none;
+}
+
 a {
   text-decoration: none;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 label {

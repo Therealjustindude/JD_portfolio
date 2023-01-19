@@ -2,7 +2,7 @@
   import { getContext } from 'svelte'
   import IoIosSunny from 'svelte-icons/io/IoIosSunny.svelte'
   import IoIosMoon from 'svelte-icons/io/IoIosMoon.svelte'
-  const { toggle, current, theme } = getContext('theme')
+  const { toggle, theme } = getContext('theme')
 </script>
 
 {#if $theme === "light"}
@@ -16,19 +16,17 @@
   </button>
 {/if}
 
-<!-- <label class="switch">
-  <input type="checkbox" on:click="{toggle}">
-  <span class="slider round"></span>
-</label> -->
-
 <style>
-  
   #icon-moon, #icon-sun {
     border: none;
     color: var(--theme-palette-primary);
     background: none;
     width: 40px;
     cursor: pointer;
+  }
+
+  #icon-moon:hover, #icon-sun:hover {
+   		color: var(--theme-palette-accent);
   }
   
   @media screen and (max-width: 380px) {

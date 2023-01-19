@@ -7,18 +7,19 @@
 	<Logo />
 	<div id="link-container">
 		<a href="/">Contact</a>
-		<a href="/">Resume</a>
+		<!-- <a href="/">Resume</a> -->
 	</div>
 	<ThemeToggle />
 </nav>
 
 <style>
 	#nav-container {
+		position: sticky;
+		top: 0;
 		height: 40px;
 		display: flex;
     justify-content: space-between;
     align-items: center;
-		font-family: 'Sofia Sans Extra Condensed', sans-serif;
 		background-color: var(--theme-palette-common-background);
 		padding: 4px 32px 4px 32px;
 		left: 0;
@@ -27,51 +28,25 @@
 
 	#link-container {
 		display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     align-items: center;
 		width: 100%;
 	}
 
-	/* When the browser is at least 601px and above */
-	@media screen and (min-width: 601px) {
-		#nav-container {
-			position: absolute;
-			top: 0;
-		}
-	}
-	
-	/* When the browser is below 600px */
-	@media screen and (max-width: 600px) {
-		#nav-container {
-			position: sticky;
-			bottom: 0;
-		}	
-	}
-
 	a {
-		color: var(--theme-palette-common-link);
+		color: var(--theme-palette-text);
 		text-decoration: none;
 		padding: 2px 16px;
-		
+		font-size: small;
 	}
 	
 	a:hover {
-		color: var(--theme-palette-common-hover);
+		color: var(--theme-palette-accent);
 		padding: 2px 16px;
 	}
 
-	/* When the browser is below 400px */
-	@media screen and (max-width: 400px) {
-		a {
-			font-size: small;
-		}
-		a:hover {
-			font-size: small;
-		}
-	}
-
 	/* When the browser is below 330px */
-	@media screen and (max-width: 330px) {
+	/* @media screen and (max-width: 330px) {
 		#nav-container {
 			display: flex;
 			justify-content: space-around;
@@ -82,8 +57,8 @@
 		}
 
 		#link-container {
-			justify-content: space-between;
+			justify-content: center;
 		}
-	}
+	} */
 
 </style>

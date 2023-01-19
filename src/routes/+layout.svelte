@@ -22,10 +22,10 @@
 
 <ThemeWrapper base={base}>
   <div id="main-layout-container">
+		<NavigationBar />
 		<div id="slot-container">
 			<slot></slot>
 		</div>
-		<NavigationBar />
 	</div>
 </ThemeWrapper>
 	
@@ -36,16 +36,9 @@
 		height: 100vh;
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
 	}
 
 	#slot-container {
-		margin: 0px 16px 48px 16px;
-	}
-
-	@media screen and (min-width: 601px) {
-		#slot-container {
-			margin: 64px 16px 0px 16px;
-		}
+		margin: 48px 72px 48px 72px;
 	}
 </style>

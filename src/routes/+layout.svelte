@@ -39,18 +39,13 @@
 	}
 
 	#slot-container {
-		margin: 48px 96px 48px 96px;
+		margin: 48px 0px 48px 0px;
+    display: flex;
+    justify-content: center;
 	}
 
   /* When the browser is above 900px */
-	@media screen and (min-width: 640px) {
-		#slot-container {
-      margin: 48px 136px 48px 136px;
-    }
-  }
-
-  /* When the browser is below 450px */
-	@media screen and (max-width: 450px) {
+	@media screen and (max-width: 640px) {
 		#slot-container {
       margin: 48px 64px 48px 64px;
     }

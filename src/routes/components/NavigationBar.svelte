@@ -7,7 +7,6 @@
 	<Logo />
 	<div id="link-container">
 		<a href="/">Contact</a>
-		<!-- <a href="/">Resume</a> -->
 	</div>
 	<ThemeToggle />
 </nav>
@@ -21,7 +20,7 @@
     justify-content: space-between;
     align-items: center;
 		background-color: var(--theme-palette-common-background);
-		padding: 4px 32px 4px 32px;
+		padding: 4px 24px 4px 24px;
 		left: 0;
 		right: 0;
 	}
@@ -45,20 +44,11 @@
 		padding: 2px 16px;
 	}
 
-	/* When the browser is below 330px */
-	/* @media screen and (max-width: 330px) {
+	/* When the browser is below 415px */
+	@media screen and (max-width: 415px) {
 		#nav-container {
-			display: flex;
-			justify-content: space-around;
-			flex-wrap: wrap;
-			align-items: center;
-			padding: 4px 16px 4px 16px;
-			height: auto;
+			padding: 8px 24px 8px 24px;
 		}
-
-		#link-container {
-			justify-content: center;
-		}
-	} */
+	}
 
 </style>

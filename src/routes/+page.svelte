@@ -37,6 +37,7 @@
 		-o-animation: flickerAnimation 1s infinite;
 			animation: flickerAnimation 1s infinite;
 	}
+
 	span {
 		color: var(--theme-palette-accent);
 	}
@@ -76,5 +77,45 @@
 		background-color: var(--theme-palette-accent);
 		color: var(--theme-palette-common-black);
 		box-shadow: -1px 4px 8px var(--theme-palette-primary);
+	}
+
+	/* When the browser is below 690px */
+	@media screen and (max-width: 690px) {
+		#short-about {
+			width: 70%;
+		}
+	}
+
+	/* When the browser is below 504px */
+	@media screen and (max-width: 504px) {
+		#my-name {
+			font-size: medium;
+		}
+		#statement {
+			font-size: small;
+		}
+		#animate-flicker {
+			margin-left: -16px;
+		}
+		#short-about {
+			width: 80%;
+			font-size: x-small;
+		}
+		button {
+			border-radius: 6px;
+			padding: 6px 12px;
+			margin-top: 4px;
+			font-size: x-small;
+		}
+	}
+
+	/* When the browser is below 400px */
+	@media screen and (max-width: 400px) {
+		#my-name {
+			font-size: medium;
+		}
+		#short-about {
+			width: 100%;
+		}
 	}
 </style>

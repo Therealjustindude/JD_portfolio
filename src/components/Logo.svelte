@@ -88,7 +88,7 @@
 	}
 	#logo-ev {
 		position: relative;
-		left: -14px;
+		left: -12px;
 		animation-delay: 2.5s;
 		animation-timing-function: ease-out;
 		animation-duration: 0.1s;
@@ -119,8 +119,7 @@
 
 		#logo-ev {
 			position: relative;
-			left: -4px;
-			top: -2px;
+			left: -8px;
 			animation-delay: 2.5s;
 			animation-timing-function: ease-out;
 			animation-duration: 0.5s;

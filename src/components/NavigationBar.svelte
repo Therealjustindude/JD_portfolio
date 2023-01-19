@@ -1,6 +1,6 @@
 <script>
 	import Logo from './Logo.svelte'
-  import ThemeToggle from '../theme/ThemeToggle.svelte'
+  import ThemeToggle from './ThemeToggle.svelte'
 </script>
 
 <nav id="nav-container">
@@ -33,15 +33,16 @@
 
 	a {
 		color: var(--theme-palette-text);
+		font-family: 'Press Start 2P', cursive;
 		text-decoration: none;
-		padding: 2px 16px;
-		font-size: small;
+		padding: 2px 8px;
+		font-size: 8px;
 		transition: 0.3s;
 	}
 	
 	a:hover {
 		color: var(--theme-palette-accent);
-		padding: 3px 17px;
+		padding: 2px 9px;
 	}
 
 	/* When the browser is below 740px */

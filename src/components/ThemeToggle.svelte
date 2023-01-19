@@ -21,13 +21,13 @@
     border: none;
     color: var(--theme-palette-primary);
     background: none;
-    width: 40px;
+    width: 36px;
     cursor: pointer;
   }
 
   #icon-moon:hover, #icon-sun:hover {
     color: var(--theme-palette-accent);
-    width: 41px;
+    width: 38px;
   }
 
   button {
@@ -38,6 +38,9 @@
   @media screen and (max-width: 380px) {
     #icon-moon, #icon-sun {
       width: 32px;
+    }
+    #icon-moon:hover, #icon-sun:hover {
+      width: 33px;
     }
   }
 </style>

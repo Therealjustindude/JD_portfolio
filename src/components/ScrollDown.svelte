@@ -37,4 +37,11 @@
 		writing-mode: vertical-rl;
 		animation: bounce 3s infinite;	
 	}
+
+	/* When the browser is below 420px */
+	@media screen and (max-width: 420px) {
+		#arrow-container-left, #arrow-container-right {
+			display: none;
+		}
+	}
 </style>

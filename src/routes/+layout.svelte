@@ -50,7 +50,7 @@
   /* When the browser is above 900px */
 	@media screen and (max-width: 640px) {
 		#slot-container {
-      margin: 48px 64px 48px 64px;
+      margin: 48px 72px 48px 72px;
     }
   }
 </style>

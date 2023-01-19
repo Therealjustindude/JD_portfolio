@@ -68,6 +68,7 @@
 		text-decoration: none;
     color: var(--theme-palette-primary);
 		text-shadow: 1px 1px var(--theme-palette-shadow-light);
+		transition: 0.3s;
 	}
 
 	#logo-container:hover {

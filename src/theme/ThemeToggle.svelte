@@ -26,7 +26,13 @@
   }
 
   #icon-moon:hover, #icon-sun:hover {
-   		color: var(--theme-palette-accent);
+    color: var(--theme-palette-accent);
+    width: 41px;
+  }
+
+  button {
+    box-shadow: none;
+		transition: 0.3s;
   }
   
   @media screen and (max-width: 380px) {

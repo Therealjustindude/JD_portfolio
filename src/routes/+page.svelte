@@ -71,12 +71,12 @@
 		border-radius: 8px;
 		padding: 8px 16px;
 		margin-top: 8px;
-		box-shadow: -1px 4px 8px var(--theme-palette-common-black);
+		transition: 0.3s;
 	}
 	button:hover {
 		background-color: var(--theme-palette-accent);
 		color: var(--theme-palette-common-black);
-		box-shadow: -1px 4px 8px var(--theme-palette-primary);
+		padding: 10px 18px;
 	}
 
 	/* When the browser is below 690px */
@@ -116,6 +116,35 @@
 		}
 		#short-about {
 			width: 100%;
+		}
+	}
+
+	/* When the browser is below 258px */
+	@media screen and (max-width: 258px) {
+		#my-name {
+			font-size: small;
+		}
+		#statement {
+			font-size: x-small;
+		}
+		#greeting, #short-about {
+			font-size: xx-small;
+		}
+	}
+
+	/* When the browser is below 230px */
+	@media screen and (max-width: 230px) {
+		span, #greeting, #short-about {
+			display: none;
+		}
+		button {
+			font-size: xx-small;
+		}
+		#my-name {
+			font-size: x-small;
+		}
+		#statement {
+			font-size: xx-small;
 		}
 	}
 </style>

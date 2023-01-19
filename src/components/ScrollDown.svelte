@@ -22,15 +22,15 @@
 		color: var(--theme-palette-common-arrow);
 		font-family: 'Press Start 2P', cursive;
 		font-size: 6px;
+		bottom: 32px;
+
 	}
 	#arrow-container-left {
 		position: fixed;
-		bottom: 16px;
 		left: 32px;
 	}
 	#arrow-container-right {
 		position: fixed;
-		bottom: 16px;
 		right: 32px;
 	}
 	.arrow {

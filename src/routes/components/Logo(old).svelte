@@ -1,9 +1,9 @@
 <a href="/" id="logo-container">
-	<div id="logo-j">J</div>
-	<div id="logo-d">
-		D<div id="logo-dot">.</div>
+	<div id="logo-j">J </div>
+	<div id="logo-dv">
+		D<div id="logo-a">a</div>v<div id="logo-ies">ies</div>
 	</div>
-	<div id="logo-ev">ev</div>
+	<div id="logo-e">e</div>
 	
 	
 </a>
@@ -63,8 +63,8 @@
 		justify-content: center;
     align-items: center;
     flex-direction: row;
-		font-family: 'Baskerville', cursive;
-		font-size: x-large;
+		font-family: 'Whisper', cursive;
+		font-size: xx-large;
 		text-decoration: none;
     color: var(--theme-palette-primary);
 		text-shadow: 1px 1px var(--theme-palette-shadow-light);
@@ -74,27 +74,28 @@
 		color: var(--theme-palette-accent);
 	}
 
-	#logo-ev,
-	#logo-dot,
+	#logo-dv,
+	#logo-e,
+	#logo-a,
+	#logo-ies,
 	#logo-j {
 		transition: all 1s ease;
 	}
 
-	#logo-d {
+	#logo-dv {
 		display: flex;
 		opacity: 1;
 	}
-	#logo-ev {
+	#logo-e {
 		position: relative;
-		left: -6px;
-		top: -2px;
+		left: -44px;
 		animation-delay: 2.5s;
 		animation-timing-function: ease-out;
 		animation-duration: 0.1s;
 		animation-name: slideDown;
 		animation-fill-mode: forwards;
 	}
-	#logo-dot {
+	#logo-a {
 		opacity: 0;
 		animation-delay: 2s;
 		animation-timing-function: ease-in-out;
@@ -102,23 +103,29 @@
 		animation-name: slideFromTop;
 		animation-fill-mode: forwards;
 	}
+	#logo-ies {
+		animation-delay: 0s;
+		animation-timing-function: ease-in-out;
+		animation-duration: 2s;
+		animation-name: slideInFromRight;
+	}
 	#logo-j {
 		animation-delay: 0s;
 		animation-timing-function: ease-in-out;
 		animation-duration: 2s;
 		animation-name: slideInFromLeft;
+		margin-right: 4px;
 	}
 
 	/* When the browser is below 400px */
 	@media screen and (max-width: 400px) {
 		#logo-container {
-			font-size: large;
+			font-size: x-large;
 		}
 
-		#logo-ev {
+		#logo-e {
 			position: relative;
-			left: -4px;
-			top: -2px;
+			left: -33px;
 			animation-delay: 2.5s;
 			animation-timing-function: ease-out;
 			animation-duration: 0.5s;

@@ -1,6 +1,6 @@
 <script>
 	import '../global.css'
-	import NavigationBar from './components/NavigationBar.svelte'
+	import NavigationBar from '../components/NavigationBar.svelte'
   import ThemeWrapper from '../theme/ThemeWrapper.svelte'
   const base = {
     font: {

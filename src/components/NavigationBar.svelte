@@ -1,12 +1,12 @@
 <script>
 	import Logo from './Logo.svelte'
-  import ThemeToggle from '../../theme/ThemeToggle.svelte'
+  import ThemeToggle from '../theme/ThemeToggle.svelte'
 </script>
 
 <nav id="nav-container">
 	<Logo />
 	<div id="link-container">
-		<a href="/">Contact</a>
+		<a href="/contact">Contact</a>
 	</div>
 	<ThemeToggle />
 </nav>
@@ -44,6 +44,13 @@
 	a:hover {
 		color: var(--theme-palette-accent);
 		padding: 3px 17px;
+	}
+
+	/* When the browser is below 740px */
+	@media screen and (min-width: 740px) {
+		#nav-container {
+			padding: 8px 64px 8px 64px;
+		}
 	}
 
 	/* When the browser is below 415px */

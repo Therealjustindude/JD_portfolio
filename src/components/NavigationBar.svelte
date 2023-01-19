@@ -7,8 +7,8 @@
 	<Logo />
 	<div id="link-container">
 		<a href="/contact">Contact</a>
+		<ThemeToggle />
 	</div>
-	<ThemeToggle />
 </nav>
 
 <style>
@@ -20,7 +20,7 @@
     justify-content: space-between;
     align-items: center;
 		background-color: var(--theme-palette-common-background);
-		padding: 4px 24px 4px 24px;
+		padding: 8px 24px 8px 24px;
 		left: 0;
 		right: 0;
 		box-shadow: 0px -16px 24px black;
@@ -28,9 +28,7 @@
 
 	#link-container {
 		display: flex;
-    justify-content: flex-end;
     align-items: center;
-		width: 100%;
 	}
 
 	a {

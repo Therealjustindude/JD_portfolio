@@ -35,7 +35,7 @@
 		-webkit-animation: flickerAnimation 1s infinite;
 		-moz-animation: flickerAnimation 1s infinite;
 		-o-animation: flickerAnimation 1s infinite;
-			animation: flickerAnimation 1s infinite;
+		animation: flickerAnimation 1s infinite;
 	}
 
 	span {
@@ -76,7 +76,7 @@
 	button:hover {
 		background-color: var(--theme-palette-accent);
 		color: var(--theme-palette-common-black);
-		padding: 10px 18px;
+		padding: 9px 17px;
 	}
 
 	/* When the browser is below 690px */

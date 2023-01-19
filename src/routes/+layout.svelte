@@ -2,6 +2,8 @@
 	import '../global.css'
 	import NavigationBar from '../components/NavigationBar.svelte'
   import ThemeWrapper from '../theme/ThemeWrapper.svelte'
+  import ScrollDown from '../components/ScrollDown.svelte';
+
   const base = {
     font: {
       size: {
@@ -27,6 +29,7 @@
 			<slot></slot>
 		</div>
 	</div>
+  <ScrollDown />
 </ThemeWrapper>
 	
 

@@ -5,7 +5,8 @@ export const theme = {
         black: '#0C1116',
         white: '#F9FBF2',
         text: '#F9FBF2',
-        background: '#455059'
+        background: '#455059',
+        arrow: '#7B9BA6'
       },
       primary: '#C3AB97',
       secondary: '#735A4C',
@@ -18,7 +19,8 @@ export const theme = {
         black: '#0C1116',
         white: '#F9FBF2',
         text: '#0C1116',
-        background: '#F9FBF2'
+        background: '#F9FBF2',
+        arrow: '#C3AB97'
       },
       primary: '#A67153',
       secondary: '#C3AB97',

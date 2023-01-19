@@ -12,7 +12,7 @@
 
 <script>
 	import { onMount, afterUpdate, setContext } from 'svelte'
-	import {theme as appTheme} from './theme'
+	import {theme as appTheme} from '../theme'
   import toggle from './utils/toggle'
 	import { createCSSTemplate } from './utils/css'
   import {

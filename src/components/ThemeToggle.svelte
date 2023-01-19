@@ -19,7 +19,7 @@
 <style>
   #icon-moon, #icon-sun {
     border: none;
-    filter: drop-shadow(0 0 0.15rem var(--theme-palette-primary));
+    filter: drop-shadow(-1px 2px 0.5px var(--theme-palette-secondary));
     color: var(--theme-palette-primary);
     background: none;
     width: 36px;
@@ -29,6 +29,7 @@
   #icon-moon:hover, #icon-sun:hover {
     color: var(--theme-palette-accent);
     width: 38px;
+    filter: drop-shadow(0px 3px 0.5px var(--theme-palette-secondary));
   }
 
   button {

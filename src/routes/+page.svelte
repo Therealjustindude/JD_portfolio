@@ -36,6 +36,7 @@
 		-moz-animation: flickerAnimation 1s infinite;
 		-o-animation: flickerAnimation 1s infinite;
 		animation: flickerAnimation 1s infinite;
+		margin-left: -8px;
 	}
 
 	span {
@@ -55,13 +56,15 @@
 	#statement {
 		font-size: large;
 		color: var(--theme-palette-primary);
-    filter: drop-shadow(-1px 2px 0.5px var(--theme-palette-secondary));
+		font-family: 'Passion One', cursive;
+		filter: drop-shadow(-0.5px 1px 0.3px var(--theme-palette-secondary));
+		margin-top: 4px;
 	}
 	#my-name {
 		font-size: x-large;
 		color: var(--theme-palette-primary);
 		font-family: 'Press Start 2P', cursive;
-    filter: drop-shadow(-2px 2px 1px var(--theme-palette-secondary));
+    filter: drop-shadow(-1.5px 1px 0.3px var(--theme-palette-secondary));
 	}
 	#short-about {
 		font-size: small;
@@ -72,14 +75,13 @@
 		color: var(--theme-palette-text);
 		border-radius: 8px;
 		padding: 8px 16px;
-		margin-top: 8px;
 		transition: 0.3s;
 	}
 	button:hover {
 		background-color: var(--theme-palette-accent);
 		color: var(--theme-palette-common-black);
 		padding: 9px 17px;
-    filter: drop-shadow(-2px 3px 2px var(--theme-palette-secondary));
+    filter: drop-shadow(-2px 2px 1px var(--theme-palette-secondary));
 	}
 
 	/* When the browser is below 690px */
@@ -95,7 +97,7 @@
 			font-size: medium;
 		}
 		#statement {
-			font-size: small;
+			font-size: medium;
 		}
 		#animate-flicker {
 			margin-left: -16px;
@@ -107,23 +109,19 @@
 		button {
 			border-radius: 6px;
 			padding: 6px 12px;
-			margin-top: 4px;
 			font-size: x-small;
 		}
 	}
 
 	/* When the browser is below 400px */
 	@media screen and (max-width: 400px) {
-		#my-name {
-			font-size: medium;
-		}
 		#short-about {
 			width: 100%;
 		}
 	}
 
 	/* When the browser is below 258px */
-	@media screen and (max-width: 258px) {
+	/* @media screen and (max-width: 258px) {
 		#my-name {
 			font-size: small;
 		}
@@ -133,21 +131,21 @@
 		#greeting, #short-about {
 			font-size: xx-small;
 		}
-	}
+	} */
 
-	/* When the browser is below 230px */
-	@media screen and (max-width: 230px) {
+	/* When the browser is below 272px */
+	@media screen and (max-width: 272px) {
 		span, #greeting, #short-about {
 			display: none;
 		}
 		button {
 			font-size: xx-small;
 		}
-		#my-name {
-			font-size: x-small;
-		}
+		/* #my-name {
+			font-size: medium;
+		} */
 		#statement {
-			font-size: xx-small;
+			font-size: x-small;
 		}
 	}
 </style>

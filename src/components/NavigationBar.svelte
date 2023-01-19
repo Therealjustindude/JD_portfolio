@@ -43,7 +43,7 @@
 	a:hover {
 		color: var(--theme-palette-accent);
 		padding: 2px 9px;
-    filter: drop-shadow(-2px 2px 1px var(--theme-palette-secondary));
+    filter: drop-shadow(-1px 1px 0.1px var(--theme-palette-primary));
 	}
 
 	/* When the browser is below 740px */

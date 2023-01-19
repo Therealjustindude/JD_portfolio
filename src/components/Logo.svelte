@@ -61,7 +61,7 @@
 	#logo-container {
 		display: flex;
 		justify-content: center;
-    filter: drop-shadow(-2px 2px 1px var(--theme-palette-secondary));
+    filter: drop-shadow(-1.5px 1px 0.5px var(--theme-palette-secondary));
     align-items: center;
     flex-direction: row;
 		/* font-family: 'Baskerville', cursive; */
@@ -75,6 +75,7 @@
 
 	#logo-container:hover {
 		color: var(--theme-palette-accent);
+    filter: drop-shadow(-1px 2px 0.7px var(--theme-palette-secondary));
 	}
 
 	#logo-ev,

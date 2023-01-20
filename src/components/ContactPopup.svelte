@@ -1,31 +1,12 @@
+<script>
+	import WebContactForm from "./WebContactForm.svelte";
+</script>
+
 <div id="popup-container">
 	<div id='triangle-right'/>
 	<div id='box'/>
 </div>
-<div id="contact-form">
-	<div class="two-cols">
-		<div class="input-container">
-			<label>Name</label>
-			<input />
-		</div>
-		<div class="input-container">
-			<label>Phone</label>
-			<input />
-		</div>
-	</div>
-	<div class="one-col">
-		<div class="input-container">
-			<label>Email</label>
-			<input />
-		</div>
-	</div>
-	<div class="one-col">
-		<div class="input-container">
-			<label>Message</label>
-			<input />
-		</div>
-	</div>
-</div>
+<WebContactForm />
 
 <style>
 	#popup-container {
@@ -33,17 +14,17 @@
 	}
 	#box {
 		position: fixed;
-		bottom: 102px;
+		bottom: 96px;
     right: 60px;
-		width: 300px; 
-		height: 300px; 
+		width: 350px; 
+		height: 336px; 
 		background-color: var(--theme-palette-secondary);
 		border-radius: 8px;
 	}
 
 	#triangle-right {
 		position: fixed;
-		bottom: 104px;
+		bottom: 96px;
 		right: 53px;
     width: 0;
     height: 0;
@@ -51,37 +32,12 @@
     border-bottom: 8px solid transparent;
     border-left: 40px solid var(--theme-palette-secondary);
     filter: drop-shadow(0px 2px 4px var(--theme-palette-primary));
-
 	}
 
-	#contact-form {
-		border: 1px solid var(--theme-palette-primary);
-		width: 275px; 
-    height: 225px;
-    position: fixed;
-    bottom: 138px;
-    right: 72px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-
-	
-	.two-cols, .one-col  {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-	}
-
-	.one-col input {
-		width: 90%;
-	}
-	
-	.two-cols input{
-		width: 40%;
-	}
-
-	input {
-		margin: 8px 0px;
+	/* When the browser is below 420px */
+	@media screen and (max-width: 420px) {
+		#popup-container {
+			display: none;
+		}
 	}
 </style>

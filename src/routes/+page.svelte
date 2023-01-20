@@ -76,12 +76,13 @@
 		border-radius: 8px;
 		padding: 8px 16px;
 		transition: 0.3s;
+    filter: drop-shadow(-2px 3px 2px var(--theme-palette-primary));
 	}
 	button:hover {
 		background-color: var(--theme-palette-accent);
 		color: var(--theme-palette-common-black);
 		padding: 9px 17px;
-    filter: drop-shadow(-1px 3px 1px var(--theme-palette-secondary));
+    filter: drop-shadow(-3px 3px 1px var(--theme-palette-secondary));
 	}
 
 	/* When the browser is below 504px */

@@ -21,7 +21,7 @@
 	#arrow-container-left, #arrow-container-right {
 		color: var(--theme-palette-common-arrow);
 		font-family: 'Press Start 2P', cursive;
-		font-size: 6px;
+		font-size: 4px;
 		bottom: 32px;
 
 	}

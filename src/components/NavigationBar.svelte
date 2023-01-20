@@ -30,21 +30,6 @@
     align-items: center;
 	}
 
-	a {
-		color: var(--theme-palette-text);
-		font-family: 'Press Start 2P', cursive;
-		text-decoration: none;
-		padding: 2px 8px;
-		font-size: 8px;
-		transition: 0.3s;
-	}
-	
-	a:hover {
-		color: var(--theme-palette-primary);
-		padding: 2px 9px;
-    filter: drop-shadow(-1px 1px 0.1px var(--theme-palette-accent));
-	}
-
 	/* When the browser is below 740px */
 	@media screen and (min-width: 740px) {
 		#nav-container {

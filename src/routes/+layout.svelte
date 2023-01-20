@@ -3,33 +3,18 @@
 	import NavigationBar from '../components/NavigationBar.svelte'
   import ThemeWrapper from '../theme/ThemeWrapper.svelte'
   import ScrollDown from '../components/ScrollDown.svelte';
-  import ContactButton from '..//components/ContactButton.svelte';
-
-  const base = {
-    font: {
-      size: {
-        _: '14px',
-      },
-      weight: {
-        lightest: 100,
-        lighter: 200,
-        light: 300,
-        base: 400,
-        medium: 500,
-        bold: 700,
-        boldest: 900,
-      },
-    },
-  }
+  import ContactButton from '../components/ContactButton.svelte';
+  import Socials from '../components/Socials.svelte'
 </script>
 
-<ThemeWrapper base={base}>
+<ThemeWrapper>
   <div id="main-layout-container">
-		<NavigationBar />
-		<div id="slot-container">
-			<slot></slot>
-		</div>
-	</div>
+    <NavigationBar />
+    <div id="slot-container">
+      <slot></slot>
+    </div>
+  </div>
+  <Socials />
   <ContactButton />
   <ScrollDown />
 </ThemeWrapper>

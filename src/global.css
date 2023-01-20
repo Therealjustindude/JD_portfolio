@@ -8,9 +8,10 @@ body {
   margin: 0;
 	padding: 0;	
   box-sizing: border-box;
+  font-size: '14px';
   font-family: 'Titillium Web', 'Passion One', 'Whisper', Mark Pro, cursive, sans-serif;
-	background-color: var(--theme-palette-common-background, initial);
-	color: var(--theme-palette-common-text, initial);
+	background-color: var(--theme-palette-common-background);
+	color: var(--theme-palette-common-text);
 }
 
 html,
@@ -18,15 +19,15 @@ body {
   height: 100%;
 }
 
-h1 {
+h1, h2 {
   font-family: 'Passion One', cursive;
 }
 
-p {
+p, label {
   font-family: 'Titillium Web', sans-serif;
 }
 
-h1, p {
+h1, h2, h3, p {
 	margin: 0
 }
 

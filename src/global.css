@@ -32,7 +32,7 @@ h1, p {
 
 button {
   border-style: none;
-  filter: drop-shadow(-1px 1px 0.5px var(--theme-palette-accent));
+  filter: drop-shadow(0px 1px 0.5px var(--theme-palette-accent));
 }
 
 a {

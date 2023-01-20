@@ -6,7 +6,6 @@
 <nav id="nav-container">
 	<Logo />
 	<div id="link-container">
-		<a href="/contact">Contact</a>
 		<ThemeToggle />
 	</div>
 </nav>
@@ -41,9 +40,9 @@
 	}
 	
 	a:hover {
-		color: var(--theme-palette-accent);
+		color: var(--theme-palette-primary);
 		padding: 2px 9px;
-    filter: drop-shadow(-1px 1px 0.1px var(--theme-palette-primary));
+    filter: drop-shadow(-1px 1px 0.1px var(--theme-palette-accent));
 	}
 
 	/* When the browser is below 740px */

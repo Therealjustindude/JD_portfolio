@@ -8,7 +8,8 @@ export const theme = {
         background: '#455059',
         arrow: '#7B9BA6'
       },
-      primary: '#C3AB97',
+      primary: '#D0BCAF',
+      // primary: '#C3AB97',
       secondary: '#735A4C',
       accent: '#7B9BA6'
     },
@@ -22,7 +23,7 @@ export const theme = {
         background: '#F9FBF2',
         arrow: '#C3AB97'
       },
-      primary: '#A67153',
+      primary: '#95664B',
       secondary: '#C3AB97',
       accent: '#7B9BA6'
     },

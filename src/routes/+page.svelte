@@ -68,7 +68,7 @@
 	}
 	#short-about {
 		font-size: small;
-		width: 50%;
+		width: 75%;
 	}
 	button {
 		background-color: var(--theme-palette-secondary);
@@ -81,14 +81,7 @@
 		background-color: var(--theme-palette-accent);
 		color: var(--theme-palette-common-black);
 		padding: 9px 17px;
-    filter: drop-shadow(-2px 2px 1px var(--theme-palette-secondary));
-	}
-
-	/* When the browser is below 690px */
-	@media screen and (max-width: 690px) {
-		#short-about {
-			width: 70%;
-		}
+    filter: drop-shadow(-1px 3px 1px var(--theme-palette-secondary));
 	}
 
 	/* When the browser is below 504px */
@@ -103,7 +96,6 @@
 			margin-left: -16px;
 		}
 		#short-about {
-			width: 80%;
 			font-size: x-small;
 		}
 		button {
@@ -111,27 +103,20 @@
 			padding: 6px 12px;
 			font-size: x-small;
 		}
+		button:hover {
+			padding: 7px 13px;
+		}
 	}
 
 	/* When the browser is below 400px */
 	@media screen and (max-width: 400px) {
 		#short-about {
-			width: 100%;
-		}
-	}
-
-	/* When the browser is below 258px */
-	/* @media screen and (max-width: 258px) {
-		#my-name {
-			font-size: small;
+			width: 90%;
 		}
 		#statement {
-			font-size: x-small;
+			font-size: small;
 		}
-		#greeting, #short-about {
-			font-size: xx-small;
-		}
-	} */
+	}
 
 	/* When the browser is below 272px */
 	@media screen and (max-width: 272px) {
@@ -141,11 +126,13 @@
 		button {
 			font-size: xx-small;
 		}
-		/* #my-name {
+		#my-name {
 			font-size: medium;
-		} */
+    	color: var(--theme-palette-common-text)
+		}
 		#statement {
-			font-size: x-small;
+			font-size: 10px;
+    	color: var(--theme-palette-common-text)
 		}
 	}
 </style>

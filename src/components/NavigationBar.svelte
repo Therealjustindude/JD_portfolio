@@ -6,6 +6,7 @@
 <nav id="nav-container">
 	<Logo />
 	<div id="link-container">
+		<a id="contact-link" href="/contact">Contact</a>
 		<ThemeToggle />
 	</div>
 </nav>
@@ -23,6 +24,7 @@
 		left: 0;
 		right: 0;
 		box-shadow: 0px -16px 24px black;
+		z-index: 1;
 	}
 
 	#link-container {
@@ -30,17 +32,27 @@
     align-items: center;
 	}
 
-	/* When the browser is below 740px */
-	@media screen and (min-width: 740px) {
-		#nav-container {
-			padding: 8px 64px 8px 64px;
-		}
+	#contact-link {
+		display: none;
 	}
 
-	/* When the browser is below 415px */
-	@media screen and (max-width: 415px) {
+	/* When the browser is below 420px */
+	@media screen and (max-width: 420px) {
 		#nav-container {
-			padding: 8px 24px 8px 24px;
+			padding: 8px 16px 8px 16px;
+		}
+		#contact-link {
+			display: flex;
+			font-family: 'Press Start 2P', cursive;
+			font-size: 8px;
+			text-decoration: none;	
+			color: var(--theme-palette-primary);
+			filter: drop-shadow(0px 1px 0.5px var(--theme-palette-secondary));
+			transition: 0.3s;
+		}
+		#contact-link:hover {
+			color: var(--theme-palette-accent);
+			font-size: 9px;
 		}
 	}
 

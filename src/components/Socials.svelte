@@ -4,27 +4,27 @@
 </script>
 
 <div id="socials-container">
-	<a id="linkedin-icon" href="https://www.linkedin.com/in/justin-j-davies/" aria-label="Click for form to send me an email" target="_blank" rel="noreferrer">
+	<a id="linkedin-icon" href="https://www.linkedin.com/in/justin-j-davies/" aria-label="Click to go to my linkedIn page" target="_blank" rel="noreferrer">
 		<FaLinkedinIn/>
 	</a>
 	
-	<a id="github-icon" href="https://github.com/Therealjustindude" aria-label="Click for form to send me an email" target="_blank" rel="noreferrer">
+	<a id="github-icon" href="https://github.com/Therealjustindude" aria-label="Click to go to my github page" target="_blank" rel="noreferrer">
 		<FaGithub/>
 	</a>
 </div>
 
 <style>
 	#socials-container {
-		position: fixed;
+		/* position: fixed;
     bottom: 94px;
-    right: 26px;
+    right: 26px; */
     transition: 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: flex-end;
-    height: 80px;
-    width: 30px;
+    align-items: center;
+    /* height: 80px;
+    width: 30px; */
 	}
 	
 	#github-icon, #linkedin-icon {

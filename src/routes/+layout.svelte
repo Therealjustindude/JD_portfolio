@@ -5,6 +5,7 @@
   import ScrollDown from '../components/ScrollDown.svelte';
   import ContactButton from '../components/ContactButton.svelte';
   import Socials from '../components/Socials.svelte'
+  import FixedDiv from '../components/FixedDiv.svelte';
 </script>
 
 <ThemeWrapper>
@@ -14,8 +15,7 @@
       <slot></slot>
     </div>
   </div>
-  <Socials />
-  <ContactButton />
+  <FixedDiv />
   <ScrollDown />
 </ThemeWrapper>
 	
@@ -29,15 +29,21 @@
 	}
 
 	#slot-container {
-		margin: 48px 0px 48px 0px;
+		margin: 48px 80px 48px 80px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 	}
-
-  /* When the browser is above 900px */
-	@media screen and (max-width: 640px) {
+  /* When the browser is above 638px */
+  @media screen and (min-width: 638px) {
 		#slot-container {
-      margin: 48px 72px 48px 72px;
+      margin: 48px 132px 48px 132px;
+    }
+  }
+  /* When the browser is below 277px */
+	@media screen and (max-width: 277px) {
+		#slot-container {
+      margin: 48px 48px 48px 48px;
     }
   }
 </style>

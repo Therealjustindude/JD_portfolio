@@ -1,8 +1,10 @@
 <script>
 	import WebContactForm from "./WebContactForm.svelte";
+	import { bounceInOut } from "svelte/easing";
+	import { fly } from 'svelte/transition'
 </script>
 
-<div id="popup-container">
+<div id="popup-container" transition:fly={{duration: 300, opacity: 0, easing: bounceInOut, x: 4, y: 4 }}>
 	<div id='triangle-right'/>
 	<div id='box'/>
 </div>
@@ -14,8 +16,8 @@
 	}
 	#box {
 		position: fixed;
-		bottom: 96px;
-    right: 60px;
+		bottom: 10px;
+    right: 36px;
 		width: 350px; 
 		height: 336px; 
 		background-color: var(--theme-palette-secondary);
@@ -24,8 +26,8 @@
 
 	#triangle-right {
 		position: fixed;
-		bottom: 96px;
-		right: 53px;
+		bottom: 12px;
+		right: 24px;
     width: 0;
     height: 0;
     border-top: 40px solid transparent;

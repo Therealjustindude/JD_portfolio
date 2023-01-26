@@ -2,8 +2,6 @@
 	import FaRegEnvelope from 'svelte-icons/fa/FaRegEnvelope.svelte'
 	import FaRegEnvelopeOpen from 'svelte-icons/fa/FaRegEnvelopeOpen.svelte'
 	import ContactPopup from "./ContactPopup.svelte";
-	import { bounceInOut } from "svelte/easing";
-	import { fly } from 'svelte/transition'
 	import { clickOutside } from '../utils/clickOutside';
 
 	let isOpen = false;
@@ -24,7 +22,7 @@
   <button id="icon-open-envelope" aria-label="Click to close form">
     <FaRegEnvelopeOpen/>
   </button>
-	<div use:clickOutside on:click_outside={handleClickOutside} id="popup-menu" transition:fly={{duration: 200, opacity: 0, easing: bounceInOut, x: 8, y: 8 }}>
+	<div use:clickOutside on:click_outside={handleClickOutside} id="popup-menu">
 		<ContactPopup/>
 	</div>
 {/if}
@@ -41,15 +39,12 @@
     background: none;
     width: 32px;
     cursor: pointer;
-		position: fixed;
-		bottom: 72px;
-		right: 19px;
 		transition: 0.3s;
   }
 
   #icon-closed-envelope:hover, #icon-open-envelope:hover {
     color: var(--theme-palette-accent);
-    width: 34px;
+    width: 36px;
     filter: drop-shadow(1px 3px 0.5px var(--theme-palette-primary));
   }
 
@@ -61,11 +56,4 @@
       width: 33px;
     }
   }
-
-	/* When the browser is below 420px */
-	@media screen and (max-width: 420px) {
-		#icon-closed-envelope, #icon-open-envelope {
-			display: none;
-		}
-	}
 </style>

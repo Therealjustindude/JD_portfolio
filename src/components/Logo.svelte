@@ -91,7 +91,7 @@
 	#logo-ev {
 		position: relative;
 		left: -12px;
-		animation-delay: 2.5s;
+		animation-delay: 3.5s;
 		animation-timing-function: ease-out;
 		animation-duration: 0.1s;
 		animation-name: slideDown;
@@ -100,17 +100,19 @@
 	#logo-dot {
 		opacity: 0;
 		margin-left: -4px;
-		animation-delay: 2s;
+		animation-delay: 3.5s;
 		animation-timing-function: ease-in-out;
 		animation-duration: 0.85s;
 		animation-name: slideFromTop;
 		animation-fill-mode: forwards;
 	}
 	#logo-j {
-		animation-delay: 0s;
+		animation-delay: 2s;
+		opacity: 0;
 		animation-timing-function: ease-in-out;
 		animation-duration: 2s;
 		animation-name: slideInFromLeft;
+		animation-fill-mode: forwards;
 	}
 
 	/* When the browser is below 400px */

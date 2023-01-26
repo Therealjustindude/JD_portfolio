@@ -3,7 +3,7 @@
 	import { fly } from 'svelte/transition'
 </script>
 
-<form id="contact-form" transition:fly={{duration: 350, opacity: 0, easing: elasticInOut, x: 10, y: 10 }}>
+<form id="contact-form" transition:fly={{duration: 300, opacity: 0, easing: elasticInOut, x: 12, y: 10 }}>
 	<h2>Contact me</h2>
 	<p>Although I’m not currently looking for any new opportunities, my inbox is always open.</p>
 	<div class="two-cols">
@@ -70,8 +70,8 @@
 	}
 	#contact-form {
     position: fixed;
-    bottom: 113px;
-    right: 94px;
+    bottom: 98px;
+    right: 104px;
 		display: grid;
 		grid-row-gap: 8px;
 		width: 300px;

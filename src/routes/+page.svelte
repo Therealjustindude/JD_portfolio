@@ -1,13 +1,33 @@
-<div id="hero">
-	<p id="greeting">Hi there,</p>
-	<h1 id="my-name">
-		<span>></span>
-		I'm Justin.
-		<span id="animate-flicker">|</span>
-	</h1>
-	<p id="statement">I build things for the Web.</p>
-	<p id="short-about">Software Engineer building beautiful, some what simple, and accessible experiences.</p>
-	<button>Download Resume</button>
+<script>
+	import { elasticIn } from "svelte/easing";
+	import { fly } from 'svelte/transition'
+	import About from "../components/About.svelte";
+	import Experience from "../components/Experience.svelte";
+</script>
+
+<div id="hero-container">
+	<div id="hero" transition:fly={{duration: 100, opacity: 0, easing: elasticIn, x: 50, y: 0 }}>
+		<p id="greeting">Hi there,</p>
+		<div id="name-container">
+			<span>></span>
+			<h1 id="my-name">
+				I'm Justin.
+			</h1>
+			<span id="animate-flicker">|</span>
+	
+		</div>
+		<p id="statement">I build things for the Web.</p>
+		<p id="short-about">Software Engineer building beautiful, some what simple, and accessible experiences.</p>
+		<button>Download Resume</button>
+	</div>
+</div>
+
+<div id="about-me">
+	<About />
+</div>
+
+<div id="experience">
+	<Experience />
 </div>
 
 <style>
@@ -31,6 +51,12 @@
 		50%  { opacity:0; }
 		100% { opacity:1; }
 	}
+	/* The typing effect */
+	@keyframes typing {
+		from { width: 0 }
+		to { width: 100% }
+	}
+
 	#animate-flicker {
 		-webkit-animation: flickerAnimation 1s infinite;
 		-moz-animation: flickerAnimation 1s infinite;
@@ -41,34 +67,57 @@
 
 	span {
 		color: var(--theme-palette-accent);
+		font-size: xx-large;
+		font-family: 'Press Start 2P', cursive;
+    filter: drop-shadow(-1.5px 1px 0.3px var(--theme-palette-secondary));
+	}
+	#hero-container {
+		display: flex;
+    align-items: center;
+    justify-content: center;
+		padding: 64px 0px 0px 0px;
+		
+	}
+	#name-container{
+		display: flex;
+		flex-direction: row;
 	}
 	#hero {
 		display: flex;
     align-items: flex-start;
     flex-direction: column;
+		height: 100vh;
 	}
 	p {
 		margin-bottom: 8px;
 	}
 	#greeting {
-		font-size: x-small;
+		font-size: medium;
 	}
 	#statement {
-		font-size: large;
+		font-size: x-large;
 		color: var(--theme-palette-primary);
 		font-family: 'Passion One', cursive;
 		filter: drop-shadow(-0.5px 1px 0.3px var(--theme-palette-secondary));
 		margin-top: 4px;
 	}
 	#my-name {
-		font-size: x-large;
+		font-size: xx-large;
 		color: var(--theme-palette-primary);
 		font-family: 'Press Start 2P', cursive;
     filter: drop-shadow(-1.5px 1px 0.3px var(--theme-palette-secondary));
+		margin: 0px 24px;
+		animation-delay: none;
+		animation-duration: 2s;
+		animation-timing-function: steps(30, end);
+		animation-name: typing;
+		animation-fill-mode: forwards;
+		overflow: hidden;
+		white-space: nowrap;
 	}
 	#short-about {
-		font-size: small;
-		width: 75%;
+		font-size: medium;
+		width: 80%;
 	}
 	button {
 		background-color: var(--theme-palette-secondary);
@@ -82,22 +131,49 @@
 		background-color: var(--theme-palette-accent);
 		color: var(--theme-palette-common-black);
 		padding: 9px 17px;
-    filter: drop-shadow(-3px 3px 1px var(--theme-palette-secondary));
+    filter: drop-shadow(-3px 4px 1px var(--theme-palette-secondary));
+	}
+
+	/* When the browser is below 604px */
+	@media screen and (max-width: 604px) {
+		#greeting {
+			font-size: small;
+		}
+		#my-name, span {
+			font-size: x-large;
+		}
+		#statement {
+			font-size: large;
+		}
+		#short-about {
+			font-size: small;
+		}
+		#animate-flicker {
+			margin-left: -16px;
+		}
+		button {
+			border-radius: 6px;
+			padding: 6px 12px;
+			font-size: small;
+		}
+		button:hover {
+			padding: 7px 13px;
+		}
 	}
 
 	/* When the browser is below 504px */
 	@media screen and (max-width: 504px) {
-		#my-name {
-			font-size: medium;
+		#my-name, span {
+			font-size: large;
 		}
 		#statement {
-			font-size: medium;
+			font-size: large;
 		}
 		#animate-flicker {
 			margin-left: -16px;
 		}
 		#short-about {
-			font-size: x-small;
+			font-size: small;
 		}
 		button {
 			border-radius: 6px;
@@ -112,10 +188,18 @@
 	/* When the browser is below 400px */
 	@media screen and (max-width: 400px) {
 		#short-about {
-			width: 90%;
+			width: 100%;
+		}
+		#my-name {
+			font-size: medium;
+			margin: 0;
+    	color: var(--theme-palette-common-text)
 		}
 		#statement {
 			font-size: small;
+		}
+		span, #greeting, #short-about {
+			display: none;
 		}
 	}
 
@@ -127,8 +211,9 @@
 		button {
 			font-size: xx-small;
 		}
-		#my-name {
+		#my-name, span {
 			font-size: medium;
+			margin: 0;
     	color: var(--theme-palette-common-text)
 		}
 		#statement {

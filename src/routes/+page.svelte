@@ -17,8 +17,10 @@
 	
 		</div>
 		<p id="statement">I build things for the Web.</p>
-		<p id="short-about">Software Engineer building beautiful, some what simple, and accessible experiences.</p>
-		<button>Download Resume</button>
+		<p id="short-about">
+			Creating visually appealing, straightforward, and accessible experiences as a Software Engineer.
+		</p>
+		<a href="src/files/JD_Resume2.pdf" download>Download My Resume</a>
 	</div>
 </div>
 
@@ -64,7 +66,6 @@
 		animation: flickerAnimation 1s infinite;
 		margin-left: -8px;
 	}
-
 	span {
 		color: var(--theme-palette-accent);
 		font-size: xx-large;
@@ -76,11 +77,27 @@
     align-items: center;
     justify-content: center;
 		padding: 64px 0px 0px 0px;
-		
+	}
+	#about-me {
+		display: flex;
+    align-items: flex-start;
+    padding: 64px 0px 0px 0px;
+    flex-direction: column;
+		height: 100vh;
+
+	}
+	#experience {
+		display: flex;
+    align-items: flex-start;
+    padding: 64px 0px 0px 0px;
+    flex-direction: column;
+		height: 100vh;
+
 	}
 	#name-container{
 		display: flex;
 		flex-direction: row;
+		margin: 8px 0px;
 	}
 	#hero {
 		display: flex;
@@ -89,7 +106,7 @@
 		height: 100vh;
 	}
 	p {
-		margin-bottom: 8px;
+		margin: 4px 0px;
 	}
 	#greeting {
 		font-size: medium;
@@ -99,7 +116,7 @@
 		color: var(--theme-palette-primary);
 		font-family: 'Passion One', cursive;
 		filter: drop-shadow(-0.5px 1px 0.3px var(--theme-palette-secondary));
-		margin-top: 4px;
+		margin: 4px;
 	}
 	#my-name {
 		font-size: xx-large;
@@ -119,15 +136,16 @@
 		font-size: medium;
 		width: 80%;
 	}
-	button {
+	a {
 		background-color: var(--theme-palette-secondary);
 		color: var(--theme-palette-text);
 		border-radius: 8px;
 		padding: 8px 16px;
 		transition: 0.3s;
     filter: drop-shadow(-2px 3px 2px var(--theme-palette-primary));
+		margin: 4px;
 	}
-	button:hover {
+	a:hover {
 		background-color: var(--theme-palette-accent);
 		color: var(--theme-palette-common-black);
 		padding: 9px 17px;
@@ -151,12 +169,12 @@
 		#animate-flicker {
 			margin-left: -16px;
 		}
-		button {
+		a {
 			border-radius: 6px;
 			padding: 6px 12px;
 			font-size: small;
 		}
-		button:hover {
+		a:hover {
 			padding: 7px 13px;
 		}
 	}
@@ -175,12 +193,12 @@
 		#short-about {
 			font-size: small;
 		}
-		button {
+		a {
 			border-radius: 6px;
 			padding: 6px 12px;
 			font-size: x-small;
 		}
-		button:hover {
+		a:hover {
 			padding: 7px 13px;
 		}
 	}
@@ -208,7 +226,7 @@
 		span, #greeting, #short-about {
 			display: none;
 		}
-		button {
+		a {
 			font-size: xx-small;
 		}
 		#my-name, span {

@@ -23,7 +23,6 @@
 		font-family: 'Press Start 2P', cursive;
 		font-size: 6px;
 		bottom: 20px;
-
 	}
 	#arrow-container-left {
 		position: fixed;

@@ -29,11 +29,12 @@
 	}
 
 	#slot-container {
-		margin: 48px 80px 48px 80px;
-    display: flex;
+    margin: 0px 80px;
+    display: grid;
+    row-gap: 72px;
     justify-content: center;
-    flex-direction: column;
 	}
+
   /* When the browser is above 638px */
   @media screen and (min-width: 638px) {
 		#slot-container {

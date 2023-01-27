@@ -32,6 +32,8 @@
 	<Experience />
 </div>
 
+<div id="footer"> Designed & Built by Justin Davies </div>
+
 <style>
 	@keyframes flickerAnimation {
 		0%   { opacity:1; }
@@ -59,6 +61,7 @@
 		to { width: 100% }
 	}
 
+	
 	#animate-flicker {
 		-webkit-animation: flickerAnimation 1s infinite;
 		-moz-animation: flickerAnimation 1s infinite;
@@ -76,23 +79,25 @@
 		display: flex;
     align-items: center;
     justify-content: center;
-		padding: 64px 0px 0px 0px;
+		/* padding: 64px 0px 0px 0px; */
 	}
 	#about-me {
 		display: flex;
     align-items: flex-start;
-    padding: 64px 0px 0px 0px;
     flex-direction: column;
-		height: 100vh;
-
+		height: auto;
+		padding: 32px 16px;
+		border-top: 0.5px solid;
+		border-left: 0.5px solid;
 	}
 	#experience {
 		display: flex;
     align-items: flex-start;
-    padding: 64px 0px 0px 0px;
     flex-direction: column;
-		height: 100vh;
-
+		height: auto;
+		padding: 32px 16px;
+		border-bottom: 0.5px solid;
+		border-right: 0.5px solid;
 	}
 	#name-container{
 		display: flex;
@@ -103,7 +108,8 @@
 		display: flex;
     align-items: flex-start;
     flex-direction: column;
-		height: 100vh;
+    justify-content: center;
+		height: 80vh;
 	}
 	p {
 		margin: 4px 0px;
@@ -151,7 +157,14 @@
 		padding: 9px 17px;
     filter: drop-shadow(-3px 4px 1px var(--theme-palette-secondary));
 	}
-
+	#footer {
+		display: flex;
+    align-items: center;
+    justify-content: center;
+		font-size: xx-small;
+		color: var(--theme-palette-primary);
+		margin: 8px 0px;
+	}
 	/* When the browser is below 604px */
 	@media screen and (max-width: 604px) {
 		#greeting {

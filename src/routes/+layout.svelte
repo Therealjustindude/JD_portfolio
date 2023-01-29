@@ -3,8 +3,6 @@
 	import NavigationBar from '../components/NavigationBar.svelte'
   import ThemeWrapper from '../theme/ThemeWrapper.svelte'
   import ScrollDown from '../components/ScrollDown.svelte';
-  import ContactButton from '../components/ContactButton.svelte';
-  import Socials from '../components/Socials.svelte'
   import FixedDiv from '../components/FixedDiv.svelte';
 </script>
 

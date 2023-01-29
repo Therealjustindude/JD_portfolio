@@ -94,7 +94,7 @@
 		font-size: x-small;
 	}
 	.bullet {
-		color: var(--theme-palette-common-arrow);
+		color: var(--theme-palette-accent);
 		font-family: 'Press Start 2P', cursive;
 		font-size: 6px;
 		margin-right: 8px;

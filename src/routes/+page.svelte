@@ -1,4 +1,5 @@
 <script>
+	import Projects from "../components/Projects.svelte";
 	import { elasticIn } from "svelte/easing";
 	import { fly } from 'svelte/transition'
 	import About from "../components/About.svelte";
@@ -30,6 +31,10 @@
 
 <div id="experience">
 	<Experience />
+</div>
+
+<div id="projects">
+	<Projects />
 </div>
 
 <div id="footer"> Designed & Built by Justin Davies </div>
@@ -96,8 +101,17 @@
     flex-direction: column;
 		height: auto;
 		padding: 32px 16px;
-		border-bottom: 0.5px solid;
 		border-right: 0.5px solid;
+		border-top: 0.5px solid;
+	}
+	#projects {
+		display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+		height: auto;
+		padding: 32px 16px;
+		border-bottom: 0.5px solid;
+		border-left: 0.5px solid;
 	}
 	#name-container{
 		display: flex;

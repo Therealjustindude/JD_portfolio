@@ -31,7 +31,38 @@
 </div>
 
 <div id="exp-container">
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec ligula eu ante porttitor pellentesque. Donec sodales magna elit, non malesuada leo tempor eu. Proin at turpis eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris tincidunt in lacus eu tristique. Vivamus erat libero, facilisis quis posuere ac, aliquet vel mi. Nullam vel tellus euismod, tincidunt risus in, aliquam leo. Maecenas mattis purus nulla, sit amet suscipit metus mollis eget. Donec quis mattis ipsum. Etiam molestie velit risus, eu vehicula augue commodo eget.
+	<div class="title">
+		Software Engineer <span class="company">@ Roostify</span>
+	</div>
+	<div class="date-employed">
+		March 2021 - Present
+	</div>
+	<div id="task-container">
+		<div class="tasks">
+			<div class="task-bullet"> > </div>
+			Developed web applications from initial concept to production-ready state
+		</div>
+		<div class="tasks">
+			<div class="task-bullet"> > </div>
+			Maintained and improved legacy web applications with accessibility as a top priority
+		</div>
+		<div class="tasks">
+			<div class="task-bullet"> > </div>
+			Implemented server-side web application logic using Ruby
+		</div>
+		<div class="tasks">
+			<div class="task-bullet"> > </div>
+			Experienced in building web applications using React and TypeScript
+		</div>
+		<div class="tasks">
+			<div class="task-bullet"> > </div>
+			Developed reusable and modular components using Material-UI
+		</div>
+		<div class="tasks">
+			<div class="task-bullet"> > </div>
+			Implemented responsive design to ensure web applications adapt to different screen sizes and devices.
+		</div>
+	</div>
 </div>
 
 <style>
@@ -54,5 +85,32 @@
 		animation-fill-mode: forwards;
 		overflow: hidden;
 		white-space: nowrap;
+	}
+	.title {
+		font-size: small;
+	}
+	.company {
+		font-size: small;
+		color: var(--theme-palette-accent);
+	}
+	.date-employed {
+		font-size: xx-small;
+	}
+	.tasks {
+		display: flex;
+    flex-direction: row;
+    align-items: center;
+		font-size: x-small;
+	}
+	.task-bullet {
+		color: var(--theme-palette-accent);
+		font-family: 'Press Start 2P', cursive;
+		font-size: 6px;
+		margin-right: 8px;
+	}
+	#task-container {
+		display: grid;
+    grid-template-columns: 1fr;
+		margin: 8px 0px;
 	}
 </style>

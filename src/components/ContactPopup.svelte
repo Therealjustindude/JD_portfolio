@@ -12,7 +12,7 @@
 
 <style>
 	#popup-container {
-		filter: drop-shadow(4px 12px 12px var(--theme-palette-primary));
+		filter: drop-shadow(4px 4px 2px var(--theme-palette-primary));
 	}
 	#box {
 		position: fixed;
@@ -33,7 +33,7 @@
     border-top: 40px solid transparent;
     border-bottom: 8px solid transparent;
     border-left: 40px solid var(--theme-palette-secondary);
-    filter: drop-shadow(0px 2px 4px var(--theme-palette-primary));
+    filter: drop-shadow(0px 1px 1px var(--theme-palette-primary));
 	}
 
 	/* When the browser is below 420px */

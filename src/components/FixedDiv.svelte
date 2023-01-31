@@ -12,7 +12,7 @@
 	#fixed-div {
 		position: fixed;
 		bottom: 72px;
-		right: 19px;
+		right: 20px;
 		display: flex;
     flex-direction: column;
     justify-content: space-evenly;

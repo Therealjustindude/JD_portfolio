@@ -15,16 +15,11 @@
 
 <style>
 	#socials-container {
-		/* position: fixed;
-    bottom: 94px;
-    right: 26px; */
     transition: 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    /* height: 80px;
-    width: 30px; */
 	}
 	
 	#github-icon, #linkedin-icon {
@@ -33,12 +28,12 @@
     color: var(--theme-palette-primary);
     background: none;
     cursor: pointer;
-		width: 19px;
+		width: 16px;
 		transition: 0.3s;
   }
 	#github-icon:hover, #linkedin-icon:hover {
 		color: var(--theme-palette-accent);
     filter: drop-shadow(2px 3px 0.5px var(--theme-palette-primary));
-		width: 26px;
+		width: 18px;
 	}
 </style>

@@ -1,4 +1,17 @@
-<a href="/" id="logo-container">
+<script>
+	function handleAnchorClick (event) {
+		event.preventDefault()
+		const link = event.currentTarget
+		const anchorId = new URL(link.href).hash.replace('#', '')
+		const anchor = document.getElementById(anchorId)
+		window.scrollTo({
+			top: anchor.getBoundingClientRect().top + window.pageYOffset - (window.innerHeight / 8),
+			behavior: 'smooth'
+		})
+	}
+</script>
+
+<a href="#hero-container" on:click={handleAnchorClick} id="logo-container">
 	<div id="logo-j">J</div>
 	<div id="logo-d">
 		D<div id="logo-dot">.</div>

@@ -4,6 +4,7 @@
 	import { fly } from 'svelte/transition'
 	import About from "../components/About.svelte";
 	import Experience from "../components/Experience.svelte";
+	import MobileContactForm from "../components/MobileContactForm.svelte";
 </script>
 
 <div id="hero-container">
@@ -35,6 +36,10 @@
 
 <div id="projects">
 	<Projects />
+</div>
+
+<div id="contact">
+	<MobileContactForm />
 </div>
 
 <div id="footer"> Designed & Built by Justin Davies </div>
@@ -91,7 +96,7 @@
     align-items: flex-start;
     flex-direction: column;
 		height: auto;
-		padding: 32px 16px;
+		padding: 24px 24px;
 		border-top: 0.5px solid;
 		border-left: 0.5px solid;
 	}
@@ -100,7 +105,7 @@
     align-items: flex-start;
     flex-direction: column;
 		height: auto;
-		padding: 32px 16px;
+		padding: 24px 24px;
 		border-right: 0.5px solid;
 		border-top: 0.5px solid;
 	}
@@ -109,7 +114,7 @@
     align-items: flex-start;
     flex-direction: column;
 		height: auto;
-		padding: 32px 16px;
+		padding: 24px 24px;
 		border-bottom: 0.5px solid;
 		border-left: 0.5px solid;
 	}
@@ -171,6 +176,10 @@
 		padding: 9px 17px;
     filter: drop-shadow(-3px 4px 1px var(--theme-palette-secondary));
 	}
+
+	#contact {
+		display: none;
+	}
 	#footer {
 		display: flex;
     align-items: center;
@@ -230,6 +239,18 @@
 		}
 	}
 
+	/* When the browser is below 420px */
+	@media screen and (max-width: 420px) {
+		#contact {
+			display: flex;
+			align-items: flex-start;
+			flex-direction: column;
+			height: auto;
+			padding: 24px 24px;
+			border-bottom: 0.5px solid;
+			border-right: 0.5px solid;
+		}
+	}
 	/* When the browser is below 400px */
 	@media screen and (max-width: 400px) {
 		#short-about {

@@ -83,6 +83,7 @@
 	h2 {
 		color: var(--theme-palette-primary);
 		margin-bottom: 8px;
+		filter: drop-shadow(-1px 1px 0.15px rgba(7, 7, 7, 0.3));
 	}
 	.paragraph {
 		margin-bottom: 8px;

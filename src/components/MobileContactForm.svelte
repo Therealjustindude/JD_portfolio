@@ -1,11 +1,38 @@
 <script>
 	import { elasticIn } from "svelte/easing";
 	import { fly } from 'svelte/transition'
+	import { onMount } from "svelte";
+
+  let isVisible = false;
+  let element;
+
+  function handleIntersect(entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        isVisible = true;
+        // observer.unobserve(entry.target);
+      }
+      if (!entry.isIntersecting) {
+        isVisible = false;
+        // observer.unobserve(entry.target);
+      }
+    });
+  }
+
+  onMount(() => {
+    const observer = new IntersectionObserver(handleIntersect);
+    element = document.querySelector('#contact-element');
+    observer.observe(element);
+  });
 </script>
 
 <div id="form-container">
 	<form id="contact-form-page" transition:fly={{duration: 100, opacity: 0, easing: elasticIn, x: 50, y: 0 }}>
-		<h1>Contact me</h1>
+		<div id="contact-element">
+			{#if isVisible}
+				<h2 id="contact-transition">Contact me</h2>
+			{/if}
+		</div>
 		<p>Although I’m not currently looking for any new opportunities, my inbox is always open.</p>
 		<div class="one-col">
 			<label for="name-input-cp">Name</label>
@@ -28,9 +55,23 @@
 </div>
 
 <style>
-	h1 {
-		font-size: large;
-		filter: drop-shadow(1px 1px 0.85px rgba(7, 7, 7, 0.3));
+	/* The typing effect */
+	@keyframes typing {
+		from { width: 0 }
+		to { width: 100% }
+	}
+	#contact-transition {
+		animation-duration: 1s;
+		animation-timing-function: steps(30, end);
+		animation-name: typing;
+		animation-fill-mode: forwards;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+	h2 {
+		filter: drop-shadow(-1px 1px 0.15px rgba(7, 7, 7, 0.3));
+		color: var(--theme-palette-primary);
+		margin-bottom: 8px;
 	}
 	p {
 		font-size: x-small;
@@ -58,9 +99,11 @@
 		border: none;
 		border-radius: 4px;
     filter: drop-shadow(2px 2px 2px rgba(7, 7, 7, 0.633));
-		background-color: var(--theme-palette-primary);
+		background-color: var(--theme-palette-secondary);
+		color: var(--theme-palette-common-text);
 		padding: 4px 8px;
-		margin-top: 4px;
+		margin-top: 4px;	
+		transition: 0.2s;
 	}
 	button:hover {
 		background-color: var(--theme-palette-accent);
@@ -69,11 +112,6 @@
 	#contact-form-page {
 		display: grid;
 		grid-row-gap: 8px;
-	}
-	#form-container {
-		border-radius: 16px;
-    padding: 16px;
-  	box-shadow: 0 0 32px var(--theme-palette-primary);
 	}
 	.one-col {
 		display: flex;

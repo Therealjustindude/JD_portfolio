@@ -37,7 +37,7 @@
 	<div class="short-desc">
 		Provides tools to effectively allocate your funds
 	</div>
-	<div id="highlights-container">
+	<div class="highlights-container">
 		<div class="highlights">
 			<div class="highlight-bullet"> > </div>
 			Created a React application utilizing Redux for state management		
@@ -58,7 +58,7 @@
 	<div class="short-desc">
 		Displayed a menu for a fictional food truck
 	</div>
-	<div id="highlights-container">
+	<div class="highlights-container">
 		<div class="highlights">
 			<div class="highlight-bullet"> > </div>
 			Developed a software application utilizing a Rails API and Vanilla JavaScript		
@@ -80,7 +80,7 @@
 	<div class="short-desc">
 		Offers a pet owner the opportunity to journal and keep track of their pets health 
 	</div>
-	<div id="highlights-container">
+	<div class="highlights-container">
 		<div class="highlights">
 			<div class="highlight-bullet"> > </div>
 			Developed a Ruby on Rails project adhering to the Model-View-Controller (MVC) pattern	
@@ -105,6 +105,7 @@
 	h2 {
 		color: var(--theme-palette-primary);
 		margin-bottom: 8px;
+		filter: drop-shadow(-1px 1px 0.15px rgba(7, 7, 7, 0.3));
 	}
 	#proj-container {
 		font-size: small;
@@ -119,10 +120,6 @@
 	}
 	.proj-name {
 		font-size: small;
-	}
-	.company {
-		font-size: small;
-		color: var(--theme-palette-accent);
 	}
 	.short-desc {
 		font-size: xx-small;
@@ -139,7 +136,7 @@
 		font-size: 6px;
 		margin-right: 8px;
 	}
-	#highlights-container {
+	.highlights-container {
 		display: grid;
     grid-template-columns: 1fr;
 		margin: 8px 0px;

@@ -29,6 +29,7 @@
 	"type": "module",
 	"dependencies": {
 		"nodemailer": "^6.9.1",
-		"svelte-icons": "^2.1.0"
+		"svelte-icons": "^2.1.0",
+		"yup": "^0.32.11"
 	}
 }

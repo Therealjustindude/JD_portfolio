@@ -3,6 +3,49 @@
 	import { elasticInOut } from "svelte/easing";
 	import { fly } from 'svelte/transition'
 	import { enhance } from "$app/forms";
+	import { object, string } from 'yup';
+
+	const validateFormData = async (data) => {
+		const formSchema = object({
+			name: string().required('Please provide your name'),
+			email: string().required('Please provide and email so I can get back to you').email('Email doesn\'t look right'),
+			phone: string().length(10, 'Phone number doesn\'t look right')
+		});
+	
+		// @ts-ignore
+		function extractErrors(err) {
+			// @ts-ignore
+			return err.inner.reduce((acc, err) => {
+				return { ...acc, [err.path]: err.message };
+			}, {});
+		}
+	
+		const name = String(data.get("name"));
+		const phone = String(data.get("phone"));
+		const email = String(data.get("email"));
+	
+		let values;
+		if (phone === "") {
+			values = {
+				name: `${name}`,
+				email: `${email}`
+			}
+		} else {
+			values = {
+				name: `${name}`,
+				phone: `${phone}`,
+				email: `${email}`
+			}
+		}
+	
+		try {
+			await formSchema.validate(values, { abortEarly: false })
+		} catch (err) {
+			const errors = extractErrors(err);
+			return {...errors}
+		}
+	}
+	$: errors = {}
 </script>
 
 <form 
@@ -10,7 +53,24 @@
 	transition:fly={{duration: 300, opacity: 0, easing: elasticInOut, x: 12, y: 10 }}
 	method="POST"
 	actions="?/sendEmail"
-	use:enhance
+	use:enhance={async ({ form, data, action, cancel }) => {
+    // `form` is the `<form>` element
+    // `data` is its `FormData` object
+    // `action` is the URL to which the form is posted
+    // `cancel()` will prevent the submission
+			let formErrors = await validateFormData(data)
+			if (formErrors) {
+				errors = {...formErrors}
+				cancel();
+			}
+    return async ({ result, update }) => {
+      // `result` is an `ActionResult` object
+      // `update` is a function which triggers the logic that would be triggered if this callback wasn't set
+			if (result.type.success) {
+				update();
+			}
+    };
+  }}
 >
 	<h2>Contact me</h2>
 	<p>Although I’m not currently looking for any new opportunities, my inbox is always open.</p>
@@ -18,15 +78,24 @@
 		<div class="col-content">
 			<label for="name-input">Name</label>
 			<input name="name" id="name-input"/>
+			{#if errors?.name}
+				<span id="name-error">{errors.name}</span>
+			{/if}
 		</div>
 		<div class="col-content">
 			<label for="phone-input">Phone</label>
-			<input name="phone" id="phone-input"/>
+			<input name="phone" id="phone-input" type="tel" maxlength=10/>
+			{#if errors?.phone}
+				<span id="phone-error">{errors.phone}</span>
+			{/if}
 		</div>
 	</div>
 	<div class="one-col">
 		<label for="email-input">Email</label>
 		<input name="email" id="email-input"/>
+		{#if errors?.email}
+				<span id="email-error">{errors.email}</span>
+			{/if}
 	</div>
 	<div class="one-col">
 		<label for="msg-input">Message</label>
@@ -42,6 +111,11 @@
 	}
 	p {
 		font-size: small;
+	}
+	span {
+		position: absolute;
+    font-size: 8px;
+    color: #520000;
 	}
 	input, textarea {
 		border-radius: 4px;
@@ -92,6 +166,19 @@
 	.one-col {
 		display: flex;
 		flex-direction: column;
+	}
+
+	#phone-error {
+		top: 124px;
+    left: 168px;
+	}
+	#name-error {
+		top: 124px;
+    left: 6px;
+	}
+	#email-error {
+		top: 177px;
+    left: 6px;
 	}
 
 	/* When the browser is below 420px */

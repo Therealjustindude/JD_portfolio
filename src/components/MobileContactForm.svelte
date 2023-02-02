@@ -4,6 +4,7 @@
 	import { fly } from 'svelte/transition'
 	import { onMount } from "svelte";
 	import { enhance } from "$app/forms";
+	import { object, string } from 'yup';
 
   let isVisible = false;
   let element;
@@ -25,6 +26,48 @@
     element = document.querySelector('#contact-element');
     observer.observe(element);
   });
+
+	const validateFormData = async (data) => {
+		const formSchema = object({
+			name: string().required('Please provide your name'),
+			email: string().required('Please provide and email so I can get back to you').email('Email doesn\'t look right'),
+			phone: string().length(10, 'Phone number doesn\'t look right')
+		});
+	
+		// @ts-ignore
+		function extractErrors(err) {
+			// @ts-ignore
+			return err.inner.reduce((acc, err) => {
+				return { ...acc, [err.path]: err.message };
+			}, {});
+		}
+	
+		const name = String(data.get("name"));
+		const phone = String(data.get("phone"));
+		const email = String(data.get("email"));
+	
+		let values;
+		if (phone === "") {
+			values = {
+				name: `${name}`,
+				email: `${email}`
+			}
+		} else {
+			values = {
+				name: `${name}`,
+				phone: `${phone}`,
+				email: `${email}`
+			}
+		}
+	
+		try {
+			await formSchema.validate(values, { abortEarly: false })
+		} catch (err) {
+			const errors = extractErrors(err);
+			return {...errors}
+		}
+	}
+	$: mobileFormErrors = {}
 </script>
 
 <div id="form-container">
@@ -33,7 +76,24 @@
 		transition:fly={{duration: 100, opacity: 0, easing: elasticIn, x: 50, y: 0 }}
 		method="POST"
 		actions="?/sendEmail"
-		use:enhance
+		use:enhance={async ({ form, data, action, cancel }) => {
+			// `form` is the `<form>` element
+			// `data` is its `FormData` object
+			// `action` is the URL to which the form is posted
+			// `cancel()` will prevent the submission
+				let formErrors = await validateFormData(data)
+				if (formErrors) {
+					mobileFormErrors = {...formErrors}
+					cancel();
+				}
+			return async ({ result, update }) => {
+				// `result` is an `ActionResult` object
+				// `update` is a function which triggers the logic that would be triggered if this callback wasn't set
+				if (result.type.success) {
+					update();
+				}
+			};
+		}}
 	>
 		<div id="contact-element">
 			{#if isVisible}
@@ -44,14 +104,23 @@
 		<div class="one-col">
 			<label for="name-input-cp">Name</label>
 			<input name="name" id="name-input-cp"/>
+			{#if mobileFormErrors?.name}
+				<span class="error">{mobileFormErrors.name}</span>
+			{/if}
 		</div>
 		<div class="one-col">
 			<label for="phone-input-cp">Phone</label>
 			<input name="phone" id="phone-input-cp"/>
+			{#if mobileFormErrors?.phone}
+				<span class="error">{mobileFormErrors.phone}</span>
+			{/if}
 		</div>
 		<div class="one-col">
 			<label for="email-input-cp">Email</label>
 			<input name="email" id="email-input-cp"/>
+			{#if mobileFormErrors?.email}
+				<span class="error">{mobileFormErrors.email}</span>
+			{/if}
 		</div>
 		<div class="one-col">
 			<label for="msg-input-cp">Message</label>
@@ -82,6 +151,11 @@
 	}
 	p {
 		font-size: x-small;
+	}
+	.error {
+    font-size: 8px;
+		margin: 0px 0px 0px 6px;
+    color: #520000;
 	}
 	input, textarea {
 		border-radius: 4px;
@@ -124,6 +198,7 @@
 		display: flex;
 		flex-direction: column;
 	}
+
 	/* When the browser is above 420px */
 	@media screen and (min-width: 421px) {
 		#contact-form-page {

@@ -1,51 +1,38 @@
 <script>
-// @ts-nocheck
+	// @ts-nocheck
 	import { elasticInOut } from "svelte/easing";
 	import { fly } from 'svelte/transition'
-
-	let name = '';
-  let email = '';
-  let phone = '';
-  let message = '';
-	
-	async function handleSubmit(event) {
-    event.preventDefault();
-    // const response = await fetch('/api/contact', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ name, email, message })
-    // });
-    // const result = await response.json();
-    // console.log(result);
-  }
+	import { enhance } from "$app/forms";
 </script>
 
 <form 
 	id="contact-form" 
 	transition:fly={{duration: 300, opacity: 0, easing: elasticInOut, x: 12, y: 10 }}
-	on:submit|preventDefault={handleSubmit}
+	method="POST"
+	actions="?/sendEmail"
+	use:enhance
 >
 	<h2>Contact me</h2>
 	<p>Although I’m not currently looking for any new opportunities, my inbox is always open.</p>
 	<div class="two-cols">
 		<div class="col-content">
 			<label for="name-input">Name</label>
-			<input bind:value={name} id="name-input"/>
+			<input name="name" id="name-input"/>
 		</div>
 		<div class="col-content">
 			<label for="phone-input">Phone</label>
-			<input bind:value={phone} id="phone-input"/>
+			<input name="phone" id="phone-input"/>
 		</div>
 	</div>
 	<div class="one-col">
 		<label for="email-input">Email</label>
-		<input bind:value={email} id="email-input"/>
+		<input name="email" id="email-input"/>
 	</div>
 	<div class="one-col">
 		<label for="msg-input">Message</label>
-		<textarea bind:value={message} rows="4" cols="1" id="msg-input"/>
+		<textarea name="message" rows="4" cols="1" id="msg-input"/>
 	</div>
-	<button type="submit">Send Message</button>
+	<button formaction="?/sendEmail">Send Message</button>
 </form>
 
 <style>

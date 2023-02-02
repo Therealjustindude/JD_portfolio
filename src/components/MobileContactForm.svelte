@@ -1,16 +1,12 @@
 <script>
 // @ts-nocheck
-
 	import { elasticIn } from "svelte/easing";
 	import { fly } from 'svelte/transition'
 	import { onMount } from "svelte";
+	import { enhance } from "$app/forms";
 
   let isVisible = false;
   let element;
-	let name = '';
-  let email = '';
-  let phone = '';
-  let message = '';
 
   function handleIntersect(entries) {
     entries.forEach(entry => {
@@ -29,24 +25,15 @@
     element = document.querySelector('#contact-element');
     observer.observe(element);
   });
-
-  async function handleSubmit(event) {
-    event.preventDefault();
-    // const response = await fetch('/api/contact', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ name, email, message })
-    // });
-    // const result = await response.json();
-    // console.log(result);
-  }
 </script>
 
 <div id="form-container">
 	<form 
 		id="contact-form-page" 
 		transition:fly={{duration: 100, opacity: 0, easing: elasticIn, x: 50, y: 0 }}
-		on:submit|preventDefault={handleSubmit}
+		method="POST"
+		actions="?/sendEmail"
+		use:enhance
 	>
 		<div id="contact-element">
 			{#if isVisible}
@@ -56,21 +43,21 @@
 		<p>Although I’m not currently looking for any new opportunities, my inbox is always open.</p>
 		<div class="one-col">
 			<label for="name-input-cp">Name</label>
-			<input bind:value={name} id="name-input-cp"/>
+			<input name="name" id="name-input-cp"/>
 		</div>
 		<div class="one-col">
 			<label for="phone-input-cp">Phone</label>
-			<input bind:value={phone} id="phone-input-cp"/>
+			<input name="phone" id="phone-input-cp"/>
 		</div>
 		<div class="one-col">
 			<label for="email-input-cp">Email</label>
-			<input bind:value={email} id="email-input-cp"/>
+			<input name="email" id="email-input-cp"/>
 		</div>
 		<div class="one-col">
 			<label for="msg-input-cp">Message</label>
-			<textarea bind:value={message} rows="4" cols="1" id="msg-input-cp"/>
+			<textarea name="message" rows="4" cols="1" id="msg-input-cp"/>
 		</div>
-		<button type="submit">Send Message</button>
+		<button formaction="?/sendEmail">Send Message</button>
 	</form>
 </div>
 

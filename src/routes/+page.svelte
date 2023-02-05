@@ -22,7 +22,7 @@
 		<p id="short-about">
 			Creating visually appealing, straightforward, and accessible experiences as a Software Engineer.
 		</p>
-		<a href="src/files/JD_Resume2.pdf" download>Download My Resume</a>
+		<a href="src/lib/assets/JD_Resume2.pdf" download>Download My Resume</a>
 	</div>
 </div>
 
@@ -89,7 +89,6 @@
 		display: flex;
     align-items: center;
     justify-content: center;
-		/* padding: 64px 0px 0px 0px; */
 	}
 	#about-me {
 		display: flex;
@@ -188,6 +187,12 @@
 		color: var(--theme-palette-primary);
 		margin: 8px 0px;
 	}
+
+	@media screen and (max-width: 638px) {
+		#hero-container {
+			padding: 0px 0px 48px 0px;
+		}
+	}
 	/* When the browser is below 604px */
 	@media screen and (max-width: 604px) {
 		#greeting {
@@ -249,6 +254,9 @@
 			padding: 24px 24px;
 			border-bottom: 0.5px solid;
 			border-right: 0.5px solid;
+		}
+		#hero-container {
+			padding: 0px 0px 100px 0px;
 		}
 	}
 	/* When the browser is below 400px */

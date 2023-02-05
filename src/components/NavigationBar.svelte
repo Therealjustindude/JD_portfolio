@@ -3,6 +3,9 @@
   import ThemeToggle from './ThemeToggle.svelte'
 
 	function handleAnchorClick (event) {
+		if (window.location.href.includes('error')) {
+			window.location.assign(window.location.origin)
+		}
 		event.preventDefault()
 		const link = event.currentTarget
 		const anchorId = new URL(link.href).hash.replace('#', '')

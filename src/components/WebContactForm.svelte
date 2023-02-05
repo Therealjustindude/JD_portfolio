@@ -3,8 +3,11 @@
 	import { elasticInOut } from "svelte/easing";
 	import { fly } from 'svelte/transition'
 	import { enhance } from "$app/forms";
-	import { object, string } from 'yup';
+import { error } from '@sveltejs/kit';
 
+	import { object, string } from 'yup';
+	import { addNotification } from '../lib/stores/notifications';
+	
 	const validateFormData = async (data) => {
 		const formSchema = object({
 			name: string().required('Please provide your name'),
@@ -45,6 +48,10 @@
 			return {...errors}
 		}
 	}
+
+	function triggerNoty(notification, timeout = 2000) {
+		addNotification(notification, timeout)
+	}
 	$: errors = {}
 </script>
 
@@ -58,16 +65,18 @@
     // `data` is its `FormData` object
     // `action` is the URL to which the form is posted
     // `cancel()` will prevent the submission
-			let formErrors = await validateFormData(data)
-			if (formErrors) {
-				errors = {...formErrors}
-				cancel();
-			}
-    return async ({ result, update }) => {
+		let formErrors = await validateFormData(data)
+		if (!formErrors && errors) {
+			errors = {}
+		}
+		if (formErrors) {
+			errors = {...formErrors}
+			cancel();
+		}
+		return async ({ result, update }) => {
       // `result` is an `ActionResult` object
-      // `update` is a function which triggers the logic that would be triggered if this callback wasn't set
-			if (result.type.success) {
-				update();
+			if (result.type === 'success') {
+				triggerNoty('Email sent successfully!', 3000)
 			}
     };
   }}

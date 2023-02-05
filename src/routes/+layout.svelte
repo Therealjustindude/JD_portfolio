@@ -1,14 +1,42 @@
 <script>
+// @ts-nocheck
+
 	import '../global.css'
 	import NavigationBar from '../components/NavigationBar.svelte'
   import ThemeWrapper from '../theme/ThemeWrapper.svelte'
   import ScrollDown from '../components/ScrollDown.svelte';
   import FixedDiv from '../components/FixedDiv.svelte';
+  import { bounceInOut } from "svelte/easing";
+	import { fly } from 'svelte/transition'
+  import { notifications, removeNotification } from '../lib/stores/notifications';
+
+  $: currentNotifications = $notifications;
+
+  function closeNoty(notification) {
+    removeNotification(notification)
+  }
 </script>
 
 <ThemeWrapper>
   <div id="main-layout-container">
     <NavigationBar />
+    <div class="toast-container" >
+      {#each currentNotifications as notification}
+        <div 
+          class="toast" 
+          transition:fly={{duration: 200, opacity: 0, easing: bounceInOut, x: -100, y: 0 }}
+        >
+          {notification}
+          <button 
+            class="x" 
+            transition:fly={{duration: 100, opacity: 0, easing: bounceInOut, x: -100, y: 0 }}
+            on:click={closeNoty(notification)}
+          >
+            x
+          </button>
+        </div>
+      {/each} 
+    </div>
     <div id="slot-container">
       <slot></slot>
     </div>
@@ -32,6 +60,41 @@
     row-gap: 72px;
     justify-content: center;
 	}
+  .toast-container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 46px;
+    left: -6px;
+    z-index: 9999;
+  }
+  .toast {
+    background-color: var(--theme-palette-accent);
+    color: var(--theme-palette-common-white);
+		font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    padding: 4px 16px;
+    border-radius: 16px;
+    z-index: 2;
+		filter: drop-shadow(-1px 2px 1px rgba(7, 7, 7, 0.633));
+  }
+  .x {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: -4px;
+    left: 216px;
+    border-radius: 40px;
+    height: 12px;
+    width: 12px;
+    background-color: var(--theme-palette-accent);
+    color: var(--theme-palette-common-white);
+    cursor: pointer;
+    font-family: 'Passion One', cursive;
+    font-size: 12px;
+    filter: drop-shadow(-1px 2px 1px rgba(7, 7, 7, 0.633));
+  }
 
   /* When the browser is above 638px */
   @media screen and (min-width: 638px) {

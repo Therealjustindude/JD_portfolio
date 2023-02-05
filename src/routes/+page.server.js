@@ -25,13 +25,13 @@ export const actions = {
       subject: `${name} is sending you a email from your app`,
       text: `Name: ${name} | Phone: ${phone ? phone : 'n/a'} | Message: ${message}`
     };
-    
-    transporter.sendMail(mailOptions, function(error, info){
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Email sent: ' + info.response);
-      }
-    });
+    console.log(mailOptions)
+    // transporter.sendMail(mailOptions, function(error, info){
+    //   if (error) {
+    //     console.log(error);
+    //   } else {
+    //     console.log('Email sent: ' + info.response);
+    //   }
+    // });
   }
 };

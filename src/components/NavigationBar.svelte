@@ -36,7 +36,7 @@
     justify-content: space-between;
     align-items: center;
 		background-color: var(--theme-palette-common-background);
-		padding: 4px 12px;
+		padding: 8px 16px;
 		left: 0;
 		right: 0;
 		box-shadow: 0px -16px 24px black;

@@ -67,8 +67,8 @@
 		font-size: 7px;
 	}
 
-	/* When the browser is below 420px */
-	@media screen and (max-width: 420px) {
+	/* When the browser is below 430px */
+	@media screen and (max-width: 430px) {
 		a {
 			font-size: 5px;
 		}

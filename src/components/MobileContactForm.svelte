@@ -208,8 +208,8 @@
 		flex-direction: column;
 	}
 
-	/* When the browser is above 420px */
-	@media screen and (min-width: 421px) {
+	/* When the browser is above 431px */
+	@media screen and (min-width: 431px) {
 		#contact-form-page {
 			display: none;
 		}

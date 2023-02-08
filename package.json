@@ -28,7 +28,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@sveltejs/adapter-vercel": "^2.0.1",
 		"nodemailer": "^6.9.1",
 		"svelte-icons": "^2.1.0",
 		"yup": "^0.32.11"

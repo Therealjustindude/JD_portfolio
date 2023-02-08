@@ -4,7 +4,8 @@
 	import { fly } from 'svelte/transition'
 	import About from "../components/About.svelte";
 	import Experience from "../components/Experience.svelte";
-	import MobileContactForm from "../components/MobileContactForm.svelte";
+	// import MobileContactForm from "../components/MobileContactForm.svelte";
+	import Socials from "../components/Socials.svelte";
 </script>
 
 <div id="hero-container">
@@ -38,8 +39,12 @@
 	<Projects />
 </div>
 
-<div id="contact">
+<!-- <div id="contact">
 	<MobileContactForm />
+</div> -->
+
+<div id="socials">
+	<Socials />
 </div>
 
 <div id="footer"> Designed & Built by Justin Davies </div>
@@ -176,7 +181,10 @@
     filter: drop-shadow(-3px 4px 1px var(--theme-palette-secondary));
 	}
 
-	#contact {
+	/* #contact {
+		display: none;
+	} */
+	#socials {
 		display: none;
 	}
 	#footer {
@@ -246,7 +254,7 @@
 
 	/* When the browser is below 430px */
 	@media screen and (max-width: 430px) {
-		#contact {
+		/* #contact {
 			display: flex;
 			align-items: flex-start;
 			flex-direction: column;
@@ -254,6 +262,9 @@
 			padding: 24px 24px;
 			border-bottom: 0.5px solid;
 			border-right: 0.5px solid;
+		} */
+		#socials {
+			display: flex;
 		}
 		#hero-container {
 			padding: 0px 0px 100px 0px;

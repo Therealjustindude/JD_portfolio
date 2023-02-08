@@ -23,7 +23,8 @@
 		<a id="about-link" href="#about-me" on:click={handleAnchorClick}>About</a>
 		<a id="experience-link" href="#experience" on:click={handleAnchorClick}>Experience</a>
 		<a id="projects-link" href="#projects" on:click={handleAnchorClick}>Projects</a>
-		<a id="contact-link" href="#contact" on:click={handleAnchorClick}>Contact</a>
+		<!-- <a id="contact-link" href="#contact" on:click={handleAnchorClick}>Contact</a> -->
+		<a id="socials-link" href="#socials" on:click={handleAnchorClick}>Socials</a>
 		<ThemeToggle />
 	</div>
 </nav>
@@ -48,7 +49,11 @@
     align-items: center;
 	}
 
-	#contact-link {
+	/* #contact-link {
+		display: none;
+	} */
+
+	#socials-link {
 		display: none;
 	}
 
@@ -75,7 +80,7 @@
 		a:hover {
 			font-size: 6px;
 		}
-		#contact-link {
+		/* #contact-link {
 			display: flex;
 			font-family: 'Press Start 2P', cursive;
 			text-decoration: none;	
@@ -85,6 +90,17 @@
 		}
 		#contact-link:hover {
 			color: var(--theme-palette-accent);
+		} */
+		#socials-link {
+			display: flex;
+			font-family: 'Press Start 2P', cursive;
+			text-decoration: none;	
+			color: var(--theme-palette-primary);
+			filter: drop-shadow(0px 1px 0.5px var(--theme-palette-secondary));
+			transition: 0.3s;
+		}
+		#socials-link:hover {
+			color: var(--theme-palette-accent);
 		}
 	}
 	/* When the browser is below 325px */
@@ -93,11 +109,6 @@
 			justify-content: center;
 			flex-wrap: wrap;
 		}
-		/* #contact-link {
-			
-		}
-		#contact-link:hover {
-		} */
 	}
 
 </style>

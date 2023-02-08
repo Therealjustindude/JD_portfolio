@@ -1,18 +1,18 @@
 <script>
 	import Socials from "./Socials.svelte";
-	import ContactButton from "./ContactButton.svelte";
+	// import ContactButton from "./ContactButton.svelte";
 </script>
 
 <div id="fixed-div">
 	<Socials />
-	<ContactButton />
+	<!-- <ContactButton /> -->
 </div>
 
 <style>
 	#fixed-div {
 		position: fixed;
-		bottom: 72px;
-		right: 20px;
+		bottom: 64px;
+		right: 26px;
 		display: flex;
     flex-direction: column;
     justify-content: space-evenly;

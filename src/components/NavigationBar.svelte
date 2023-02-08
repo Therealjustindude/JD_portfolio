@@ -1,6 +1,4 @@
 <script>
-// @ts-nocheck
-
 	import Logo from './Logo.svelte'
   import ThemeToggle from './ThemeToggle.svelte'
 

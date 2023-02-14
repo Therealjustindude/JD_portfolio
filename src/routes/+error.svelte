@@ -1,9 +1,5 @@
-<script>
-  import me from '$lib/assets/me.jpeg';
-</script>
-
 <div id="container-err">
-	<img alt="The project logo" src={me} width="100" height="100"/>
+	<img alt="The project logo" src='/me.jpeg' width="100" height="100"/>
 	<div id="four-container">
 		<span class="four">404</span>
 	</div>

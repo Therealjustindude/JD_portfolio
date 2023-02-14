@@ -23,7 +23,7 @@
 		<p id="short-about">
 			Creating visually appealing, straightforward, and accessible experiences as a Software Engineer.
 		</p>
-		<a href="src/lib/assets/JD_Resume2.pdf" download="JD_Resume2.pdf">Download My Resume</a>
+		<a href="/JD_Resume2.pdf" download="JD_Resume2.pdf">Download My Resume</a>
 	</div>
 </div>
 

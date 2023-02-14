@@ -1,12 +1,16 @@
 <script>
+	import NavigationBar from '../components/NavigationBar.svelte'
 	import Projects from "../components/Projects.svelte";
 	import { elasticIn } from "svelte/easing";
 	import { fly } from 'svelte/transition'
 	import About from "../components/About.svelte";
 	import Experience from "../components/Experience.svelte";
-	// import MobileContactForm from "../components/MobileContactForm.svelte";
+	import ScrollDown from '../components/ScrollDown.svelte';
+  import FixedDiv from '../components/FixedDiv.svelte';
 	import Socials from "../components/Socials.svelte";
 </script>
+
+<NavigationBar />
 
 <div id="hero-container">
 	<div id="hero" transition:fly={{duration: 100, opacity: 0, easing: elasticIn, x: 50, y: 0 }}>
@@ -39,13 +43,12 @@
 	<Projects />
 </div>
 
-<!-- <div id="contact">
-	<MobileContactForm />
-</div> -->
-
 <div id="socials">
 	<Socials />
 </div>
+
+<FixedDiv />
+<ScrollDown />
 
 <div id="footer"> Designed & Built by Justin Davies </div>
 

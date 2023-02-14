@@ -2,10 +2,7 @@
 // @ts-nocheck
 
 	import '../global.css'
-	import NavigationBar from '../components/NavigationBar.svelte'
   import ThemeWrapper from '../theme/ThemeWrapper.svelte'
-  import ScrollDown from '../components/ScrollDown.svelte';
-  import FixedDiv from '../components/FixedDiv.svelte';
   import { bounceInOut } from "svelte/easing";
 	import { fly } from 'svelte/transition'
   import { notifications, removeNotification } from '../lib/stores/notifications';
@@ -19,7 +16,6 @@
 
 <ThemeWrapper>
   <div id="main-layout-container">
-    <NavigationBar />
     <div class="toast-container" >
       {#each currentNotifications as notification}
         <div 
@@ -41,8 +37,7 @@
       <slot></slot>
     </div>
   </div>
-  <FixedDiv />
-  <ScrollDown />
+  
 </ThemeWrapper>
 	
 

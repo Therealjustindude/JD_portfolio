@@ -5,11 +5,22 @@
 	</div>
 	<div id="wrong-container">
 	<span class="wrong">Don't panic, but it seems like the page you're looking for went on a spontaneous adventure.</span>
-	<span class="wrong">Don't fret, just hit the back button or click any link in the nav and it'll take you to the home page.</span>
+	<span class="wrong">Don't fret, just hit the back button.</span>
 	</div>
 </div>
 
 <style>
+	@keyframes x {
+		100% {
+			transform: translateY(40vh);
+		}
+		10% {
+			transform: translateY(0vh);
+		}
+	}
+	#container-err {
+		animation: x 3s linear infinite alternate;
+	}
 	span {
 		color: var(--theme-palette-primary);
 	}

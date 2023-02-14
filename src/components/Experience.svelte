@@ -93,7 +93,7 @@
 	}
 	.company {
 		font-size: small;
-		color: var(--theme-palette-accent);
+		color: var(--theme-palette-primary);
 	}
 	.date-employed {
 		font-size: xx-small;

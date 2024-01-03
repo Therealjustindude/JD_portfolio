@@ -27,7 +27,7 @@
 		<p id="short-about">
 			Creating visually appealing, straightforward, and accessible experiences as a Software Engineer.
 		</p>
-		<a href="/JD_Resume2.pdf" download="JD_Resume2.pdf">Download My Resume</a>
+		<a href="/JDavies_Resume.pdf" download="JDavies_Resume.pdf">Download My Resume</a>
 	</div>
 </div>
 

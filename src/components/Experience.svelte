@@ -32,7 +32,7 @@
 
 <div id="exp-container">
 	<div class="title">
-		Software Engineer <span class="company">@ Roostify</span>
+		Software Engineer <span class="company">@ CoreLogic</span>
 	</div>
 	<div class="date-employed">
 		March 2021 - Present

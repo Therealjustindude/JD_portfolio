@@ -13,7 +13,7 @@
 <NavigationBar />
 
 <div id="hero-container">
-	<div id="hero" transition:fly={{duration: 100, opacity: 0, easing: elasticIn, x: 50, y: 0 }}>
+	<div id="hero" transition:fly|global={{duration: 100, opacity: 0, easing: elasticIn, x: 50, y: 0 }}>
 		<p id="greeting">Hi there,</p>
 		<div id="name-container">
 			<span>></span>

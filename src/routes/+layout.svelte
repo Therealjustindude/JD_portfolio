@@ -20,12 +20,12 @@
       {#each currentNotifications as notification}
         <div 
           class="toast" 
-          transition:fly={{duration: 200, opacity: 0, easing: bounceInOut, x: -100, y: 0 }}
+          transition:fly|global={{duration: 200, opacity: 0, easing: bounceInOut, x: -100, y: 0 }}
         >
           {notification}
           <button 
             class="x" 
-            transition:fly={{duration: 100, opacity: 0, easing: bounceInOut, x: -100, y: 0 }}
+            transition:fly|global={{duration: 100, opacity: 0, easing: bounceInOut, x: -100, y: 0 }}
             on:click={closeNoty(notification)}
           >
             x

@@ -20,11 +20,11 @@
   onMount(() => {
     const observer = new IntersectionObserver(handleIntersect);
     element = document.querySelector('#about-element');
-    observer.observe(element);
+    element && observer.observe(element);
   });
 </script>
 
-<!-- <div class="my-element" transition:fly={{duration: 500, opacity: 0, easing: elasticIn, x: 0, y: -100 }}> -->
+<!-- <div class="my-element" transition:fly|global={{duration: 500, opacity: 0, easing: elasticIn, x: 0, y: -100 }}> -->
 <div id="about-element">
 	{#if isVisible}
 		<h2 id="about-transition">About Me</h2>
@@ -44,7 +44,7 @@
 </div>
 <div id="tech-container">
 	<div id="skills-label">
-		Here are a few technologies I’ve been working with recently:
+		Here are a few technologies I've been working with recently:
 	</div>
 	<div id="list-container">
 		<div class="skills">

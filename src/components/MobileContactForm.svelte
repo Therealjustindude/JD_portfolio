@@ -80,7 +80,7 @@
 <div id="form-container">
 	<form 
 		id="contact-form-page" 
-		transition:fly={{duration: 100, opacity: 0, easing: elasticIn, x: 50, y: 0 }}
+		transition:fly|global={{duration: 100, opacity: 0, easing: elasticIn, x: 50, y: 0 }}
 		method="POST"
 		actions="?/sendEmail"
 		use:enhance={async ({ form, data, action, cancel }) => {

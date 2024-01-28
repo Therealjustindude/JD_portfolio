@@ -4,10 +4,11 @@
 	import { fly } from 'svelte/transition'
 </script>
 
-<div id="popup-container" transition:fly={{duration: 300, opacity: 0, easing: bounceInOut, x: 4, y: 4 }}>
+<div id="popup-container" transition:fly|global={{duration: 300, opacity: 0, easing: bounceInOut, x: 4, y: 4 }}>
 	<div id='triangle-right'/>
 	<div id='box'/>
 </div>
+
 <WebContactForm />
 
 <style>

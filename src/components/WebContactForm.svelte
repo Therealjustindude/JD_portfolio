@@ -57,7 +57,7 @@ import { error } from '@sveltejs/kit';
 
 <form 
 	id="contact-form" 
-	transition:fly={{duration: 300, opacity: 0, easing: elasticInOut, x: 12, y: 10 }}
+	transition:fly|global={{duration: 300, opacity: 0, easing: elasticInOut, x: 12, y: 10 }}
 	method="POST"
 	actions="?/sendEmail"
 	use:enhance={async ({ form, data, action, cancel }) => {

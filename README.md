@@ -39,7 +39,7 @@ Currently, I am exploring SvelteKit and using it to build personal projects. Out
 
 ## Usage
 
-To view my portfolio, simply visit [My website hosted on vercel](https://justindaviesdev.vercel.app/){:target="_blank"}. Explore the various sections to learn more about my projects, skills, and experience.
+To view my portfolio, simply visit [My website hosted on vercel](https://justindaviesdev.vercel.app/). Explore the various sections to learn more about my projects, skills, and experience.
 
 ## Development
 
@@ -52,8 +52,8 @@ If you're interested in contributing or exploring the codebase:
 ## Contact
 
 - **Email**: JustinJDavies1@gmail.com
-- **LinkedIn**: [LinkedIn](https://www.linkedin.com/in/justin-j-davies/){:target="_blank"}
-- **GitHub**: [Go back to profile](https://github.com/Therealjustindude){:target="_blank"}
+- **LinkedIn**: [LinkedIn](https://www.linkedin.com/in/justin-j-davies/)
+- **GitHub**: [Go back to profile](https://github.com/Therealjustindude)
 
 I'm open to feedback and collaboration. Let's connect!
 

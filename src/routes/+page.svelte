@@ -31,22 +31,20 @@
 	</div>
 </div>
 
-<div id="content-container">
-	<div id="about-me">
-		<About />
-	</div>
+<div id="about-me">
+	<About />
+</div>
 
-	<div id="experience">
-		<Experience />
-	</div>
+<div id="experience">
+	<Experience />
+</div>
 
-	<div id="projects">
-		<Projects />
-	</div>
+<div id="projects">
+	<Projects />
+</div>
 
-	<div id="socials">
-		<Socials />
-	</div>
+<div id="socials">
+	<Socials />
 </div>
 
 <FixedDiv />
@@ -99,14 +97,14 @@
 		display: flex;
     align-items: center;
     justify-content: center;
-		height: 100vh;
 	}
 	#about-me {
 		display: flex;
     align-items: flex-start;
     flex-direction: column;
 		height: auto;
-		padding: 32px;
+		padding: 24px 24px;
+		border-top: 0.5px solid;
 		border-left: 0.5px solid;
 	}
 	#experience {
@@ -114,7 +112,7 @@
     align-items: flex-start;
     flex-direction: column;
 		height: auto;
-		padding: 32px;
+		padding: 24px 24px;
 		border-right: 0.5px solid;
 		border-top: 0.5px solid;
 	}
@@ -123,8 +121,8 @@
     align-items: flex-start;
     flex-direction: column;
 		height: auto;
-		padding: 32px;
-		border-top: 0.5px solid;
+		padding: 24px 24px;
+		border-bottom: 0.5px solid;
 		border-left: 0.5px solid;
 	}
 	#name-container{
@@ -255,9 +253,6 @@
 		a:hover {
 			padding: 7px 13px;
 		}
-		#about-me, #experience, #projects {
-			padding: 24px;
-		}
 	}
 
 	/* When the browser is below 430px */
@@ -273,7 +268,6 @@
 		} */
 		#socials {
 			display: flex;
-			margin-top: 64px;
 		}
 		#hero-container {
 			padding: 0px 0px 100px 0px;

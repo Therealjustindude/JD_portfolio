@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
 
-  let isAtBottomOfWindow = false;
+  let isScrollingUp = false;
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
@@ -9,7 +9,7 @@
     const documentHeight = document.documentElement.scrollHeight;
 
     // Check if the user has scrolled to the bottom of the page
-    isAtBottomOfWindow = scrollY + windowHeight >= documentHeight - 50;
+    isScrollingUp = scrollY + windowHeight >= documentHeight - 50;
   };
 
   // Attach scroll event listener on component mount
@@ -24,10 +24,10 @@
 </script>
 
 <div id="arrow-container-left">
-  <div class="arrow">{isAtBottomOfWindow ? '< < <' : '> > >'}</div>
+  <div class="arrow">{isScrollingUp ? '< < <' : '> > >'}</div>
 </div>
 <div id="arrow-container-right">
-  <div class="arrow">{isAtBottomOfWindow ? '< < <' : '> > >'}</div>
+  <div class="arrow">{isScrollingUp ? '< < <' : '> > >'}</div>
 </div>
 
 <style>
@@ -67,9 +67,9 @@
   }
 
   /* When the browser is below 420px */
-  /* @media screen and (max-width: 420px) {
+  @media screen and (max-width: 420px) {
     #arrow-container-left, #arrow-container-right {
       display: none;
     }
-  } */
+  }
 </style>

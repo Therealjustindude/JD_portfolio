@@ -5,12 +5,11 @@ export const theme = {
         black: '#0C1116',
         white: '#F9FBF2',
         text: '#F9FBF2',
-        background: '#455059',
-        arrow: '#7B9BA6'
+        background: '#242D35',
+        arrow: '#b7c3cd'
       },
-      primary: '#D0BCAF',
-      // primary: '#C3AB97',
-      secondary: '#735A4C',
+      primary: '#B9BCC9',
+      secondary: '#6A4737',
       accent: '#7B9BA6'
     },
   },
@@ -20,11 +19,11 @@ export const theme = {
         black: '#0C1116',
         white: '#F9FBF2',
         text: '#0C1116',
-        background: '#F9FBF2',
-        arrow: '#C3AB97'
+        background: '#f5efeb',
+        arrow: '#242D35'
       },
-      primary: '#95664B',
-      secondary: '#C3AB97',
+      primary: '#5B3324',
+      secondary: '#242D35',
       accent: '#7B9BA6'
     },
   }

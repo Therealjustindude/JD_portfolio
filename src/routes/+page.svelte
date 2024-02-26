@@ -172,7 +172,7 @@
   }
   a {
     background-color: var(--theme-palette-secondary);
-    color: var(--theme-palette-text);
+    color: var(--theme-palette-common-white);
     border-radius: 8px;
     padding: 8px 16px;
     transition: 0.3s;

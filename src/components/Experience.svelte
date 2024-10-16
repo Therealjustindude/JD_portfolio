@@ -4,7 +4,9 @@
   let isVisible = false;
   let element;
 
+  // @ts-ignore
   function handleIntersect(entries, observer) {
+    // @ts-ignore
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         isVisible = true;
@@ -20,6 +22,7 @@
   onMount(() => {
     const observer = new IntersectionObserver(handleIntersect);
     element = document.querySelector('#experience-element');
+    // @ts-ignore
     observer.observe(element);
   });
 </script>
@@ -31,36 +34,52 @@
 </div>
 
 <div id="exp-container">
-	<div class="title">
-		Software Engineer <span class="company">@ CoreLogic</span>
+	<div>
+		<div class="title">
+			Senior Software Engineer <span class="company">@ CoreLogic</span>
+		</div>
+		<div class="date-employed">
+			February 2023 - Present
+		</div>
+		<div id="task-container">
+			<div class="tasks">
+				<div class="task-bullet"> > </div>
+				Translated Figma designs into production-ready web applications using React and TypeScript.
+			</div>
+			<div class="tasks">
+				<div class="task-bullet"> > </div>
+				Developed interactive React applications, delivering a more intuitive user interface
+			</div>
+			<div class="tasks">
+				<div class="task-bullet"> > </div>
+				Created reusable components, streamlining development efforts and improving code maintainability.
+			</div>
+			<div class="tasks">
+				<div class="task-bullet"> > </div>
+				Collaborated with cross-functional teams to enhance product features, aligning with industry best practices.
+			</div>
+		</div>
 	</div>
-	<div class="date-employed">
-		March 2021 - Present
-	</div>
-	<div id="task-container">
-		<div class="tasks">
-			<div class="task-bullet"> > </div>
-			Developed web applications from initial concept to production-ready state
+	<div>
+		<div class="title">
+			Software Engineer <span class="company">@ Roostify</span>
 		</div>
-		<div class="tasks">
-			<div class="task-bullet"> > </div>
-			Maintained and improved legacy web applications with accessibility as a top priority
+		<div class="date-employed">
+			March 2021 - February 2023
 		</div>
-		<div class="tasks">
-			<div class="task-bullet"> > </div>
-			Implemented server-side web application logic using Ruby
-		</div>
-		<div class="tasks">
-			<div class="task-bullet"> > </div>
-			Experienced in building web applications using React and TypeScript
-		</div>
-		<div class="tasks">
-			<div class="task-bullet"> > </div>
-			Developed reusable and modular components using Material-UI
-		</div>
-		<div class="tasks">
-			<div class="task-bullet"> > </div>
-			Implemented responsive design to ensure web applications adapt to different screen sizes and devices.
+		<div id="task-container">
+			<div class="tasks">
+				<div class="task-bullet"> > </div>
+				Developed and maintained server-side logic with Ruby on Rails, ensuring efficient data flow.
+			</div>
+			<div class="tasks">
+				<div class="task-bullet"> > </div>
+				Built reusable components with Material-UI, improving design consistency across a React monorepo.
+			</div>
+			<div class="tasks">
+				<div class="task-bullet"> > </div>
+				Focused on responsive design for a seamless user experience, contributing to a successful company acquisition.
+			</div>
 		</div>
 	</div>
 </div>

@@ -44,15 +44,15 @@
 		<div id="task-container">
 			<div class="tasks">
 				<div class="task-bullet"> > </div>
+				Built components and all 4 pages for the new lender UI, completing 57 of 240 Jira tickets, demonstrating leadership.
+			</div>
+			<div class="tasks">
+				<div class="task-bullet"> > </div>
 				Translated Figma designs into production-ready web applications using React and TypeScript.
 			</div>
 			<div class="tasks">
 				<div class="task-bullet"> > </div>
-				Developed interactive React applications, delivering a more intuitive user interface
-			</div>
-			<div class="tasks">
-				<div class="task-bullet"> > </div>
-				Created reusable components, streamlining development efforts and improving code maintainability.
+				Implemented Playwright for automated testing, enhancing code reliability and reducing manual testing efforts.
 			</div>
 			<div class="tasks">
 				<div class="task-bullet"> > </div>

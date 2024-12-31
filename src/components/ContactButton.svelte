@@ -1,14 +1,19 @@
 <script>
+// @ts-nocheck
+  import { stopPropagation } from 'svelte/legacy';
+
 	import FaRegEnvelope from 'svelte-icons/fa/FaRegEnvelope.svelte'
 	import FaRegEnvelopeOpen from 'svelte-icons/fa/FaRegEnvelopeOpen.svelte'
 	import ContactPopup from "./ContactPopup.svelte";
 	import { clickOutside } from '../utils/clickOutside';
 
-	let isOpen = false;
-	function handleClick() {
+	let isOpen = $state(false);
+	function handleClick(event) {
+    event.stopPropagation();
 		isOpen = !isOpen;
 	}
-	function handleClickOutside() {
+	function handleClickOutside(event) {
+    event.stopPropagation();
 		handleClick();
 	}
 </script>
@@ -16,7 +21,7 @@
 {#if !isOpen}
   <button 
     id="icon-closed-envelope" 
-    on:click|stopPropagation="{handleClick}" 
+    onclick={handleClick} 
     aria-label="Click for form to send me an email"
   >
     <FaRegEnvelope/>
@@ -29,7 +34,7 @@
   >
     <FaRegEnvelopeOpen/>
   </button>
-	<div use:clickOutside on:click_outside={handleClickOutside} id="popup-menu">
+	<div use:clickOutside onclick_outside={handleClickOutside} id="popup-menu">
 		<ContactPopup/>
 	</div>
 {/if}

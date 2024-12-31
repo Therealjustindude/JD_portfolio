@@ -1,7 +1,9 @@
 <script>
+// @ts-nocheck
+
 	import { onMount } from "svelte";
 
-  let isVisible = false;
+  let isVisible = $state(false);
   let element;
 
   function handleIntersect(entries, observer) {

@@ -22,11 +22,11 @@
 <nav id="nav-container">
 	<Logo />
 	<div id="link-container">
-		<a id="about-link" href="#about-me" on:click={handleAnchorClick}>About</a>
-		<a id="experience-link" href="#experience" on:click={handleAnchorClick}>Experience</a>
-		<a id="projects-link" href="#projects" on:click={handleAnchorClick}>Projects</a>
+		<a id="about-link" href="#about-me" onclick={handleAnchorClick}>About</a>
+		<a id="experience-link" href="#experience" onclick={handleAnchorClick}>Experience</a>
+		<a id="projects-link" href="#projects" onclick={handleAnchorClick}>Projects</a>
 		<!-- <a id="contact-link" href="#contact" on:click={handleAnchorClick}>Contact</a> -->
-		<a id="socials-link" href="#socials" on:click={handleAnchorClick}>Socials</a>
+		<a id="socials-link" href="#socials" onclick={handleAnchorClick}>Socials</a>
 		<ThemeToggle />
 	</div>
 </nav>

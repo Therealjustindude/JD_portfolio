@@ -1,5 +1,12 @@
 <script>
-  let isOpen = false
+  /**
+   * @typedef {Object} Props
+   * @property {import('svelte').Snippet} [children]
+   */
+
+  /** @type {Props} */
+  let { children } = $props();
+  let isOpen = $state(false)
 	// @ts-ignore
 	const handleClick = () => {
 		debugger
@@ -13,21 +20,21 @@
 </script>
 
 <!-- <div id="hamburger-container"> -->
-  <div 
+  <button
     id="menu-btn" 
-    on:keydown|stopPropagation={handleClick} 
-    on:click|stopPropagation={handleClick}
+    onkeydown={handleClick} 
+    onclick={handleClick}
   >
     {#if isOpen}
       x
     {:else}
       +
     {/if}
-  </div>
+  </button>
 <!-- </div> -->
 {#if isOpen}
   <div id="menu-container">
-    <slot></slot>
+    {@render children?.()}
   </div>
 {/if}
 

@@ -19,7 +19,7 @@
 <style>
   #icon-moon, #icon-sun {
     border: none;
-    filter: drop-shadow(-1px 2px 0.5px var(--theme-palette-secondary));
+    filter: drop-shadow(0.5px 0px 0px var(--theme-palette-secondary));
     color: var(--theme-palette-primary);
     background: none;
     width: 36px;
@@ -29,20 +29,29 @@
   #icon-moon:hover, #icon-sun:hover {
     color: var(--theme-palette-accent);
     width: 38px;
-    filter: drop-shadow(0px 3px 0.5px var(--theme-palette-secondary));
+    filter: drop-shadow(0.5px 2px 0.5px var(--theme-palette-secondary));
   }
 
   button {
     box-shadow: none;
-		transition: 0.3s;
+		transition: 200ms linear 50ms;
   }
-  
-  @media screen and (max-width: 380px) {
+
+	@media screen and (max-width: 430px) {
     #icon-moon, #icon-sun {
       width: 32px;
     }
     #icon-moon:hover, #icon-sun:hover {
       width: 33px;
+    }
+  }
+  
+  @media screen and (max-width: 380px) {
+    #icon-moon, #icon-sun {
+      width: 30px;
+    }
+    #icon-moon:hover, #icon-sun:hover {
+      width: 31px;
     }
   }
 </style>

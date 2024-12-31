@@ -79,16 +79,16 @@
 	#logo-container {
 		display: flex;
 		justify-content: center;
-    filter: drop-shadow(-1.5px 1px 0.5px var(--theme-palette-secondary));
+    filter: drop-shadow(1px 1px 0.5px var(--theme-palette-secondary));
     align-items: center;
     flex-direction: row;
-		/* font-family: 'Baskerville', cursive; */
 		font-family: 'Press Start 2P', cursive;
 		font-size: medium;
 		text-decoration: none;
     color: var(--theme-palette-primary);
 		text-shadow: 1px 1px var(--theme-palette-shadow-light);
 		transition: 0.3s;
+		padding-left: 8px;
 	}
 
 	#logo-container:hover {

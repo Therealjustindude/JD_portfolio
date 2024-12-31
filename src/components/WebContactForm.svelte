@@ -52,7 +52,8 @@ import { error } from '@sveltejs/kit';
 	function triggerNoty(notification, timeout = 2000) {
 		addNotification(notification, timeout)
 	}
-	$: errors = {}
+	let errors = $state({});
+	
 </script>
 
 <form 
@@ -108,7 +109,7 @@ import { error } from '@sveltejs/kit';
 	</div>
 	<div class="one-col">
 		<label for="msg-input">Message</label>
-		<textarea name="message" rows="4" cols="1" id="msg-input"/>
+		<textarea name="message" rows="4" cols="1" id="msg-input"></textarea>
 	</div>
 	<button formaction="?/sendEmail">Send Message</button>
 </form>

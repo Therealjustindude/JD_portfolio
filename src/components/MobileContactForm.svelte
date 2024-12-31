@@ -8,7 +8,7 @@
 	import { addNotification } from '../lib/stores/notifications';
 	;
 
-  let isVisible = false;
+  let isVisible = $state(false);
   let element;
 
   function handleIntersect(entries) {
@@ -74,7 +74,8 @@
 		addNotification(notification, timeout)
 	}
 
-	$: mobileFormErrors = {}
+	let mobileFormErrors = $state({});
+	
 </script>
 
 <div id="form-container">
@@ -133,7 +134,7 @@
 		</div>
 		<div class="one-col">
 			<label for="msg-input-cp">Message</label>
-			<textarea name="message" rows="4" cols="1" id="msg-input-cp"/>
+			<textarea name="message" rows="4" cols="1" id="msg-input-cp"></textarea>
 		</div>
 		<button formaction="?/sendEmail">Send Message</button>
 	</form>

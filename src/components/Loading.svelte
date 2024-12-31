@@ -1,17 +1,19 @@
 <script>
 	import { loading } from "../utils/loading";
 
-	$: if ($loading.status === 'NAVIGATING') {
-    setTimeout(() => {
-      if ($loading.status === 'NAVIGATING') {
-        $loading.status = 'LOADING'
-      }
-    }, 400)
-  }
+	$effect(() => {
+	  if (loading().status === 'NAVIGATING') {
+	    setTimeout(() => {
+	      if (loading().status === 'NAVIGATING') {
+	        loading().status = 'LOADING';
+	      }
+	    }, 400);
+	  }
+	});
 </script>
 
 {#if $loading.status === 'LOADING'}
-	<div id="load-div"/>
+	<div id="load-div"></div>
 	{#if $loading.message}
     <p>{$loading.message}</p>
   {/if}

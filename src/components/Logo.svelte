@@ -1,4 +1,6 @@
 <script>
+// @ts-nocheck
+
 	function handleAnchorClick (event) {
 		if (window.location.href.includes('error')) {
 			window.location.assign(window.location.origin)
@@ -14,7 +16,7 @@
 	}
 </script>
 
-<a href="#hero-container" on:click={handleAnchorClick} id="logo-container">
+<a href="#hero-container" onclick={handleAnchorClick} id="logo-container">
 	<div id="logo-j">J</div>
 	<div id="logo-d">
 		D<div id="logo-dot">.</div>

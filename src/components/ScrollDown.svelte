@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
 
-  let isAtBottomOfWindow = false;
+  let isAtBottomOfWindow = $state(false);
 
   const handleScroll = () => {
     const scrollY = window.scrollY;

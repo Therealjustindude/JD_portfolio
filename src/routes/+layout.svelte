@@ -6,8 +6,15 @@
   import { bounceInOut } from "svelte/easing";
 	import { fly } from 'svelte/transition'
   import { notifications, removeNotification } from '../lib/stores/notifications';
+  /**
+   * @typedef {Object} Props
+   * @property {import('svelte').Snippet} [children]
+   */
 
-  $: currentNotifications = $notifications;
+  /** @type {Props} */
+  let { children } = $props();
+
+  let currentNotifications = $derived($notifications);
 
   function closeNoty(notification) {
     removeNotification(notification)
@@ -26,7 +33,7 @@
           <button 
             class="x" 
             transition:fly|global={{duration: 100, opacity: 0, easing: bounceInOut, x: -100, y: 0 }}
-            on:click={closeNoty(notification)}
+            onclick={closeNoty(notification)}
           >
             x
           </button>
@@ -34,7 +41,7 @@
       {/each} 
     </div>
     <div id="slot-container">
-      <slot></slot>
+      {@render children?.()}
     </div>
   </div>
   

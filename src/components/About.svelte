@@ -1,10 +1,12 @@
 <script>
 	import { onMount } from "svelte";
 
-  let isVisible = false;
+  let isVisible = $state(false);
   let element;
 
+  // @ts-ignore
   function handleIntersect(entries, observer) {
+    // @ts-ignore
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         isVisible = true;

@@ -6,12 +6,12 @@
 </script>
 
 {#if $theme === "light"}
-  <button id="icon-moon" on:click|stopPropagation="{toggle}" aria-label="Click for dark mode">
+  <button id="icon-moon" onclick={toggle} aria-label="Click for dark mode">
     <IoIosMoon/>
   </button>
 {/if}
 {#if $theme === "dark"}
-  <button id="icon-sun" on:click|stopPropagation="{toggle}" aria-label="Click for light mode">
+  <button id="icon-sun" onclick={toggle} aria-label="Click for light mode">
     <IoIosSunny/>
   </button>
 {/if}

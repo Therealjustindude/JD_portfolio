@@ -18,8 +18,9 @@
     transition: 0.3s;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
+		gap: 16px;
 	}
 	.github-icon {
 		display: flex;

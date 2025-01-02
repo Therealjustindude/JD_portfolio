@@ -13,8 +13,13 @@
 <NavigationBar />
 
 <div id="hero-container">
-  <div id="img-container">
-    <img alt="justin-davies-memoji" src="/me.jpeg" height="200" width="200"/>
+  <div id="img-socials-container">
+    <div id="img-container">
+      <img alt="justin-davies-memoji" src="/me.jpeg" height="200" width="200"/>
+    </div>
+    <div id="socials">
+      <Socials />
+    </div>
   </div>
   <div id="greeting-container" transition:fly|global={{duration: 100, opacity: 0, easing: elasticIn, x: 50, y: 0 }}>
     <p id="greeting">Hi there,</p>
@@ -31,9 +36,7 @@
     </p>
     <a href="/JDavies_Resume.pdf" download="JDavies_Resume.pdf">Download My Resume</a>
   </div>
-  <div id="socials">
-    <Socials />
-  </div>
+  
 </div>
 
 <div id="content-container">
@@ -94,7 +97,7 @@
     color: var(--theme-palette-accent);
     font-size: xx-large;
     font-family: 'Press Start 2P', cursive;
-    filter: drop-shadow(-1.5px 1px 0.3px var(--theme-palette-secondary));
+    filter: drop-shadow(1.5px 1px 0.3px var(--theme-palette-secondary));
   }
   #hero-container {
     display: flex;
@@ -110,14 +113,19 @@
     overflow-y: scroll;
     scroll-behavior: smooth;
   }
+  #img-socials-container{
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+  }
   #img-container {
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    border: 1px solid var(--theme-palette-accent);
-    filter: drop-shadow(1px 1px 0.5px var(--theme-palette-accent));
+    border: 1px solid var(--theme-palette-primary);
+    filter: drop-shadow(0px 0px 3px var(--theme-palette-accent));
   }
   #about-me {
     display: flex;
@@ -153,25 +161,24 @@
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
-  }
-  p {
-    margin: 4px 0px;
+    gap: 16px;
   }
   #greeting {
     font-size: medium;
+    font-weight: 700;
   }
   #statement {
     font-size: x-large;
     color: var(--theme-palette-primary);
     font-family: 'Passion One', cursive;
-    filter: drop-shadow(-0.5px 1px 0.3px var(--theme-palette-secondary));
+    /* filter: drop-shadow(1px 0.5px 0.6px var(--theme-palette-accent)); */
     margin: 4px;
   }
   #my-name {
     font-size: xx-large;
     color: var(--theme-palette-primary);
     font-family: 'Press Start 2P', cursive;
-    filter: drop-shadow(-1.5px 1px 0.3px var(--theme-palette-secondary));
+    filter: drop-shadow(1.5px 1px 0.3px var(--theme-palette-secondary));
     margin: 0px 24px;
     animation-delay: none;
     animation-duration: 2s;
@@ -191,7 +198,7 @@
     border-radius: 8px;
     padding: 8px 16px;
     transition: 0.3s;
-    filter: drop-shadow(-2px 3px 2px var(--theme-palette-primary));
+    filter: drop-shadow(1px 2px 3px var(--theme-palette-accent));
     margin: 4px;
   }
   a:hover {
@@ -226,6 +233,7 @@
   @media screen and (max-width: 604px) {
     #greeting {
       font-size: small;
+      font-weight: 700;
     }
     #my-name, span {
       font-size: x-large;
@@ -235,9 +243,14 @@
     }
     #short-about {
       font-size: small;
+      font-weight: 700;
+      width: 100%;
     }
     #animate-flicker {
       margin-left: -16px;
+    }
+    #greeting-container {
+      gap: 8px;
     }
     a {
       border-radius: 6px;

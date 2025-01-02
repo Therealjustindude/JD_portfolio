@@ -11,7 +11,7 @@
 <style>
 	#fixed-div {
 		position: fixed;
-		bottom: 64px;
+		bottom: 80px;
 		right: 26px;
 		display: flex;
     flex-direction: column;

@@ -8,12 +8,14 @@
   import ScrollDown from '../components/ScrollDown.svelte';
   import FixedDiv from '../components/FixedDiv.svelte';
   import Socials from "../components/Socials.svelte";
+	import MeMoji from '../components/MeMoji.svelte';
 </script>
 
 <NavigationBar />
 
 <div id="hero-container">
-  <div id="hero" transition:fly|global={{duration: 100, opacity: 0, easing: elasticIn, x: 50, y: 0 }}>
+  <MeMoji />
+  <div id="greeting-container" transition:fly|global={{duration: 100, opacity: 0, easing: elasticIn, x: 50, y: 0 }}>
     <p id="greeting">Hi there,</p>
     <div id="name-container">
       <span>></span>
@@ -21,32 +23,32 @@
         I'm Justin.
       </h1>
       <span id="animate-flicker">|</span>
-  
     </div>
     <p id="statement">I build things for the Web.</p>
     <p id="short-about">
       Creating visually appealing, straightforward, and accessible experiences as a Software Engineer.
     </p>
-    <a href="/JDavies_Resume.pdf" download="JDavies_Resume.pdf">Download My Resume</a>
+  </div>
+  <div id="call-to-action-container">
+    <div id="socials">
+      <Socials />
+    </div>
+    <div>
+      <a href="/JDavies_Resume.pdf" download="JDavies_Resume.pdf">Download My Resume</a>
+    </div>
   </div>
 </div>
 
-<div id="content-container">
-  <div id="about-me">
-    <About />
-  </div>
+<div id="about-me">
+  <About />
+</div>
+<div></div>
+<div id="experience">
+  <Experience />
+</div>
 
-  <div id="experience">
-    <Experience />
-  </div>
-
-  <div id="projects">
-    <Projects />
-  </div>
-
-  <div id="socials">
-    <Socials />
-  </div>
+<div id="projects">
+  <Projects />
 </div>
 
 <FixedDiv />
@@ -93,70 +95,74 @@
     color: var(--theme-palette-accent);
     font-size: xx-large;
     font-family: 'Press Start 2P', cursive;
-    filter: drop-shadow(-1.5px 1px 0.3px var(--theme-palette-secondary));
+    filter: drop-shadow(1.5px 1px 0.3px var(--theme-palette-secondary));
   }
   #hero-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     height: 100vh;
+    scroll-snap-align: start;
+  }
+  #call-to-action-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
   #about-me {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    height: auto;
-    padding: 32px;
-    border-left: 0.5px solid;
+    height: 100vh;
+    padding: 0px 32px;
+    gap: 32px;
+    scroll-snap-align: start;
   }
   #experience {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    height: auto;
-    padding: 32px;
-    border-right: 0.5px solid;
-    border-top: 0.5px solid;
+    height: 100vh;
+    padding: 0px 32px;
+    gap: 32px;
+    scroll-snap-align: start;
   }
   #projects {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    height: auto;
-    padding: 32px;
-    border-top: 0.5px solid;
-    border-left: 0.5px solid;
+    height: 100vh;
+    padding: 0px 32px;
+    gap: 32px;
+    scroll-snap-align: start;
   }
   #name-container{
     display: flex;
     flex-direction: row;
     margin: 8px 0px;
   }
-  #hero {
+  #greeting-container {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
-    height: 80vh;
-  }
-  p {
-    margin: 4px 0px;
+    gap: 16px;
   }
   #greeting {
-    font-size: medium;
+    font-size: large;
+    font-weight: 700;
   }
   #statement {
     font-size: x-large;
     color: var(--theme-palette-primary);
     font-family: 'Passion One', cursive;
-    filter: drop-shadow(-0.5px 1px 0.3px var(--theme-palette-secondary));
-    margin: 4px;
   }
   #my-name {
     font-size: xx-large;
     color: var(--theme-palette-primary);
     font-family: 'Press Start 2P', cursive;
-    filter: drop-shadow(-1.5px 1px 0.3px var(--theme-palette-secondary));
+    filter: drop-shadow(1.5px 1px 0.3px var(--theme-palette-secondary));
     margin: 0px 24px;
     animation-delay: none;
     animation-duration: 2s;
@@ -167,7 +173,8 @@
     white-space: nowrap;
   }
   #short-about {
-    font-size: medium;
+    font-size: large;
+    text-align: center;
     width: 80%;
   }
   a {
@@ -176,7 +183,7 @@
     border-radius: 8px;
     padding: 8px 16px;
     transition: 0.3s;
-    filter: drop-shadow(-2px 3px 2px var(--theme-palette-primary));
+    filter: drop-shadow(1px 2px 3px var(--theme-palette-accent));
     margin: 4px;
   }
   a:hover {
@@ -195,10 +202,11 @@
   #footer {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: xx-small;
-    color: var(--theme-palette-primary);
-    margin: 8px 0px;
+    flex-direction: column;
+    padding: 32px;
+    scroll-snap-align: start;
+    font-size: x-small;
+    scroll-snap-align: start;
   }
 
   @media screen and (max-width: 638px) {
@@ -209,7 +217,8 @@
   /* When the browser is below 604px */
   @media screen and (max-width: 604px) {
     #greeting {
-      font-size: small;
+      font-size: medium;
+      font-weight: 700;
     }
     #my-name, span {
       font-size: x-large;
@@ -218,10 +227,15 @@
       font-size: large;
     }
     #short-about {
-      font-size: small;
+      font-size: medium;
+      font-weight: 700;
+      width: 100%;
     }
     #animate-flicker {
       margin-left: -16px;
+    }
+    #greeting-container {
+      gap: 8px;
     }
     a {
       border-radius: 6px;
@@ -256,9 +270,18 @@
       padding: 7px 13px;
     }
     #about-me, #experience, #projects {
-      padding: 24px;
+      padding: 0px 24px;
+    }
+    /* When the browser height is below 660px */
+    @media screen and (max-height: 700px) {
+      #about-me, #experience, #projects {
+        padding: 16px 24px;
+        height: 100%;
+      }
     }
   }
+  
+  
 
   /* When the browser is below 430px */
   @media screen and (max-width: 430px) {
@@ -273,10 +296,7 @@
     } */
     #socials {
       display: flex;
-      margin-top: 64px;
-    }
-    #hero-container {
-      padding: 0px 0px 100px 0px;
+      width: 100%;
     }
   }
   /* When the browser is below 400px */

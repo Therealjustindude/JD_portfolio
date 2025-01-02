@@ -1,17 +1,12 @@
 <script>
 // @ts-nocheck
-
+  
 	import '../global.css'
   import ThemeWrapper from '../theme/ThemeWrapper.svelte'
   import { bounceInOut } from "svelte/easing";
 	import { fly } from 'svelte/transition'
   import { notifications, removeNotification } from '../lib/stores/notifications';
-  /**
-   * @typedef {Object} Props
-   * @property {import('svelte').Snippet} [children]
-   */
 
-  /** @type {Props} */
   let { children } = $props();
 
   let currentNotifications = $derived($notifications);
@@ -61,6 +56,8 @@
     display: grid;
     row-gap: 72px;
     justify-content: center;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
 	}
   .toast-container {
     display: flex;

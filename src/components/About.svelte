@@ -50,27 +50,51 @@
 	</div>
 	<div id="list-container">
 		<div class="skills">
-			<div class="bullet"> > </div>
+			<div class="icon">
+				<i class="devicon-svelte-plain"></i>
+			</div>
 			SvelteKit
 		</div>
 		<div class="skills">
-			<div class="bullet"> > </div>
+			<div class="icon">
+				<i class="devicon-react-original"></i>
+			</div>
 			React
 		</div>
 		<div class="skills">
-			<div class="bullet"> > </div>
+			<div class="icon">
+				<i class="devicon-vuejs-plain"></i>
+			</div>
+			Vue
+		</div>
+		<div class="skills">
+			<div class="icon"> 
+				<i class="devicon-javascript-plain"></i>
+			</div>
 			Javascript
 		</div>
 		<div class="skills">
-			<div class="bullet"> > </div>
+			<div class="icon">
+				<i class="devicon-typescript-plain"></i>
+			</div>
 			Typescript
 		</div>
 		<div class="skills">
-			<div class="bullet"> > </div>
-			Ruby on Rails
+			<div class="icon">
+				<i class="devicon-ruby-plain"></i>
+			</div>
+			Ruby
 		</div>
 		<div class="skills">
-			<div class="bullet"> > </div>
+			<div class="icon">
+				<i class="devicon-rails-plain"></i>
+			</div>
+			Rails
+		</div>
+		<div class="skills">
+			<div class="icon">
+				<i class="devicon-materialui-plain"></i>
+			</div>
 			Material-ui
 		</div>
 	</div>
@@ -84,8 +108,9 @@
 	}
 	h2 {
 		color: var(--theme-palette-primary);
+		font-size: xx-large;
 		margin-bottom: 8px;
-		filter: drop-shadow(-1px 1px 0.15px rgba(7, 7, 7, 0.3));
+		filter: drop-shadow(1px 1px 0.15px rgba(7, 7, 7, 0.3));
 	}
 	.paragraph {
 		margin-bottom: 8px;
@@ -94,28 +119,29 @@
 		display: flex;
     flex-direction: row;
     align-items: center;
-		font-size: x-small;
+		font-size: large;
 	}
-	.bullet {
-		color: var(--theme-palette-accent);
-		font-family: 'Press Start 2P', cursive;
-		font-size: 6px;
-		margin-right: 8px;
+	.icon {
+		color: var(--theme-palette-primary);
+		font-size: 24px;
+		margin-right: 16px;
+    filter: drop-shadow(1px 1px 0.3px var(--theme-palette-accent));
 	}
 	#list-container {
 		display: grid;
     grid-template-columns: 1fr 1fr;
 		margin: 8px 0px;
+		gap: 8px;
 	}
 	#summary-container {
-		font-size: small;
+		font-size: large;
 		margin-bottom: 8px;
 	}
 	#tech-container {
-		font-size: small;
+		font-size: large;
 	}
 	#skills-label {
-		font-size: x-small;
+		font-size: large;
 	}
 	#about-transition {
 		animation-duration: 1s;
@@ -124,5 +150,27 @@
 		animation-fill-mode: forwards;
 		overflow: hidden;
 		white-space: nowrap;
+	}
+
+	@media screen and (max-width: 638px) {
+		h2 {
+			font-size: x-large;
+		}
+		#summary-container {
+			font-size: small;
+		}
+		#tech-container {
+			font-size: small;
+		}
+		#skills-label {
+			font-size: small;
+		}
+		.skills {
+			font-size: small;
+		}
+		.icon {
+			font-size: 16px;
+			margin-right: 16px;
+		}
 	}
 </style>

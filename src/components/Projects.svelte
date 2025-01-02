@@ -108,9 +108,7 @@
 		color: var(--theme-palette-primary);
 		margin-bottom: 8px;
 		filter: drop-shadow(-1px 1px 0.15px rgba(7, 7, 7, 0.3));
-	}
-	#proj-container {
-		font-size: small;
+		font-size: xx-large;
 	}
 	#projects-transition {
 		animation-duration: 1s;
@@ -121,26 +119,47 @@
 		white-space: nowrap;
 	}
 	.proj-name {
-		font-size: small;
+		font-size: large;
+		font-weight: 700;
 	}
 	.short-desc {
-		font-size: xx-small;
+		font-size: medium;
 	}
 	.highlights {
 		display: flex;
     flex-direction: row;
     align-items: center;
-		font-size: x-small;
+		font-size: medium;
 	}
 	.highlight-bullet {
 		color: var(--theme-palette-accent);
 		font-family: 'Press Start 2P', cursive;
-		font-size: 6px;
+		font-size: 10px;
 		margin-right: 8px;
+    filter: drop-shadow(1px 1px 0.3px var(--theme-palette-secondary));
 	}
 	.highlights-container {
 		display: grid;
     grid-template-columns: 1fr;
 		margin: 8px 0px;
+		gap: 8px;
+	}
+
+	@media screen and (max-width: 638px) {
+		h2 {
+			font-size: x-large;
+		}
+		.proj-name {
+			font-size: medium;
+		}
+		.short-desc {
+			font-size: small;
+		}
+		.highlights {
+			font-size: small;
+		}
+		.highlight-bullet {
+			font-size: 8px;
+		}
 	}
 </style>

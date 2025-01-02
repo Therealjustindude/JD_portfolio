@@ -1,21 +1,21 @@
 <script>
-// @ts-nocheck
+	// @ts-nocheck
 
-	import Logo from './Logo.svelte'
-  import ThemeToggle from './ThemeToggle.svelte'
+	import Logo from './Logo.svelte';
+	import ThemeToggle from './ThemeToggle.svelte';
 
-	function handleAnchorClick (event) {
+	function handleAnchorClick(event) {
 		if (window.location.href.includes('error')) {
-			window.location.assign(window.location.origin)
+			window.location.assign(window.location.origin);
 		}
-		event.preventDefault()
-		const link = event.currentTarget
-		const anchorId = new URL(link.href).hash.replace('#', '')
-		const anchor = document.getElementById(anchorId)
+		event.preventDefault();
+		const link = event.currentTarget;
+		const anchorId = new URL(link.href).hash.replace('#', '');
+		const anchor = document.getElementById(anchorId);
 		window.scrollTo({
-			top: anchor.getBoundingClientRect().top + window.pageYOffset - (window.innerHeight / 8),
+			top: anchor.getBoundingClientRect().top + window.pageYOffset - window.innerHeight / 8,
 			behavior: 'smooth'
-		})
+		});
 	}
 </script>
 
@@ -36,8 +36,8 @@
 		position: fixed;
 		top: 0;
 		display: flex;
-    justify-content: space-between;
-    align-items: center;
+		justify-content: space-between;
+		align-items: center;
 		background-color: var(--theme-palette-common-background);
 		border-bottom: 1px solid var(--theme-palette-primary);
 		padding: 24px 0px 8px 0px;
@@ -49,7 +49,7 @@
 
 	#link-container {
 		display: flex;
-    align-items: center;
+		align-items: center;
 		gap: 8px;
 	}
 
@@ -65,7 +65,7 @@
 		display: flex;
 		font-family: 'Press Start 2P', cursive;
 		font-size: 8px;
-		text-decoration: none;	
+		text-decoration: none;
 		color: var(--theme-palette-primary);
 		filter: drop-shadow(0.5px 0px 0px var(--theme-palette-secondary));
 		transition: 0.3s;
@@ -109,5 +109,4 @@
 			gap: 8px;
 		}
 	}
-
 </style>

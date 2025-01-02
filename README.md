@@ -59,4 +59,4 @@ I'm open to feedback and collaboration. Let's connect!
 
 ---
 
-*Happy coding! 🚀*
+_Happy coding! 🚀_

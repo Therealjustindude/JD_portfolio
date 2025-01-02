@@ -1,11 +1,13 @@
 <div id="container-err">
-	<img alt="The project logo" src='/me.jpeg' width="100" height="100"/>
+	<img alt="The project logo" src="/me.jpeg" width="100" height="100" />
 	<div id="four-container">
 		<span class="four">404</span>
 	</div>
 	<div id="wrong-container">
-	<span class="wrong">Don't panic, but it seems like the page you're looking for went on a spontaneous adventure.</span>
-	<span class="wrong">Don't fret, just hit the back button.</span>
+		<span class="wrong"
+			>Don't panic, but it seems like the page you're looking for went on a spontaneous adventure.</span
+		>
+		<span class="wrong">Don't fret, just hit the back button.</span>
 	</div>
 </div>
 
@@ -24,10 +26,10 @@
 	span {
 		color: var(--theme-palette-primary);
 	}
-	#container-err{
+	#container-err {
 		display: flex;
-    align-items: center;
-    flex-direction: column;
+		align-items: center;
+		flex-direction: column;
 		margin: 54px 0px;
 	}
 	#four-container {
@@ -48,7 +50,7 @@
 		font-family: 'Passion One', cursive;
 		font-size: medium;
 		line-height: 24px;
-    line-break: normal;
+		line-break: normal;
 		margin: 8px 8px;
 	}
 	@media screen and (max-width: 650px) {

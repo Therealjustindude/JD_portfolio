@@ -1,5 +1,5 @@
 <script>
-	import Socials from "./Socials.svelte";
+	import Socials from './Socials.svelte';
 	// import ContactButton from "./ContactButton.svelte";
 </script>
 
@@ -14,9 +14,9 @@
 		bottom: 80px;
 		right: 26px;
 		display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
 	}
 
 	/* When the browser is below 430px */

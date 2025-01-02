@@ -11,6 +11,5 @@
 
 <style>
 	#skill-icon-contatiner {
-		
 	}
 </style>

@@ -1,29 +1,29 @@
 <script>
-// @ts-nocheck
+	// @ts-nocheck
 
-	import { onMount } from "svelte";
+	import { onMount } from 'svelte';
 
-  let isVisible = $state(false);
-  let element;
+	let isVisible = $state(false);
+	let element;
 
-  function handleIntersect(entries, observer) {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        isVisible = true;
-        // observer.unobserve(entry.target);
-      }
-      if (!entry.isIntersecting) {
-        isVisible = false;
-        // observer.unobserve(entry.target);
-      }
-    });
-  }
+	function handleIntersect(entries, observer) {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				isVisible = true;
+				// observer.unobserve(entry.target);
+			}
+			if (!entry.isIntersecting) {
+				isVisible = false;
+				// observer.unobserve(entry.target);
+			}
+		});
+	}
 
-  onMount(() => {
-    const observer = new IntersectionObserver(handleIntersect);
-    element = document.querySelector('#projects-element');
-    observer.observe(element);
-  });
+	onMount(() => {
+		const observer = new IntersectionObserver(handleIntersect);
+		element = document.querySelector('#projects-element');
+		observer.observe(element);
+	});
 </script>
 
 <div id="projects-element">
@@ -33,66 +33,56 @@
 </div>
 
 <div id="proj-container">
-	<div class="proj-name">
-		WeBudget
-	</div>
-	<div class="short-desc">
-		Provides tools to effectively allocate your funds
-	</div>
+	<div class="proj-name">WeBudget</div>
+	<div class="short-desc">Provides tools to effectively allocate your funds</div>
 	<div class="highlights-container">
 		<div class="highlights">
-			<div class="highlight-bullet"> > </div>
-			Created a React application utilizing Redux for state management		
+			<div class="highlight-bullet">></div>
+			Created a React application utilizing Redux for state management
 		</div>
 		<div class="highlights">
-			<div class="highlight-bullet"> > </div>
+			<div class="highlight-bullet">></div>
 			Implemented JSON web token authentication with a Rails API
 		</div>
 		<div class="highlights">
-			<div class="highlight-bullet"> > </div>
+			<div class="highlight-bullet">></div>
 			Constructed two forms with JSX and implemented control functionality.
 		</div>
 	</div>
-	
-	<div class="proj-name">
-		Thank You For Tia
-	</div>
-	<div class="short-desc">
-		Displayed a menu for a fictional food truck
-	</div>
+
+	<div class="proj-name">Thank You For Tia</div>
+	<div class="short-desc">Displayed a menu for a fictional food truck</div>
 	<div class="highlights-container">
 		<div class="highlights">
-			<div class="highlight-bullet"> > </div>
-			Developed a software application utilizing a Rails API and Vanilla JavaScript		
+			<div class="highlight-bullet">></div>
+			Developed a software application utilizing a Rails API and Vanilla JavaScript
 		</div>
 		<div class="highlights">
-			<div class="highlight-bullet"> > </div>
-			Utilized fetch requests to retrieve data from the backend and utilized JavaScript classes to store objects
+			<div class="highlight-bullet">></div>
+			Utilized fetch requests to retrieve data from the backend and utilized JavaScript classes to store
+			objects
 		</div>
 		<div class="highlights">
-			<div class="highlight-bullet"> > </div>
+			<div class="highlight-bullet">></div>
 			Implemented Vanilla JavaScript to manipulate the Document Object Model (DOM)
 		</div>
 	</div>
-	
-	
-	<div class="proj-name">
-		Mans Best Friend Fitness	
-	</div>
+
+	<div class="proj-name">Mans Best Friend Fitness</div>
 	<div class="short-desc">
-		Offers a pet owner the opportunity to journal and keep track of their pets health 
+		Offers a pet owner the opportunity to journal and keep track of their pets health
 	</div>
 	<div class="highlights-container">
 		<div class="highlights">
-			<div class="highlight-bullet"> > </div>
-			Developed a Ruby on Rails project adhering to the Model-View-Controller (MVC) pattern	
+			<div class="highlight-bullet">></div>
+			Developed a Ruby on Rails project adhering to the Model-View-Controller (MVC) pattern
 		</div>
 		<div class="highlights">
-			<div class="highlight-bullet"> > </div>
+			<div class="highlight-bullet">></div>
 			Incorporated OmniAuth to allow users to sign in via Facebook
 		</div>
 		<div class="highlights">
-			<div class="highlight-bullet"> > </div>
+			<div class="highlight-bullet">></div>
 			Utilized the Devise gem for authentication implementation
 		</div>
 	</div>
@@ -101,8 +91,12 @@
 <style>
 	/* The typing effect */
 	@keyframes typing {
-		from { width: 0 }
-		to { width: 100% }
+		from {
+			width: 0;
+		}
+		to {
+			width: 100%;
+		}
 	}
 	h2 {
 		color: var(--theme-palette-primary);
@@ -127,8 +121,8 @@
 	}
 	.highlights {
 		display: flex;
-    flex-direction: row;
-    align-items: center;
+		flex-direction: row;
+		align-items: center;
 		font-size: medium;
 	}
 	.highlight-bullet {
@@ -136,11 +130,11 @@
 		font-family: 'Press Start 2P', cursive;
 		font-size: 10px;
 		margin-right: 8px;
-    filter: drop-shadow(1px 1px 0.3px var(--theme-palette-secondary));
+		filter: drop-shadow(1px 1px 0.3px var(--theme-palette-secondary));
 	}
 	.highlights-container {
 		display: grid;
-    grid-template-columns: 1fr;
+		grid-template-columns: 1fr;
 		margin: 8px 0px;
 		gap: 8px;
 	}

@@ -1,22 +1,22 @@
 <script>
-	import { loading } from "../utils/loading";
+	import { loading } from '../utils/loading';
 
 	$effect(() => {
-	  if (loading().status === 'NAVIGATING') {
-	    setTimeout(() => {
-	      if (loading().status === 'NAVIGATING') {
-	        loading().status = 'LOADING';
-	      }
-	    }, 400);
-	  }
+		if (loading().status === 'NAVIGATING') {
+			setTimeout(() => {
+				if (loading().status === 'NAVIGATING') {
+					loading().status = 'LOADING';
+				}
+			}, 400);
+		}
 	});
 </script>
 
 {#if $loading.status === 'LOADING'}
 	<div id="load-div"></div>
 	{#if $loading.message}
-    <p>{$loading.message}</p>
-  {/if}
+		<p>{$loading.message}</p>
+	{/if}
 {/if}
 
 <style>
@@ -25,7 +25,7 @@
 			-webkit-transform: translate3d(200px, 0, 0);
 		}
 		to {
-			-webkit-transform:translate3d(-100px, 0, 0);
+			-webkit-transform: translate3d(-100px, 0, 0);
 		}
 	}
 	@keyframes moveLoader {
@@ -42,7 +42,7 @@
 		position: fixed;
 		top: 0;
 		left: 0;
-		inset:calc(50% - calc(var(--size)/2));
+		inset: calc(50% - calc(var(--size) / 2));
 		background: purple;
 		border-radius: var(--size);
 		height: var(--size);

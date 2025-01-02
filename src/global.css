@@ -1,54 +1,65 @@
 html {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-  position: relative;
-  margin: 0;
-	padding: 0;	
-  box-sizing: border-box;
-  font-size: '14px';
-  font-family: 'Titillium Web', 'Passion One', 'Whisper', Mark Pro, cursive, sans-serif;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: '14px';
+	font-family:
+		'Titillium Web',
+		'Passion One',
+		'Whisper',
+		Mark Pro,
+		cursive,
+		sans-serif;
 	background-color: var(--theme-palette-common-background);
 	color: var(--theme-palette-common-text);
 }
 
 html,
 body {
-  height: 100%;
+	height: 100%;
 }
 
-h1, h2 {
-  font-family: 'Passion One', cursive;
+h1,
+h2 {
+	font-family: 'Passion One', cursive;
 }
 
-p, label {
-  font-family: 'Titillium Web', sans-serif;
+p,
+label {
+	font-family: 'Titillium Web', sans-serif;
 }
 
-h1, h2, h3, p {
-	margin: 0
+h1,
+h2,
+h3,
+p {
+	margin: 0;
 }
 
 button {
-  border-style: none;
-  filter: drop-shadow(0px 1px 0.5px var(--theme-palette-accent));
+	border-style: none;
+	filter: drop-shadow(0px 1px 0.5px var(--theme-palette-accent));
 }
 
 a {
-  text-decoration: none;
-  font-family: 'Titillium Web', sans-serif;
+	text-decoration: none;
+	font-family: 'Titillium Web', sans-serif;
 }
 
 label {
-  display: block;
+	display: block;
 }
 
 input:disabled {
-  color: #ccc;
+	color: #ccc;
 }
 
 button:disabled {
-  color: #999;
+	color: #999;
 }

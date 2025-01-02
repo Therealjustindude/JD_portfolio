@@ -1,29 +1,28 @@
 <script>
-// @ts-nocheck
+	// @ts-nocheck
 
-	function handleAnchorClick (event) {
+	function handleAnchorClick(event) {
 		if (window.location.href.includes('error')) {
-			window.location.assign(window.location.origin)
+			window.location.assign(window.location.origin);
 		}
-		event.preventDefault()
-		const link = event.currentTarget
-		const anchorId = new URL(link.href).hash.replace('#', '')
-		const anchor = document.getElementById(anchorId)
+		event.preventDefault();
+		const link = event.currentTarget;
+		const anchorId = new URL(link.href).hash.replace('#', '');
+		const anchor = document.getElementById(anchorId);
 		window.scrollTo({
-			top: anchor.getBoundingClientRect().top + window.pageYOffset - (window.innerHeight / 8),
+			top: anchor.getBoundingClientRect().top + window.pageYOffset - window.innerHeight / 8,
 			behavior: 'smooth'
-		})
+		});
 	}
 </script>
 
 <a href="#hero-container" onclick={handleAnchorClick} id="logo-container">
 	<div id="logo-j">J</div>
 	<div id="logo-d">
-		D<div id="logo-dot">.</div>
+		D
+		<div id="logo-dot">.</div>
 	</div>
 	<div id="logo-ev">ev</div>
-	
-	
 </a>
 
 <style>
@@ -79,13 +78,13 @@
 	#logo-container {
 		display: flex;
 		justify-content: center;
-    filter: drop-shadow(1px 1px 0.5px var(--theme-palette-secondary));
-    align-items: center;
-    flex-direction: row;
+		filter: drop-shadow(1px 1px 0.5px var(--theme-palette-secondary));
+		align-items: center;
+		flex-direction: row;
 		font-family: 'Press Start 2P', cursive;
 		font-size: medium;
 		text-decoration: none;
-    color: var(--theme-palette-primary);
+		color: var(--theme-palette-primary);
 		text-shadow: 1px 1px var(--theme-palette-shadow-light);
 		transition: 0.3s;
 		padding-left: 8px;
@@ -93,7 +92,7 @@
 
 	#logo-container:hover {
 		color: var(--theme-palette-accent);
-    filter: drop-shadow(-1px 2px 0.7px var(--theme-palette-secondary));
+		filter: drop-shadow(-1px 2px 0.7px var(--theme-palette-secondary));
 	}
 
 	#logo-ev,

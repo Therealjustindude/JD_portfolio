@@ -26,7 +26,7 @@
 		<a id="experience-link" href="#experience" onclick={handleAnchorClick}>Experience</a>
 		<a id="projects-link" href="#projects" onclick={handleAnchorClick}>Projects</a>
 		<!-- <a id="contact-link" href="#contact" on:click={handleAnchorClick}>Contact</a> -->
-		<a id="socials-link" href="#socials" onclick={handleAnchorClick}>Socials</a>
+		<!-- <a id="socials-link" href="#socials" onclick={handleAnchorClick}>Socials</a> -->
 		<ThemeToggle />
 	</div>
 </nav>
@@ -57,9 +57,9 @@
 		display: none;
 	} */
 
-	#socials-link {
+	/* #socials-link {
 		display: none;
-	}
+	} */
 
 	a {
 		display: flex;
@@ -81,10 +81,10 @@
 			margin: 0px 16px 0px 16px;
 		}
 		a {
-			font-size: 6px;
+			font-size: 8px;
 		}
 		a:hover {
-			font-size: 7px;
+			font-size: 9px;
 		}
 		/* #contact-link {
 			display: flex;
@@ -97,9 +97,9 @@
 		#contact-link:hover {
 			color: var(--theme-palette-accent);
 		} */
-		#socials-link {
+		/* #socials-link {
 			display: flex;
-		}
+		} */
 	}
 	/* When the browser is below 325px */
 	@media screen and (max-width: 325px) {

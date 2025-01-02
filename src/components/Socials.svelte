@@ -18,13 +18,17 @@
     transition: 0.3s;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 	}
 	.github-icon {
+		display: flex;
+		align-items: center;
 		width: 17px;
 	}
 	.linkedin-icon {
+		display: flex;
+		align-items: center;
 		width: 16px;
 	}
 	.github-icon, .linkedin-icon {

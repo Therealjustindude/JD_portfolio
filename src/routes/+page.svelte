@@ -13,7 +13,10 @@
 <NavigationBar />
 
 <div id="hero-container">
-  <div id="hero" transition:fly|global={{duration: 100, opacity: 0, easing: elasticIn, x: 50, y: 0 }}>
+  <div id="img-container">
+    <img alt="justin-davies-memoji" src="/me.jpeg" height="200" width="200"/>
+  </div>
+  <div id="greeting-container" transition:fly|global={{duration: 100, opacity: 0, easing: elasticIn, x: 50, y: 0 }}>
     <p id="greeting">Hi there,</p>
     <div id="name-container">
       <span>></span>
@@ -21,7 +24,6 @@
         I'm Justin.
       </h1>
       <span id="animate-flicker">|</span>
-  
     </div>
     <p id="statement">I build things for the Web.</p>
     <p id="short-about">
@@ -29,23 +31,22 @@
     </p>
     <a href="/JDavies_Resume.pdf" download="JDavies_Resume.pdf">Download My Resume</a>
   </div>
+  <div id="socials">
+    <Socials />
+  </div>
 </div>
 
 <div id="content-container">
   <div id="about-me">
     <About />
   </div>
-
+  <div></div>
   <div id="experience">
     <Experience />
   </div>
 
   <div id="projects">
     <Projects />
-  </div>
-
-  <div id="socials">
-    <Socials />
   </div>
 </div>
 
@@ -97,47 +98,61 @@
   }
   #hero-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 32px;
     height: 100vh;
+    scroll-snap-align: start;
+  }
+  #content-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+  #img-container {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid var(--theme-palette-accent);
+    filter: drop-shadow(1px 1px 0.5px var(--theme-palette-accent));
   }
   #about-me {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    height: auto;
+    height: 100vh;
     padding: 32px;
-    border-left: 0.5px solid;
+    scroll-snap-align: start;
   }
   #experience {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    height: auto;
+    height: 100vh;
     padding: 32px;
-    border-right: 0.5px solid;
-    border-top: 0.5px solid;
+    scroll-snap-align: start;
   }
   #projects {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    height: auto;
+    height: 100vh;
     padding: 32px;
-    border-top: 0.5px solid;
-    border-left: 0.5px solid;
+    scroll-snap-align: start;
   }
   #name-container{
     display: flex;
     flex-direction: row;
     margin: 8px 0px;
   }
-  #hero {
+  #greeting-container {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
-    height: 80vh;
   }
   p {
     margin: 4px 0px;
@@ -195,10 +210,11 @@
   #footer {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: xx-small;
-    color: var(--theme-palette-primary);
-    margin: 8px 0px;
+    flex-direction: column;
+    padding: 32px;
+    scroll-snap-align: start;
+    font-size: x-small;
+    scroll-snap-align: start;
   }
 
   @media screen and (max-width: 638px) {
@@ -273,10 +289,7 @@
     } */
     #socials {
       display: flex;
-      margin-top: 64px;
-    }
-    #hero-container {
-      padding: 0px 0px 100px 0px;
+      width: 100%;
     }
   }
   /* When the browser is below 400px */

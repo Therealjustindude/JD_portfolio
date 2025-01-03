@@ -1,12 +1,16 @@
+<script>
+// @ts-nocheck
+	import { skillsDeviconsClassNames } from "../utils/skillsDeviconsClassNames";
+</script>
 <div id="skill-icon-contatiner">
-	<i class="devicon-react-original"></i>
-	<i class="devicon-svelte-plain"></i>
-	<i class="devicon-ruby-plain"></i>
-	<i class="devicon-typescript-plain"></i>
-	<i class="devicon-javascript-plain"></i>
-	<i class="devicon-rails-plain"></i>
-	<i class="devicon-materialui-plain"></i>
-	<i class="devicon-vuejs-plain"></i>
+	<i class={skillsDeviconsClassNames.react}></i>
+	<i class={skillsDeviconsClassNames.svelte}></i>
+	<i class={skillsDeviconsClassNames.ruby}></i>
+	<i class={skillsDeviconsClassNames.typescript}></i>
+	<i class={skillsDeviconsClassNames.javascript}></i>
+	<i class={skillsDeviconsClassNames.rails}></i>
+	<i class={skillsDeviconsClassNames.mui}></i>
+	<i class={skillsDeviconsClassNames.vue}></i>
 </div>
 
 <style>

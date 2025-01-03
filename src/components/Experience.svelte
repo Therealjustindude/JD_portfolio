@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-
+	import { workExperience } from '../utils/workExperience';
 	let isVisible = $state(false);
 	let element;
 
@@ -34,54 +34,22 @@
 </div>
 
 <div id="exp-container">
-	<div>
-		<div class="title">
-			Senior Software Engineer <span class="company">@ CoreLogic</span>
-		</div>
-		<div class="date-employed">February 2023 - Present</div>
-		<div id="task-container">
-			<div class="tasks">
-				<div class="task-bullet">></div>
-				Built components and all 4 pages for the new lender UI, completing 57 of 240 Jira tickets, demonstrating
-				leadership.
+	{#each workExperience as exp}
+		<div>
+			<div class="title">
+				{exp.title} <span class="company">@ {exp.company}</span>
 			</div>
-			<div class="tasks">
-				<div class="task-bullet">></div>
-				Translated Figma designs into production-ready web applications using React and TypeScript.
-			</div>
-			<div class="tasks">
-				<div class="task-bullet">></div>
-				Implemented Playwright for automated testing, enhancing code reliability and reducing manual
-				testing efforts.
-			</div>
-			<div class="tasks">
-				<div class="task-bullet">></div>
-				Collaborated with cross-functional teams to enhance product features, aligning with industry
-				best practices.
+			<div class="date-employed">{exp.dateEmployed}</div>
+			<div id="task-container">
+				{#each exp.tasks as task}
+					<div class="tasks">
+						<div class="task-bullet">></div>
+						{task}
+					</div>
+				{/each}
 			</div>
 		</div>
-	</div>
-	<div>
-		<div class="title">
-			Software Engineer <span class="company">@ Roostify</span>
-		</div>
-		<div class="date-employed">March 2021 - February 2023</div>
-		<div id="task-container">
-			<div class="tasks">
-				<div class="task-bullet">></div>
-				Developed and maintained server-side logic with Ruby on Rails, ensuring efficient data flow.
-			</div>
-			<div class="tasks">
-				<div class="task-bullet">></div>
-				Built reusable components with Material-UI, improving design consistency across a React monorepo.
-			</div>
-			<div class="tasks">
-				<div class="task-bullet">></div>
-				Focused on responsive design for a seamless user experience, contributing to a successful company
-				acquisition.
-			</div>
-		</div>
-	</div>
+	{/each}
 </div>
 
 <style>
@@ -107,6 +75,11 @@
 		animation-fill-mode: forwards;
 		overflow: hidden;
 		white-space: nowrap;
+	}
+	#exp-container {
+		display: flex;
+		gap: 32px;
+		flex-direction: column;
 	}
 	.title {
 		font-size: x-large;
@@ -160,9 +133,7 @@
 			font-size: small;
 		}
 		#exp-container {
-			display: flex;
 			gap: 16px;
-			flex-direction: column;
 		}
 	}
 </style>

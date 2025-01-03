@@ -8,18 +8,30 @@
 	let key = '__jdev__theme';
 	let prefix = 'theme';
 	let base = {};
-	let { children } = $props();
-
+  let { children } = $props();
+  
+	// Generate the theme CSS
 	const style = createCSSTemplate(prefix, base);
 
+	// Provide theme context
 	setContext('theme', {
 		current: currentThemeName,
 		toggle,
 		theme: currentThemeName
 	});
 
-	// Update theme object when theme name changes
+	// 🌟 Apply saved theme early on the client
 	if (browser) {
+		// 1. Get saved theme from localStorage
+		const savedTheme = localStorage.getItem(key);
+
+		// 2. Apply saved theme or fallback to default
+		if (savedTheme) {
+			currentThemeName.set(savedTheme);
+			document.documentElement.setAttribute('data-theme', savedTheme);
+		}
+
+		// 3. Watch for theme changes
 		currentThemeName.subscribe((themeName) => {
 			themes.subscribe((allThemes) => {
 				// @ts-ignore
@@ -27,16 +39,23 @@
 			});
 
 			document.documentElement.setAttribute('data-theme', themeName);
-			if (!localStorage?.getItem(key)) {
+
+			// Update localStorage only if it differs
+			const localSavedTheme = localStorage?.getItem(key);
+			if (!localSavedTheme || localSavedTheme !== themeName) {
 				localStorage.setItem(key, themeName);
 			}
 		});
 	}
 
+	// Fallback for SSR (Server-Side Rendering)
 	onMount(() => {
-		const savedTheme = localStorage.getItem(key);
-		if (savedTheme) {
-			currentThemeName.set(savedTheme);
+		if (browser) {
+			const savedTheme = localStorage.getItem(key);
+			if (savedTheme) {
+				currentThemeName.set(savedTheme);
+				document.documentElement.setAttribute('data-theme', savedTheme);
+			}
 		}
 	});
 </script>

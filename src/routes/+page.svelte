@@ -9,6 +9,7 @@
 	import FixedDiv from '../components/FixedDiv.svelte';
 	import Socials from '../components/Socials.svelte';
 	import MeMoji from '../components/MeMoji.svelte';
+	import SkillIcons from '../components/SkillIcons.svelte';
 </script>
 
 <NavigationBar />
@@ -30,6 +31,7 @@
 			Creating visually appealing, straightforward, and accessible experiences as a Software
 			Engineer.
 		</p>
+		<SkillIcons />
 	</div>
 	<div id="call-to-action-container">
 		<div id="socials">

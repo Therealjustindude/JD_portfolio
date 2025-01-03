@@ -129,7 +129,7 @@
 		font-family: 'Press Start 2P', cursive;
 		font-size: 12px;
 		margin-right: 8px;
-		filter: drop-shadow(1px 1px 0.3px var(--theme-palette-secondary));
+		filter: drop-shadow(0.5px 0.5px 0.3px var(--theme-palette-secondary));
 	}
 	#task-container {
 		display: grid;

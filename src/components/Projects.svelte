@@ -130,7 +130,7 @@
 		font-family: 'Press Start 2P', cursive;
 		font-size: 10px;
 		margin-right: 8px;
-		filter: drop-shadow(1px 1px 0.3px var(--theme-palette-secondary));
+		filter: drop-shadow(0.5px 0.5px 0.3px var(--theme-palette-secondary));
 	}
 	.highlights-container {
 		display: grid;

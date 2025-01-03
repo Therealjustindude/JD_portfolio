@@ -19,7 +19,7 @@ export const theme = {
 				black: '#0C1116',
 				white: '#F9FBF2',
 				text: '#F9FBF2',
-				background: '#242D35',
+				background: '#070e15',
 				arrow: '#b7c3cd'
 			},
 			primary: '#B9BCC9',

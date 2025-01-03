@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { theme as appTheme } from '../../theme';
+import { theme as appTheme } from './theme';
 
 export const currentMode = writable();
 export const currentThemeName = writable('light');

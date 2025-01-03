@@ -1,12 +1,16 @@
 <script>
-	// @ts-nocheck
+// @ts-nocheck
 
 	import { onMount } from 'svelte';
-
+	import { projects } from '../utils/projects'
+	import { skillsDeviconsClassNames } from '../utils/skillsDeviconsClassNames';
+	import Carousel from './Carousel.svelte';
 	let isVisible = $state(false);
 	let element;
 
+	
 	function handleIntersect(entries, observer) {
+		
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
 				isVisible = true;
@@ -22,6 +26,7 @@
 	onMount(() => {
 		const observer = new IntersectionObserver(handleIntersect);
 		element = document.querySelector('#projects-element');
+		
 		observer.observe(element);
 	});
 </script>
@@ -32,99 +37,100 @@
 	{/if}
 </div>
 
-<div id="proj-container">
-	<div class="proj-name">WeBudget</div>
-	<div class="short-desc">Provides tools to effectively allocate your funds</div>
-	<div class="highlights-container">
-		<div class="highlights">
-			<div class="highlight-bullet">></div>
-			Created a React application utilizing Redux for state management
+<Carousel loop={true}>
+	{#each projects as project}
+		<div class="carousel-item">
+			<div class="proj-name">
+				<p>{project.name}</p>
+				{#if project.skills.length > 0} 
+					<div id="skills-container">
+						{#each project.skills as skill}
+							<i class={skillsDeviconsClassNames[skill]}></i>
+						{/each}
+					</div>
+				{/if}
+			</div>
+			<div class="short-desc">{project.shortDesc}</div>
+			<div class="highlights-container">
+				{#each project.highlights as highlight}
+					<div class="highlights">
+						<div class="highlight-bullet">></div>
+						{highlight}
+					</div>
+				{/each}
+			</div>
 		</div>
-		<div class="highlights">
-			<div class="highlight-bullet">></div>
-			Implemented JSON web token authentication with a Rails API
-		</div>
-		<div class="highlights">
-			<div class="highlight-bullet">></div>
-			Constructed two forms with JSX and implemented control functionality.
-		</div>
-	</div>
-
-	<div class="proj-name">Thank You For Tia</div>
-	<div class="short-desc">Displayed a menu for a fictional food truck</div>
-	<div class="highlights-container">
-		<div class="highlights">
-			<div class="highlight-bullet">></div>
-			Developed a software application utilizing a Rails API and Vanilla JavaScript
-		</div>
-		<div class="highlights">
-			<div class="highlight-bullet">></div>
-			Utilized fetch requests to retrieve data from the backend and utilized JavaScript classes to store
-			objects
-		</div>
-		<div class="highlights">
-			<div class="highlight-bullet">></div>
-			Implemented Vanilla JavaScript to manipulate the Document Object Model (DOM)
-		</div>
-	</div>
-
-	<div class="proj-name">Mans Best Friend Fitness</div>
-	<div class="short-desc">
-		Offers a pet owner the opportunity to journal and keep track of their pets health
-	</div>
-	<div class="highlights-container">
-		<div class="highlights">
-			<div class="highlight-bullet">></div>
-			Developed a Ruby on Rails project adhering to the Model-View-Controller (MVC) pattern
-		</div>
-		<div class="highlights">
-			<div class="highlight-bullet">></div>
-			Incorporated OmniAuth to allow users to sign in via Facebook
-		</div>
-		<div class="highlights">
-			<div class="highlight-bullet">></div>
-			Utilized the Devise gem for authentication implementation
-		</div>
-	</div>
-</div>
+	{/each}
+</Carousel>
 
 <style>
-	/* The typing effect */
-	@keyframes typing {
-		from {
-			width: 0;
-		}
-		to {
-			width: 100%;
-		}
+	#projects-element {
+		margin-bottom: 2rem;
 	}
+
 	h2 {
 		color: var(--theme-palette-primary);
 		margin-bottom: 8px;
-		filter: drop-shadow(-1px 1px 0.15px rgba(7, 7, 7, 0.3));
 		font-size: xx-large;
 	}
-	#projects-transition {
-		animation-duration: 1s;
-		animation-timing-function: steps(30, end);
-		animation-name: typing;
-		animation-fill-mode: forwards;
-		overflow: hidden;
-		white-space: nowrap;
+
+	.carousel-item {
+		display: flex;
+    flex-direction: column;
+		width: 90%;
+		height: 100%;
+    gap: 16px;
 	}
+
+	.active-slide {
+		opacity: 1;
+		transform: translateX(0);
+		pointer-events: auto;
+	}
+
+	.inactive-slide {
+		opacity: 0;
+		transform: translateX(-100%);
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
 	.proj-name {
-		font-size: large;
+		display: flex;
+		gap: 16px;
+		font-size: x-large;
 		font-weight: 700;
 	}
-	.short-desc {
-		font-size: medium;
+
+	.proj-name p {  
+		width: 100%;
+		margin: 0;
+		display: block;
 	}
+
+	#skills-container {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		color: var(--theme-palette-secondary);
+	}
+
+	.short-desc {
+		font-size: large;
+		font-weight: 600;
+		font-style: italic;
+	}
+
 	.highlights {
 		display: flex;
-		flex-direction: row;
 		align-items: center;
-		font-size: medium;
+		font-size: large;
 	}
+
 	.highlight-bullet {
 		color: var(--theme-palette-accent);
 		font-family: 'Press Start 2P', cursive;
@@ -132,13 +138,6 @@
 		margin-right: 8px;
 		filter: drop-shadow(0.5px 0.5px 0.3px var(--theme-palette-secondary));
 	}
-	.highlights-container {
-		display: grid;
-		grid-template-columns: 1fr;
-		margin: 8px 0px;
-		gap: 8px;
-	}
-
 	@media screen and (max-width: 638px) {
 		h2 {
 			font-size: x-large;
@@ -154,6 +153,10 @@
 		}
 		.highlight-bullet {
 			font-size: 8px;
+		}
+		.carousel-item {
+			width: 100%;
+			gap: 8px;
 		}
 	}
 </style>

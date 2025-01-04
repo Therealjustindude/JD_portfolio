@@ -1,6 +1,46 @@
 export const projects = [
 	{
+		name: "Teleprompter",
+		url: "https://vue-teleprompter.vercel.app/",
+		shortDesc: "A feature-rich teleprompter application built with Vue 3, Pinia, and Vite. This project includes customizable text scrolling, dynamic speed control, text resizing, drag-and-drop functionality, and an estimated reading time display.",
+		skills: ["vue", "vite"],
+		img: "/teleprompter.png",
+		highlights: [
+			"Customizable text scrolling speed",
+			"Real-time text resizing",
+			"Drag-and-drop functionality",
+			"Estimated reading time display",
+			"Supports both mouse and touch inputs",
+		]
+	},
+	{
+		name: "Base Apparel",
+		url: "https://base-apparel-coming-soon-master-liart-nine.vercel.app/",
+		shortDesc: "Frontend mentor coming soon page for a finctional brand",
+		skills: ["vue", "vite"],
+		img: "/base-apparel-screenshot.png",
+		highlights: [
+			"Built with Vue 3 and Vite for fast development and optimized builds",
+			"Toast notifications powered by vue3-toastify",
+			"Responsive design adhering to a mobile-first approach",
+			"Follows WCAG accessibility guidelines to ensure usability across screen sizes",
+		]
+	},
+	{
+		name: "Multi-Step Form",
+		url: "https://multi-step-form-liard-eight.vercel.app/",
+		shortDesc: "Frontend mentor multi-step form challenge",
+		skills: ["react", "next", "tailwind", "typescript"],
+		img: "/mulit-step-form-snapshot.png",
+		highlights: [
+			"Responsive design optimized for mobile and desktop",
+			"Accessible forms with validation using Yup and React Hook Form",
+			"Real-time feedback with Toastify notifications"
+		]
+	},
+	{
 		name: "WeBudget",
+		url: "",
 		shortDesc: "Provides tools to effectively allocate your funds",
 		skills: ["react", "redux", "rails", "mui"],
 		img: "/weBudget.png",
@@ -12,7 +52,8 @@ export const projects = [
 	},
 	{
 		name: "Thank You For Tia",
-		shortDesc: "Displayed a menu for a fictional food truck",
+		url: "",
+		shortDesc: "Displays a menu for a fictional food truck",
 		img: "/TYFTimg.png",
 		skills: ["rails", "javascript"],
 		highlights: [
@@ -23,6 +64,7 @@ export const projects = [
 	},
 	{
 		name: "Mans Best Friend Fitness",
+		url: "",
 		shortDesc: "Offers a pet owner the opportunity to journal and keep track of their pets health",
 		skills: ["ruby", "rails"],
 		img: "",

@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import { skillsDeviconsClassNames } from '../utils/skillsDeviconsClassNames';
 
 	let isVisible = $state(false);
 	let element;
@@ -56,51 +57,63 @@
 	<div id="list-container">
 		<div class="skills">
 			<div class="icon">
-				<i class="devicon-svelte-plain"></i>
-			</div>
-			SvelteKit
-		</div>
-		<div class="skills">
-			<div class="icon">
-				<i class="devicon-react-original"></i>
+				<i class={skillsDeviconsClassNames.react}></i>
 			</div>
 			React
 		</div>
 		<div class="skills">
 			<div class="icon">
-				<i class="devicon-vuejs-plain"></i>
+				<i class={skillsDeviconsClassNames.next}></i>
+			</div>
+			Next JS
+		</div>
+		<div class="skills">
+			<div class="icon">
+				<i class={skillsDeviconsClassNames.svelte}></i>
+			</div>
+			Svelte
+		</div>
+		<div class="skills">
+			<div class="icon">
+				<i class={skillsDeviconsClassNames.vue}></i>
 			</div>
 			Vue
 		</div>
 		<div class="skills">
 			<div class="icon">
-				<i class="devicon-javascript-plain"></i>
+				<i class={skillsDeviconsClassNames.javascript}></i>
 			</div>
 			Javascript
 		</div>
 		<div class="skills">
 			<div class="icon">
-				<i class="devicon-typescript-plain"></i>
+				<i class={skillsDeviconsClassNames.typescript}></i>
 			</div>
 			Typescript
 		</div>
 		<div class="skills">
 			<div class="icon">
-				<i class="devicon-ruby-plain"></i>
+				<i class={skillsDeviconsClassNames.ruby}></i>
 			</div>
 			Ruby
 		</div>
 		<div class="skills">
 			<div class="icon">
-				<i class="devicon-rails-plain"></i>
+				<i class={skillsDeviconsClassNames.rails}></i>
 			</div>
 			Rails
 		</div>
 		<div class="skills">
 			<div class="icon">
-				<i class="devicon-materialui-plain"></i>
+				<i class={skillsDeviconsClassNames.mui}></i>
 			</div>
 			Material-ui
+		</div>
+		<div class="skills">
+			<div class="icon">
+				<i class={skillsDeviconsClassNames.tailwind}></i>
+			</div>
+			Tailwind CSS
 		</div>
 	</div>
 </div>
@@ -138,9 +151,9 @@
 	}
 	#list-container {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
 		margin: 8px 0px;
-		gap: 8px;
+		gap: 16px;
 	}
 	#summary-container {
 		font-size: large;

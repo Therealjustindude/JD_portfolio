@@ -40,9 +40,11 @@
 <Carousel loop={true}>
 	{#each projects as project}
 		<div class="carousel-item">
-			
-			<div class="proj-name">
+			<div class="proj-header">
 				<p>{project.name}</p>
+				{#if project.url}
+					<a href={project.url} target="_blank">Visit site</a>
+				{/if}
 				{#if project.skills.length > 0} 
 					<div id="skills-container">
 						{#each project.skills as skill}
@@ -90,13 +92,11 @@
 	#projects-element {
 		margin-bottom: 2rem;
 	}
-
 	h2 {
 		color: var(--theme-palette-primary);
 		margin-bottom: 8px;
 		font-size: xx-large;
 	}
-
 	.carousel-item {
 		display: flex;
     flex-direction: column;
@@ -131,29 +131,39 @@
 	
 	.project-image {
     width: 100%;
-    max-width: 760px;
+    max-width: 500px;
     border-radius: 16px;
     border: 2px solid;
 		height: auto;
-		border: 2px solid var(--theme-palette-secondary);
+		border: 1px solid var(--theme-palette-secondary);
 		object-fit: cover;
 		object-position: center;
 		image-rendering: -webkit-optimize-contrast;
+		filter: drop-shadow(8px 8px 3px var(--theme-palette-primary));
 	}
 
-	.proj-name {
+	.proj-header {
 		display: flex;
 		gap: 16px;
 		font-size: x-large;
+		align-items: center;
+		width: 100%;
+    justify-content: space-between;
 	}
 
-	.proj-name p {
+	.proj-header a {
+		font-size: small;
+		width: 64px;
+		color: var(--theme-palette-primary);
+	}
+
+	.proj-header p {
 		font-family: 'Passion One', cursive;
 		font-size: xx-large;
 	}
 
-	.proj-name p {  
-		width: 100%;
+	.proj-header p {  
+		width: 60%;
 		margin: 0;
 		display: block;
 	}
@@ -162,7 +172,7 @@
 		display: flex;
 		align-items: center;
 		gap: 16px;
-		color: var(--theme-palette-secondary);
+		color: var(--theme-palette-primary);
 	}
 
 	.short-desc {
@@ -187,7 +197,7 @@
 		h2 {
 			font-size: x-large;
 		}
-		.proj-name {
+		.proj-header {
 			font-size: medium;
 		}
 		.short-desc {
@@ -206,15 +216,20 @@
 		.project-image {
 			border-radius: 8px;
 			width: 98%;
+			filter: drop-shadow(4px 4px 3px var(--theme-palette-primary));
 		}
 
-		.proj-name {
+		.proj-header {
 			font-size: medium;
 		}
 
-		.proj-name p {
+		.proj-header p {
 			font-family: 'Passion One', cursive;
 			font-size: large;
+		}
+
+		.proj-header a {
+			font-size: x-small;
 		}
 	}
 </style>

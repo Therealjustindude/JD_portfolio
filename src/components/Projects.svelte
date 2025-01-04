@@ -70,6 +70,23 @@
 </Carousel>
 
 <style>
+	/* The typing effect */
+	@keyframes typing {
+		from {
+			width: 0;
+		}
+		to {
+			width: 100%;
+		}
+	}
+	#projects-transition {
+		animation-duration: 1s;
+		animation-timing-function: steps(30, end);
+		animation-name: typing;
+		animation-fill-mode: forwards;
+		overflow: hidden;
+		white-space: nowrap;
+	}
 	#projects-element {
 		margin-bottom: 2rem;
 	}

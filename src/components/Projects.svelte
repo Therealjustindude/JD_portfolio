@@ -107,15 +107,21 @@
 
 	.project-image-wrapper {
 		display: flex;
+		justify-content: center;
+		align-items: center;
 		width: 100%;
 	}
 	
 	.project-image {
-		width: 95%;
+    width: 100%;
+    max-width: 760px;
+    border-radius: 16px;
+    border: 2px solid;
 		height: auto;
-		border-radius: 16px;
-		object-fit: cover; 
 		border: 2px solid var(--theme-palette-secondary);
+		object-fit: cover;
+		object-position: center;
+		image-rendering: -webkit-optimize-contrast;
 	}
 
 	.proj-name {
@@ -145,7 +151,6 @@
 	.short-desc {
 		font-size: large;
 		font-weight: 600;
-		font-style: italic;
 	}
 
 	.highlights {
@@ -183,6 +188,7 @@
 		}
 		.project-image {
 			border-radius: 8px;
+			width: 98%;
 		}
 
 		.proj-name {

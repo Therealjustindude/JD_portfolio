@@ -66,14 +66,14 @@
 
 <style>
 	.carousel {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
 		position: relative;
-		overflow: hidden;
+		overflow-x: hidden;
 		width: 100%;
-		max-width: 100%;
-		max-height: 90%;
     height: 80%;
-		margin: 0 auto;
-		box-sizing: border-box;
+		gap: 16px;
 	}
 
 	.carousel-container {
@@ -81,9 +81,8 @@
 		flex-direction: column;
 		align-items: center;
 		width: 100%;
-		height: 80%;
-		max-height: 100%;
     justify-content: space-evenly;
+    height: 80%;
 	}
 
 	.controls {

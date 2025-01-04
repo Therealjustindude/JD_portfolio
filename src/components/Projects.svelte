@@ -40,6 +40,7 @@
 <Carousel loop={true}>
 	{#each projects as project}
 		<div class="carousel-item">
+			
 			<div class="proj-name">
 				<p>{project.name}</p>
 				{#if project.skills.length > 0} 
@@ -50,6 +51,11 @@
 					</div>
 				{/if}
 			</div>
+			{#if project.img}
+				<div class="project-image-wrapper">
+					<img alt={project.name + ' screenshot'} src={project.img} height="200" width="200" class="project-image" />
+				</div>
+			{/if}
 			<div class="short-desc">{project.shortDesc}</div>
 			<div class="highlights-container">
 				{#each project.highlights as highlight}
@@ -99,11 +105,28 @@
 		height: 100%;
 	}
 
+	.project-image-wrapper {
+		display: flex;
+		width: 100%;
+	}
+	
+	.project-image {
+		width: 95%;
+		height: auto;
+		border-radius: 16px;
+		object-fit: cover; 
+		border: 2px solid var(--theme-palette-secondary);
+	}
+
 	.proj-name {
 		display: flex;
 		gap: 16px;
 		font-size: x-large;
-		font-weight: 700;
+	}
+
+	.proj-name p {
+		font-family: 'Passion One', cursive;
+		font-size: xx-large;
 	}
 
 	.proj-name p {  
@@ -157,6 +180,18 @@
 		.carousel-item {
 			width: 100%;
 			gap: 8px;
+		}
+		.project-image {
+			border-radius: 8px;
+		}
+
+		.proj-name {
+			font-size: medium;
+		}
+
+		.proj-name p {
+			font-family: 'Passion One', cursive;
+			font-size: large;
 		}
 	}
 </style>

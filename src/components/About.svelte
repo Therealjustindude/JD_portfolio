@@ -104,6 +104,12 @@
 		</div>
 		<div class="skills">
 			<div class="icon">
+				<i class={skillsDeviconsClassNames.go}></i>
+			</div>
+			Go
+		</div>
+		<div class="skills">
+			<div class="icon">
 				<i class={skillsDeviconsClassNames.mui}></i>
 			</div>
 			Material-ui

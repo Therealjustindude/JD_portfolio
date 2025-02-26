@@ -10,5 +10,6 @@ export const skillsDeviconsClassNames = {
 	mui: "devicon-materialui-plain",
 	vue: "devicon-vuejs-plain",
 	redux: "devicon-redux-original",
-	vite: "devicon-vitejs-plain"
+	vite: "devicon-vitejs-plain",
+	go: "devicon-go-plain"
 }

@@ -8,6 +8,7 @@
 		<i class={skillsDeviconsClassNames.next}></i>
 		<i class={skillsDeviconsClassNames.svelte}></i>
 		<i class={skillsDeviconsClassNames.ruby}></i>
+		<i class={skillsDeviconsClassNames.go}></i>
 		<i class={skillsDeviconsClassNames.typescript}></i>
 		<i class={skillsDeviconsClassNames.javascript}></i>
 		<i class={skillsDeviconsClassNames.vite}></i>
@@ -15,6 +16,7 @@
 		<i class={skillsDeviconsClassNames.tailwind}></i>
 		<i class={skillsDeviconsClassNames.mui}></i>
 		<i class={skillsDeviconsClassNames.vue}></i>
+		<i class={skillsDeviconsClassNames.aws}></i>
 	</div>
 </div>
 

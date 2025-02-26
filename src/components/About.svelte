@@ -120,6 +120,12 @@
 			</div>
 			Tailwind CSS
 		</div>
+		<div class="skills">
+			<div class="icon">
+				<i class={skillsDeviconsClassNames.aws}></i>
+			</div>
+			aws
+		</div>
 	</div>
 </div>
 

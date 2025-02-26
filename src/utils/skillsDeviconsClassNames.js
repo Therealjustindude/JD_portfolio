@@ -11,5 +11,6 @@ export const skillsDeviconsClassNames = {
 	vue: "devicon-vuejs-plain",
 	redux: "devicon-redux-original",
 	vite: "devicon-vitejs-plain",
-	go: "devicon-go-plain"
+	go: "devicon-go-plain",
+	aws: "devicon-amazonwebservices-plain-wordmark"
 }

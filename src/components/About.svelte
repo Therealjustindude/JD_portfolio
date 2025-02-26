@@ -48,8 +48,7 @@
 		thrilling ride so far and I am excited to see where my career takes me next.
 	</div>
 	<div class="paragraph">
-		When I'm not coding, you can find me exploring new technologies, playing video games, or just
-		hanging out with friends. Thanks for stopping by and learning a little bit about me!
+		When I'm not coding, you can find me exploring new technologies, playing video games, or golfing by myself. Thanks for stopping by and learning a little bit about me!
 	</div>
 </div>
 <div id="tech-container">

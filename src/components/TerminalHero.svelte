@@ -4,7 +4,7 @@
 	const lines = [
 		{
 			prompt: 'whoami',
-			out: 'justin davies · software engineer (seattle, wa)'
+			out: 'justin davies · software engineer (glen allen, va)'
 		},
 		{
 			prompt: 'cat ./about.txt',

@@ -2,9 +2,10 @@
 	import { projects } from '../utils/projects.js';
 
 	let active = $state(0);
+	let p = $derived(projects[active]);
 
 	$effect(() => {
-		// reset scroll when switching projects
+		active; // track active
 		const panel = document.querySelector('.panel');
 		if (panel) panel.scrollTop = 0;
 	});
@@ -44,7 +45,6 @@
 		<!-- Detail panel -->
 		<div class="panel">
 			{#key active}
-				{@const p = projects[active]}
 				<div class="panel-inner">
 					<div class="panel-meta">
 						<span>{p.role} · {p.year} ·</span>

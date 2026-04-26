@@ -1,65 +1,84 @@
-html {
-	margin: 0;
-	padding: 0;
+:root {
+	--bg: #0b0b0c;
+	--bg-2: #121214;
+	--surface: #161618;
+	--border: rgba(255, 255, 255, 0.08);
+	--border-strong: rgba(255, 255, 255, 0.16);
+	--fg: #e8e6e1;
+	--fg-2: rgba(232, 230, 225, 0.72);
+	--fg-3: rgba(232, 230, 225, 0.5);
+	--accent: #7ac4a5;
+	--accent-soft: rgba(122, 196, 165, 0.14);
+	--success: #7ab87a;
+	--mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+	--sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+	--serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+	--display: 'Space Grotesk', var(--sans);
 }
 
-body {
-	position: relative;
-	margin: 0;
-	padding: 0;
+html[data-theme='light'] {
+	--bg: #f6f4ef;
+	--bg-2: #efede6;
+	--surface: #ffffff;
+	--border: rgba(0, 0, 0, 0.08);
+	--border-strong: rgba(0, 0, 0, 0.16);
+	--fg: #1a1915;
+	--fg-2: rgba(26, 25, 21, 0.7);
+	--fg-3: rgba(26, 25, 21, 0.45);
+	--accent-soft: rgba(100, 170, 140, 0.12);
+}
+
+*,
+*::before,
+*::after {
 	box-sizing: border-box;
-	font-size: '14px';
-	font-family:
-		'Titillium Web',
-		'Passion One',
-		'Whisper',
-		Mark Pro,
-		cursive,
-		sans-serif;
-	background-color: var(--theme-palette-common-background);
-	color: var(--theme-palette-common-text);
 }
 
 html,
 body {
+	margin: 0;
+	padding: 0;
 	height: 100%;
 }
 
-h1,
-h2 {
-	font-family: 'Passion One', cursive;
+body {
+	background: var(--bg);
+	color: var(--fg);
+	font-family: var(--sans);
+	font-size: 15px;
+	line-height: 1.55;
+	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
+	transition:
+		background-color 0.2s ease,
+		color 0.2s ease;
 }
 
-p,
-label {
-	font-family: 'Titillium Web', sans-serif;
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+button {
+	font-family: inherit;
+}
+
+img {
+	max-width: 100%;
+	display: block;
 }
 
 h1,
 h2,
 h3,
+h4,
+h5,
+h6,
 p {
 	margin: 0;
 }
 
-button {
-	border-style: none;
-	filter: drop-shadow(0px 1px 0.5px var(--theme-palette-accent));
-}
-
-a {
-	text-decoration: none;
-	font-family: 'Titillium Web', sans-serif;
-}
-
-label {
-	display: block;
-}
-
-input:disabled {
-	color: #ccc;
-}
-
-button:disabled {
-	color: #999;
+::selection {
+	background: var(--accent);
+	color: var(--bg);
 }

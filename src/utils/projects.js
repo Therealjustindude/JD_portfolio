@@ -1,77 +1,115 @@
 export const projects = [
 	{
-		name: "Teleprompter",
-		url: "https://vue-teleprompter.vercel.app/",
-		shortDesc: "A feature-rich teleprompter application built with Vue 3, Pinia, and Vite. This project includes customizable text scrolling, dynamic speed control, text resizing, drag-and-drop functionality, and an estimated reading time display.",
-		skills: ["vue", "vite"],
-		img: "/teleprompter.png",
-		highlights: [
-			"Customizable text scrolling speed",
-			"Real-time text resizing",
-			"Drag-and-drop functionality",
-			"Estimated reading time display",
-			"Supports both mouse and touch inputs",
-		]
+		slug: 'teleprompter',
+		name: 'Teleprompter',
+		tagline: 'A feature-rich teleprompter for people who actually have to read off a screen.',
+		description:
+			'Customizable text scrolling speed, real-time resizing, drag-and-drop script loading, estimated read time, and full touch support. Built as a weekend tool and kept growing.',
+		year: '2024',
+		role: 'Design + Engineering',
+		stack: ['Vue 3', 'Pinia', 'Vite'],
+		features: [
+			'Scroll-speed control tuned for reading, not marquee-ing',
+			'Live text resizing with a persistent preference',
+			'Drag-and-drop script import',
+			'Estimated reading time based on WPM',
+			'Mouse, keyboard, and touch input parity'
+		],
+		href: 'https://vue-teleprompter.vercel.app/',
+		status: 'live',
+		img: '/teleprompter.png'
 	},
 	{
-		name: "Base Apparel",
-		url: "https://base-apparel-coming-soon-master-liart-nine.vercel.app/",
-		shortDesc: "Frontend mentor coming soon page for a finctional brand",
-		skills: ["vue", "vite"],
-		img: "/base-apparel-screenshot.png",
-		highlights: [
-			"Built with Vue 3 and Vite for fast development and optimized builds",
-			"Toast notifications powered by vue3-toastify",
-			"Responsive design adhering to a mobile-first approach",
-			"Follows WCAG accessibility guidelines to ensure usability across screen sizes",
-		]
+		slug: 'multi-step-form',
+		name: 'Multi-Step Form',
+		tagline: 'A polished multi-step form with real-time validation.',
+		description:
+			'Frontend Mentor challenge built with React, TypeScript, and Tailwind. Accessible forms with Yup + React Hook Form validation and a clean step-by-step UX.',
+		year: '2023',
+		role: 'Solo',
+		stack: ['React', 'TypeScript', 'Tailwind', 'Next.js'],
+		features: [
+			'Responsive design for mobile and desktop',
+			'Accessible forms with Yup schema validation',
+			'Real-time feedback with toast notifications',
+			'Clean multi-step UX flow'
+		],
+		href: 'https://multi-step-form-liard-eight.vercel.app/',
+		status: 'live',
+		img: '/mulit-step-form-snapshot.png'
 	},
 	{
-		name: "Multi-Step Form",
-		url: "https://multi-step-form-liard-eight.vercel.app/",
-		shortDesc: "Frontend mentor multi-step form challenge",
-		skills: ["react", "next", "tailwind", "typescript"],
-		img: "/mulit-step-form-snapshot.png",
-		highlights: [
-			"Responsive design optimized for mobile and desktop",
-			"Accessible forms with validation using Yup and React Hook Form",
-			"Real-time feedback with Toastify notifications"
-		]
+		slug: 'base-apparel',
+		name: 'Base Apparel',
+		tagline: 'Coming soon page for a fictional fashion brand.',
+		description:
+			'A Frontend Mentor challenge built with Vue 3 and Vite. Mobile-first responsive design following WCAG accessibility guidelines with toast notifications.',
+		year: '2023',
+		role: 'Solo',
+		stack: ['Vue 3', 'Vite'],
+		features: [
+			'Mobile-first responsive layout',
+			'WCAG-compliant accessible markup',
+			'Toast notifications via vue3-toastify'
+		],
+		href: 'https://base-apparel-coming-soon-master-liart-nine.vercel.app/',
+		status: 'live',
+		img: '/base-apparel-screenshot.png'
 	},
 	{
-		name: "WeBudget",
-		url: "",
-		shortDesc: "Provides tools to effectively allocate your funds",
-		skills: ["react", "redux", "rails", "mui"],
-		img: "/weBudget.png",
-		highlights: [
-			"Created a React application utilizing Redux for state management",
-			"Implemented JSON web token authentication with a Rails API",
-			"Constructed two forms with JSX and implemented control functionality."
-		]
+		slug: 'webudget',
+		name: 'WeBudget',
+		tagline: 'Tools to effectively allocate your funds.',
+		description:
+			'A React + Redux frontend backed by a Rails API. JWT authentication, two controlled forms for budget entry, and a clean allocation UI.',
+		year: '2021',
+		role: 'Solo',
+		stack: ['React', 'Redux', 'Ruby on Rails', 'Material UI'],
+		features: [
+			'JWT authentication with a Rails API',
+			'Redux for predictable state management',
+			'Two controlled forms with validation',
+			'Budget allocation dashboard'
+		],
+		href: '',
+		status: 'archived',
+		img: '/weBudget.png'
 	},
 	{
-		name: "Thank You For Tia",
-		url: "",
-		shortDesc: "Displays a menu for a fictional food truck",
-		img: "/TYFTimg.png",
-		skills: ["rails", "javascript"],
-		highlights: [
-			"Developed a software application utilizing a Rails API and Vanilla JavaScript",
-			"Utilized fetch requests to retrieve data from the backend and utilized JavaScript classes to store objects",
-			"Implemented Vanilla JavaScript to manipulate the Document Object Model (DOM)"
-		]
+		slug: 'thank-you-for-tia',
+		name: 'Thank You For Tia',
+		tagline: 'Menu display for a fictional food truck.',
+		description:
+			'Vanilla JavaScript frontend consuming a Rails API. Fetch requests retrieve menu data, JavaScript classes store objects, and DOM manipulation renders the UI.',
+		year: '2021',
+		role: 'Solo',
+		stack: ['Ruby on Rails', 'JavaScript'],
+		features: [
+			'Rails API with vanilla JS frontend',
+			'Fetch-based data loading',
+			'JavaScript classes for data modeling',
+			'DOM manipulation for rendering'
+		],
+		href: '',
+		status: 'archived',
+		img: '/TYFTimg.png'
 	},
 	{
-		name: "Mans Best Friend Fitness",
-		url: "",
-		shortDesc: "Offers a pet owner the opportunity to journal and keep track of their pets health",
-		skills: ["ruby", "rails"],
-		img: "",
-		highlights: [
-			"Developed a Ruby on Rails project adhering to the Model-View-Controller (MVC) pattern",
-			"Incorporated OmniAuth to allow users to sign in via Facebook",
-			"Utilized the Devise gem for authentication implementation"
-		]
-	},
-]
+		slug: 'portfolio',
+		name: 'This Portfolio',
+		tagline: "The site you're on. Built to be easy to rewrite on a Sunday.",
+		description:
+			'SvelteKit, handwritten CSS, no CMS. Terminal-flavored design, dark + light themes, and the whole thing builds in under three seconds.',
+		year: '2025',
+		role: 'Solo',
+		stack: ['SvelteKit', 'TypeScript', 'CSS'],
+		features: [
+			'Terminal-native aesthetic with typewriter animations',
+			'Dark + light themes with localStorage persistence',
+			'Deployed on Vercel, sub-3s builds'
+		],
+		href: '#',
+		status: 'live',
+		img: ''
+	}
+];

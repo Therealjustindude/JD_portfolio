@@ -17,13 +17,16 @@
 	<div class="container section">
 		<TerminalAbout />
 	</div>
+
 	<div class="container section">
 		<TerminalExperience />
 	</div>
+
 	<div class="container section">
 		<TerminalProjects />
 	</div>
-	<div class="container section">
+
+	<div class="container section last">
 		<TerminalContact />
 	</div>
 </main>
@@ -31,6 +34,7 @@
 <footer>
 	<div class="container footer-inner">
 		<span>© 2026 Justin Davies · built with SvelteKit</span>
+		<span>designed & built by justin davies</span>
 	</div>
 </footer>
 
@@ -47,15 +51,13 @@
 	}
 
 	.section {
-		padding-top: 56px;
-		padding-bottom: 56px;
+		padding-top: 64px;
+		padding-bottom: 64px;
+		border-top: 1px solid var(--border);
 	}
 
-	.placeholder {
-		font-family: var(--mono);
-		font-size: 13px;
-		color: var(--fg-3);
-		border-top: 1px dashed var(--border);
+	.last {
+		padding-bottom: 80px;
 	}
 
 	footer {
@@ -67,6 +69,8 @@
 	}
 
 	.footer-inner {
+		max-width: 1100px;
+		margin: 0 auto;
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;

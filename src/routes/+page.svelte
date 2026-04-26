@@ -3,6 +3,7 @@
 	import TerminalHero from '../components/TerminalHero.svelte';
 	import TerminalAbout from '../components/TerminalAbout.svelte';
 	import TerminalExperience from '../components/TerminalExperience.svelte';
+	import TerminalProjects from '../components/TerminalProjects.svelte';
 </script>
 
 <TerminalNav />
@@ -18,8 +19,8 @@
 	<div class="container section">
 		<TerminalExperience />
 	</div>
-	<div id="work" class="container section placeholder">
-		<p>Work — coming soon</p>
+	<div class="container section">
+		<TerminalProjects />
 	</div>
 	<div id="contact" class="container section placeholder">
 		<p>Contact — coming soon</p>

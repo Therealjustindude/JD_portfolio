@@ -1,23 +1,26 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="description" content="Justin Davies portfolio web app" />
+		<meta name="description" content="Justin Davies — Software Engineer" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.jpeg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Passion+One&family=Press+Start+2P&family=Titillium+Web&family=Whisper&display=swap"
+			href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Instrument+Serif&family=Geist:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
 			rel="stylesheet"
-		/>
-		<link
-			rel="stylesheet"
-			type="text/css"
-			href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
 		/>
 		<title>Justin Davies</title>
-		<meta name="viewport" content="width=device-width" />
+		<script>
+			try {
+				const saved = localStorage.getItem('jd-theme');
+				if (saved) document.documentElement.dataset.theme = saved;
+			} catch (e) {}
+		</script>
 		%sveltekit.head%
 	</head>
-	<body data-sveltekit-prefetch>
+	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>

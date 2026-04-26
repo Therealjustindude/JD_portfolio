@@ -14,23 +14,21 @@
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.30.0",
-		"@sveltejs/adapter-auto": "^3.1.1",
-		"@sveltejs/kit": "^2.15.1",
-		"@sveltejs/vite-plugin-svelte": "^4.0.4",
+		"@sveltejs/adapter-vercel": "^6.3.3",
+		"@sveltejs/kit": "^2.58.0",
+		"@sveltejs/vite-plugin-svelte": "^7.0.0",
 		"eslint": "^8.34.0",
 		"eslint-config-prettier": "^8.6.0",
 		"eslint-plugin-svelte": "^2.46.1",
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.2",
-		"svelte": "^5.16.0",
+		"svelte": "^5.55.5",
 		"svelte-check": "^4.1.1",
 		"typescript": "^5.7.2",
-		"vite": "^5.4.11"
+		"vite": "^8.0.10"
 	},
 	"type": "module",
-	"dependencies": {
-		"nodemailer": "^6.9.1",
-		"svelte-icons": "^2.1.0",
-		"yup": "^0.32.11"
+	"engines": {
+		"node": "22.x"
 	}
 }

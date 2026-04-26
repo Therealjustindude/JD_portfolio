@@ -4,6 +4,7 @@
 	import TerminalAbout from '../components/TerminalAbout.svelte';
 	import TerminalExperience from '../components/TerminalExperience.svelte';
 	import TerminalProjects from '../components/TerminalProjects.svelte';
+	import TerminalContact from '../components/TerminalContact.svelte';
 </script>
 
 <TerminalNav />
@@ -22,8 +23,8 @@
 	<div class="container section">
 		<TerminalProjects />
 	</div>
-	<div id="contact" class="container section placeholder">
-		<p>Contact — coming soon</p>
+	<div class="container section">
+		<TerminalContact />
 	</div>
 </main>
 

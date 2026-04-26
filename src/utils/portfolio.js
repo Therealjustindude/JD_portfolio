@@ -1,6 +1,6 @@
 export const PROFILE = {
 	name: 'Justin Davies',
-	location: 'Seattle, WA',
+	location: 'Glen Allen, VA',
 	email: 'justinjdavies1@gmail.com',
 	socials: [
 		{

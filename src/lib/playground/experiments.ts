@@ -6,8 +6,10 @@ export type Kind =
 	| 'spring-echo'
 	| 'spring-tether'
 	| 'magnetic-throw'
-	| 'sticky-echo';
-export type Collection = 'basics' | 'combinations';
+	| 'sticky-echo'
+	| 'wall-toast'
+	| 'wall-clear';
+export type Collection = 'basics' | 'combinations' | 'events' | 'layouts';
 export type Definition = {
 	id: Kind;
 	name: string;
@@ -20,6 +22,7 @@ export type Definition = {
 	technique: string;
 	features: Feature[];
 	collection: Collection;
+	reaction?: 'toast' | 'clear';
 };
 
 export const definitions: Definition[] = [
@@ -184,6 +187,36 @@ export const definitions: Definition[] = [
 		technique: 'Throw & bounce × magnetic field',
 		features: ['inertia', 'magnet'],
 		collection: 'combinations'
+	},
+	{
+		id: 'wall-toast',
+		name: 'Ouch, a wall!',
+		color: '#b6ed91',
+		w: 140,
+		h: 96,
+		px: 0.3,
+		py: 0.36,
+		detail:
+			'Throw or drag me into any wall. Each new contact triggers a toast. Staying against the wall will not repeat it.',
+		technique: 'Wall contact → callback → toast',
+		features: ['inertia', 'edge'],
+		collection: 'events',
+		reaction: 'toast'
+	},
+	{
+		id: 'wall-clear',
+		name: 'Impact to clear',
+		color: '#f1947c',
+		w: 132,
+		h: 92,
+		px: 0.7,
+		py: 0.36,
+		detail:
+			'Type in my demo input, then throw or drag me into a wall. The collision callback clears the input. Refill it to try again.',
+		technique: 'Wall contact → callback → input state',
+		features: ['inertia', 'edge'],
+		collection: 'events',
+		reaction: 'clear'
 	}
 ];
 

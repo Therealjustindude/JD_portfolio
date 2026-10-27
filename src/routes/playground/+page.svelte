@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { advance, getAnchors } from '$lib/playground/physics';
+	import LayoutPlayground from '../../components/playground/LayoutPlayground.svelte';
+	import { advance, getAnchors, enteredWalls, type Wall } from '$lib/playground/physics';
 	import { examples } from '$lib/playground/examples';
 	import {
 		definitions,
@@ -24,9 +25,66 @@
 		echoY: number;
 	};
 	let collection = $state<Collection>('basics');
+	let layoutReset = $state(0);
+	const sampleText = 'A wall hit will clear this…';
+	let draft = $state(sampleText);
+	let clearCount = $state(0);
+	let toastCount = $state(0);
+	let lastClear = $state('');
+	let toast = $state('');
+	let toastTimer: ReturnType<typeof setTimeout>;
+	let lastToastAt = -Infinity;
+
+	function triggerWalls(toy: Toy, previous: { x: number; y: number }) {
+		if (!toy.reaction) return;
+		const walls = enteredWalls(previous, toy, width, height);
+		if (!walls.length) return;
+		onWallHit(toy, walls);
+	}
+
+	function onWallHit(toy: Toy, walls: Wall[]) {
+		if (toy.reaction === 'clear') {
+			draft = '';
+			clearCount++;
+			lastClear = walls.join(' + ');
+		} else if (toy.reaction === 'toast') {
+			toastCount++;
+			// Limit announcements during rapid throws. Contacts are still counted.
+			const now = performance.now();
+			if (now - lastToastAt < 1000) return;
+			lastToastAt = now;
+			toast = `Ouch! That hurts. (${walls.join(' + ')} wall)`;
+			clearTimeout(toastTimer);
+			toastTimer = setTimeout(() => {
+				toast = '';
+			}, 3500);
+		}
+	}
+
+	function throwAtWall(toy: Toy) {
+		drag = null;
+		active = null;
+		hovered = null;
+		toy.x = toy.tx = toy.hx;
+		toy.y = toy.ty = toy.hy;
+		toy.vx = toy.vy = 0;
+		const left = toy.hx < width / 2;
+		if (reduced || paused) {
+			const previous = { x: toy.x, y: toy.y };
+			toy.x = toy.tx = left ? toy.w / 2 : width - toy.w / 2;
+			triggerWalls(toy, previous);
+		} else {
+			toy.vx = left ? -24 : 24;
+			toy.vy = -3;
+		}
+	}
+
 	const visibleDefinitions = $derived(definitions.filter((d) => d.collection === collection));
 	function switchCollection(next: Collection) {
 		collection = next;
+		try {
+			localStorage.setItem('jd-playground-collection', next);
+		} catch {}
 		reset();
 	}
 
@@ -95,6 +153,14 @@
 	const clamp = (n: number, min: number, max: number) => Math.max(min, Math.min(max, n));
 
 	function reset() {
+		layoutReset++;
+		draft = sampleText;
+		clearCount = 0;
+		toastCount = 0;
+		lastClear = '';
+		toast = '';
+		lastToastAt = -Infinity;
+		clearTimeout(toastTimer);
 		drag = null;
 		active = null;
 		hovered = null;
@@ -228,6 +294,7 @@
 	}
 
 	function moveTo(t: Toy, x: number, y: number) {
+		const previous = { x: t.x, y: t.y };
 		t.tx = clamp(x, t.w / 2, width - t.w / 2);
 		t.ty = clamp(y, t.h / 2, height - t.h / 2);
 		if (has(t, 'magnet')) {
@@ -243,6 +310,7 @@
 			t.x = t.tx;
 			t.y = t.ty;
 		}
+		triggerWalls(t, previous);
 		echo(t);
 	}
 
@@ -322,6 +390,16 @@
 	}
 
 	onMount(() => {
+		try {
+			const saved = localStorage.getItem('jd-playground-collection');
+			if (
+				saved === 'basics' ||
+				saved === 'combinations' ||
+				saved === 'events' ||
+				saved === 'layouts'
+			)
+				collection = saved;
+		} catch {}
 		const media = matchMedia('(prefers-reduced-motion: reduce)');
 		const preference = () => {
 			reduced = media.matches;
@@ -331,7 +409,7 @@
 		const resize = () => {
 			width = window.innerWidth;
 			height = window.innerHeight;
-			reset();
+			if (collection !== 'layouts') reset();
 		};
 		resize();
 		window.addEventListener('resize', resize);
@@ -359,7 +437,9 @@
 			previous = now;
 			if (!paused && !reduced) {
 				for (const t of toys) {
+					const previous = { x: t.x, y: t.y };
 					advance(t, dt, active === t.id, width, height);
+					triggerWalls(t, previous);
 					echo(t);
 				}
 			}
@@ -369,6 +449,7 @@
 		frame = requestAnimationFrame(tick);
 		return () => {
 			clearTimeout(hoverTimer);
+			clearTimeout(toastTimer);
 			cancelAnimationFrame(frame);
 			window.removeEventListener('resize', resize);
 			window.removeEventListener('pointermove', pointerMove);
@@ -395,9 +476,18 @@
 		motion studies<span
 			>{collection === 'basics'
 				? 'six small interactions'
-				: 'six experiments in combining behaviors'}</span
+				: collection === 'combinations'
+					? 'six experiments in combining behaviors'
+					: collection === 'events'
+						? 'motion can change your interface'
+						: 'content that moves with its container'}</span
 		>
 	</div>
+	{#if collection === 'layouts'}<LayoutPlayground
+			{reduced}
+			{paused}
+			resetToken={layoutReset}
+		/>{/if}
 	<svg class="connections" {width} {height} aria-hidden="true">
 		{#each toys as toy (toy.id)}
 			{#if has(toy, 'magnet')}
@@ -489,6 +579,46 @@
 			</aside>
 		{/if}
 	{/each}
+	{#if collection === 'events'}
+		<div class="event-intro">
+			<span>motion → event → interface</span>
+			<p>Hit a wall. Run some code.</p>
+		</div>
+		{#each toys as toy (toy.id)}
+			<div class="event-launch" style:left="{toy.hx}px" style:top="{toy.hy + toy.h / 2 + 24}px">
+				<span>{toy.name}</span>
+				<button
+					onclick={() => throwAtWall(toy)}
+					aria-label={toy.reaction === 'toast'
+						? 'Throw toast shape at wall'
+						: 'Throw clear-input shape at wall'}>↗ throw into wall</button
+				>
+				{#if toy.reaction === 'toast'}<small aria-live="off"
+						>{toastCount} wall {toastCount === 1 ? 'contact' : 'contacts'}</small
+					>{/if}
+			</div>
+		{/each}
+		<div class="input-demo">
+			<label for="impact-draft">A little input with a dramatic reset</label>
+			<div class="input-row">
+				<input
+					id="impact-draft"
+					bind:value={draft}
+					placeholder="Cleared by a wall hit. Type to try again."
+				/><button onclick={() => (draft = sampleText)}>Refill</button>
+			</div>
+			<p role="status">
+				{clearCount
+					? `Input cleared ${clearCount} ${clearCount === 1 ? 'time' : 'times'} · ${lastClear} wall`
+					: 'Type anything, then send the coral shape into a wall.'}
+			</p>
+		</div>
+	{/if}
+	<div class="impact-toast" role="status" aria-atomic="true">
+		{#if toast}<span aria-hidden="true">✦</span>
+			<div><strong>{toast}</strong><small>A wall-hit callback just ran.</small></div>
+			<button onclick={() => (toast = '')} aria-label="Dismiss impact toast">×</button>{/if}
+	</div>
 	<div class="collection-switch" role="group" aria-label="Experiment collection">
 		<button aria-pressed={collection === 'basics'} onclick={() => switchCollection('basics')}
 			>01 · basics</button
@@ -496,6 +626,12 @@
 		<button
 			aria-pressed={collection === 'combinations'}
 			onclick={() => switchCollection('combinations')}>02 · combinations</button
+		>
+		<button aria-pressed={collection === 'events'} onclick={() => switchCollection('events')}
+			>03 · events</button
+		>
+		<button aria-pressed={collection === 'layouts'} onclick={() => switchCollection('layouts')}
+			>04 · layouts</button
 		>
 	</div>
 	<div class="tools">
@@ -606,7 +742,8 @@
 		stroke-dasharray: 2 7;
 	}
 	.toy {
-		z-index: 6;
+		/* Keep every draggable surface above form controls, even at rest. */
+		z-index: 20;
 		position: absolute;
 		transform: translate(-50%, -50%) rotate(calc(var(--lean) + var(--rotation, 0deg)));
 		background: var(--color);
@@ -624,7 +761,7 @@
 	}
 	.toy.dragging {
 		cursor: grabbing;
-		z-index: 8;
+		z-index: 21;
 	}
 	.toy:focus-visible {
 		outline: 2px solid #fff;
@@ -880,7 +1017,153 @@
 		margin-top: 12px;
 		padding-top: 10px;
 	}
+	.event-intro {
+		position: absolute;
+		top: 15%;
+		width: 100%;
+		text-align: center;
+		pointer-events: none;
+		color: #aab7ae;
+	}
+	.event-intro span {
+		font: 10px var(--mono);
+		color: #7f9c83;
+	}
+	.event-intro p {
+		margin-top: 8px;
+		font-size: clamp(18px, 2.5vw, 28px);
+		color: #d8dfd7;
+	}
+	.event-launch {
+		position: absolute;
+		z-index: 9;
+		transform: translateX(-50%);
+		text-align: center;
+		display: grid;
+		justify-items: center;
+		gap: 6px;
+		width: 150px;
+		font: 11px var(--mono);
+		color: #aab7ae;
+	}
+	.event-launch button {
+		background: transparent;
+		border: 1px solid #87958133;
+		border-radius: 20px;
+		padding: 7px 10px;
+		color: #d8dfd7;
+		cursor: pointer;
+		font: 9px var(--mono);
+	}
+	.event-launch small {
+		color: #829087;
+		font-size: 9px;
+	}
+	.input-demo {
+		position: absolute;
+		z-index: 9;
+		top: 65%;
+		left: 50%;
+		transform: translateX(-50%);
+		width: min(420px, calc(100vw - 44px));
+		font: 10px/1.7 var(--mono);
+		color: #aab7ae;
+	}
+	.input-demo label {
+		display: block;
+		margin-bottom: 10px;
+	}
+	.input-row {
+		display: flex;
+		gap: 8px;
+	}
+	.input-row input {
+		min-width: 0;
+		flex: 1;
+		border: 1px solid #f1947c55;
+		background: #171d19;
+		color: #f1c1b6;
+		padding: 12px;
+		border-radius: 8px;
+		font: 11px var(--mono);
+	}
+	.input-row button {
+		background: #f1947c16;
+		border: 1px solid #f1947c33;
+		border-radius: 8px;
+		padding: 8px 12px;
+		color: #f1c1b6;
+		cursor: pointer;
+	}
+	.input-demo p {
+		margin-top: 10px;
+		color: #829087;
+	}
+	.impact-toast {
+		position: absolute;
+		z-index: 12;
+		left: 50%;
+		top: 28px;
+		transform: translateX(-50%);
+		max-width: calc(100vw - 28px);
+	}
+	.impact-toast:not(:empty) {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		width: max-content;
+		padding: 14px 18px;
+		background: #233022;
+		border: 1px solid #b6ed9144;
+		border-radius: 12px;
+		box-shadow: 0 12px 40px #0005;
+		color: #b6ed91;
+	}
+	.impact-toast strong {
+		display: block;
+		color: #d8dfd7;
+		font-size: 12px;
+		font-weight: 500;
+	}
+	.impact-toast small {
+		display: block;
+		color: #91a18f;
+		font: 9px var(--mono);
+		margin-top: 3px;
+	}
+	.impact-toast button {
+		border: 0;
+		background: transparent;
+		color: #aab7ae;
+		cursor: pointer;
+		font-size: 20px;
+		padding: 0 0 0 10px;
+	}
+	.event-launch button:focus-visible,
+	.input-demo input:focus-visible,
+	.input-demo button:focus-visible {
+		outline: 2px solid #f1947c;
+		outline-offset: 3px;
+	}
+	@media (max-height: 560px) {
+		.event-intro {
+			top: 8%;
+		}
+		.event-intro p {
+			font-size: 16px;
+		}
+		.input-demo {
+			top: 67%;
+		}
+		.input-demo label {
+			margin-bottom: 4px;
+		}
+	}
 	.collection-switch {
+		max-width: calc(100vw - 28px);
+		width: max-content;
+		flex-wrap: wrap;
+		justify-content: center;
 		position: absolute;
 		z-index: 9;
 		bottom: 24px;
@@ -910,6 +1193,12 @@
 	.collection-switch button:focus-visible {
 		outline: 2px solid #b6ed91;
 		outline-offset: 2px;
+	}
+	@media (max-width: 480px) {
+		.collection-switch {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
 	}
 	@media (max-width: 800px) {
 		.collection-switch {
@@ -978,7 +1267,7 @@
 			display: none;
 		}
 		.tools {
-		z-index: 9;
+			z-index: 9;
 			left: 22px;
 			right: 22px;
 			bottom: 18px;

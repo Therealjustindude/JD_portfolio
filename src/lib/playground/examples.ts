@@ -4,6 +4,8 @@ import type { Feature, Kind } from './experiments';
 // Share the pointer and animation plumbing, keeping each effect easy to compare.
 const component = (options: {
 	color: string;
+	trackWalls?: boolean;
+	cleanup?: string;
 	setup?: string;
 	down?: string;
 	move?: string;
@@ -44,11 +46,13 @@ ${options.down ?? ''}
 
   function move(e: PointerEvent) {
     if (!dragging) return;
+${options.trackWalls ? '    const fromX = x, fromY = y;' : ''}
     const now = performance.now();
     const elapsed = Math.max(8, now - lastTime);
     tx = clamp(e.clientX - offsetX, w / 2, width - w / 2);
     ty = clamp(e.clientY - offsetY, h / 2, height - h / 2);
 ${options.move ?? '    x = tx; y = ty;'}
+${options.trackWalls ? '    checkWalls(fromX, fromY);' : ''}
     lastX = e.clientX; lastY = e.clientY; lastTime = now;
   }
 
@@ -78,11 +82,14 @@ ${options.release ?? ''}
       // Normalize time to a 60 Hz frame; cap after a background-tab pause.
       const dt = Math.min((now - (previous || now)) / 16.67, 2);
       previous = now;
+${options.trackWalls ? '      const fromX = x, fromY = y;' : ''}
 ${options.frame ?? ''}
+${options.trackWalls ? '      checkWalls(fromX, fromY);' : ''}
       frame = requestAnimationFrame(tick);
     }
     frame = requestAnimationFrame(tick);
     return () => {
+${options.cleanup ?? ''}
       cancelAnimationFrame(frame);
       window.removeEventListener('resize', resize);
       media.removeEventListener('change', preference);
@@ -107,8 +114,10 @@ ${options.markup ?? ''}
       const direction = directions[e.key];
       if (!direction) return;
       e.preventDefault();
+${options.trackWalls ? '      const fromX = x, fromY = y;' : ''}
       x = tx = clamp(x + direction[0] * 20, w / 2, width - w / 2);
       y = ty = clamp(y + direction[1] * 20, h / 2, height - h / 2);
+${options.trackWalls ? '      checkWalls(fromX, fromY);' : ''}
     }}
   ></button>
 </div>
@@ -116,6 +125,7 @@ ${options.markup ?? ''}
 <style>
   .stage { position: fixed; inset: 0; overflow: hidden; background: #111412; }
   .shape {
+    z-index: 3; /* Stay grabbable above the demo input and toast. */
     position: absolute; transform: translate(-50%, -50%);
     border: 0; background: ${options.color}; cursor: grab;
     touch-action: none; user-select: none;
@@ -158,9 +168,70 @@ const rippleSetup = `  let rings = $state<{ id: number; x: number; y: number; bo
 const releaseHome = `    tx = homeX; ty = homeY;
     if (reduced) { x = tx; y = ty; }`;
 
+// Contact detection is separate from the reaction. Replace onWallHit's body
+// with any application action: notifications, form state, sounds, analytics, etc.
+function wallSetup(reaction: 'toast' | 'clear') {
+	return `${
+		reaction === 'toast'
+			? `  let toast = $state('');
+  let toastTimer: ReturnType<typeof setTimeout>;
+  let lastToastAt = -Infinity;
+  function onWallHit(walls: string[]) {
+    const now = performance.now();
+    if (now - lastToastAt < 1000) return; // Avoid notification spam.
+    lastToastAt = now;
+    toast = 'Ouch! That hurts. (' + walls.join(' + ') + ' wall)';
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => { toast = ''; }, 3500);
+  }`
+			: `  let draft = $state('A wall hit will clear this…');
+  let clearCount = $state(0);
+  function onWallHit(walls: string[]) {
+    draft = ''; // Svelte updates the bound input automatically.
+    clearCount++;
+  }`
+	}
+
+  function checkWalls(fromX: number, fromY: number) {
+    const walls: string[] = [];
+    // Compare before/after positions: only new contact triggers the callback.
+    if (fromX > w / 2 && x <= w / 2) walls.push('left');
+    if (fromX < width - w / 2 && x >= width - w / 2) walls.push('right');
+    if (fromY > h / 2 && y <= h / 2) walls.push('top');
+    if (fromY < height - h / 2 && y >= height - h / 2) walls.push('bottom');
+    if (walls.length) onWallHit(walls);
+  }`;
+}
+const wallMarkup = (reaction: 'toast' | 'clear') =>
+	reaction === 'toast'
+		? `  <div class="notice" role="status">{toast}</div>`
+		: `  <div class="demo-input">
+    <label for="draft">Type something, then hit a wall with the shape.</label>
+    <input id="draft" bind:value={draft} placeholder="Cleared by a collision" />
+    <button onclick={() => draft = 'Try another wall hit'}>Refill</button>
+    <p role="status">Cleared {clearCount} times</p>
+  </div>`;
+const wallCss = (reaction: 'toast' | 'clear') =>
+	reaction === 'toast'
+		? `  .notice { position: absolute; z-index: 2; top: 24px; left: 50%; translate: -50% 0;
+    color: #b6ed91; background: #233022; border-radius: 12px; font: 14px system-ui; }
+  .notice:not(:empty) { padding: 16px 22px; }
+`
+		: `  .demo-input { position: absolute; z-index: 2; top: 72%; left: 50%; translate: -50% 0;
+    width: min(380px, calc(100vw - 40px)); color: #ddd; font: 12px system-ui; }
+  .demo-input label { display: block; margin-bottom: 10px; }
+  .demo-input input { width: 100%; padding: 12px; box-sizing: border-box; }
+  .demo-input button { margin-top: 8px; padding: 6px 12px; }`;
+
 // Assemble behaviors before generating the standalone source. Each copied component
 // contains the actual formulas rather than importing playground-specific helpers.
-function example(features: Feature[], color: string, note: string, triangle = false) {
+function example(
+	features: Feature[],
+	color: string,
+	note: string,
+	triangle = false,
+	reaction?: 'toast' | 'clear'
+) {
 	const has = (feature: Feature) => features.includes(feature);
 	const spring = has('spring'),
 		tether = has('tether'),
@@ -168,7 +239,13 @@ function example(features: Feature[], color: string, note: string, triangle = fa
 	const magnet = has('magnet'),
 		ripple = has('ripple'),
 		edge = has('edge');
-	const setup = [magnet ? magnetSetup : '', ripple ? rippleSetup : ''].filter(Boolean).join('\n');
+	const setup = [
+		magnet ? magnetSetup : '',
+		ripple ? rippleSetup : '',
+		reaction ? wallSetup(reaction) : ''
+	]
+		.filter(Boolean)
+		.join('\n');
 	const move = [
 		inertia
 			? `    vx = clamp((e.clientX - lastX) / elapsed * 16.67, -35, 35);
@@ -213,6 +290,7 @@ ${
       echo(now); // Also emit during spring return or inertial flight.
       if (rings.length) rings = rings.filter(r => now - r.born < 1400);`;
 	const markup = [
+		reaction ? wallMarkup(reaction) : '',
 		magnet
 			? `  <svg width={width} height={height} aria-hidden="true">
     {#each anchors as point}
@@ -235,6 +313,7 @@ ${
 		.filter(Boolean)
 		.join('\n');
 	const css = [
+		reaction ? wallCss(reaction) : '',
 		triangle ? '  .shape { clip-path: polygon(50% 0, 100% 100%, 0 100%); }' : '',
 		ripple
 			? `  .ring {
@@ -256,6 +335,8 @@ ${
 		note,
 		code: component({
 			color,
+			trackWalls: !!reaction,
+			cleanup: reaction === 'toast' ? '      clearTimeout(toastTimer);' : '',
 			setup,
 			move,
 			frame,
@@ -333,5 +414,19 @@ export const examples: Record<Kind, { note: string; code: string }> = {
 		['inertia', 'edge', 'ripple'],
 		'#f1947c',
 		'Combine inertial motion, edge deformation, and a ripple trail. Emit rings from the deformed render position so the trail stays attached as the body flattens against a wall.'
+	),
+	'wall-toast': example(
+		['inertia', 'edge'],
+		'#b6ed91',
+		'A wall collision is detected in JavaScript, not by a CSS event. checkWalls compares before/after positions and calls onWallHit once on entry. That callback sets toast state; a cooldown prevents repeated announcements.',
+		false,
+		'toast'
+	),
+	'wall-clear': example(
+		['inertia', 'edge'],
+		'#f1947c',
+		'Detect a new wall contact, then call onWallHit. Setting draft to an empty string clears the input through bind:value. The same callback can run any other application code. Try dragging, throwing, or moving with arrow keys.',
+		false,
+		'clear'
 	)
 };

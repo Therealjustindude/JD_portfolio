@@ -59,3 +59,22 @@ export function advance(
 		}
 	}
 }
+
+export type Wall = 'left' | 'right' | 'top' | 'bottom';
+
+// Emit on entry, not on every frame spent touching a wall. A corner can enter
+// two walls at once. This also works for dragging and keyboard movement.
+export function enteredWalls(
+	previous: { x: number; y: number },
+	current: Pick<MotionState, 'x' | 'y' | 'w' | 'h'>,
+	width: number,
+	height: number
+): Wall[] {
+	const walls: Wall[] = [];
+	if (previous.x > current.w / 2 && current.x <= current.w / 2) walls.push('left');
+	if (previous.x < width - current.w / 2 && current.x >= width - current.w / 2) walls.push('right');
+	if (previous.y > current.h / 2 && current.y <= current.h / 2) walls.push('top');
+	if (previous.y < height - current.h / 2 && current.y >= height - current.h / 2)
+		walls.push('bottom');
+	return walls;
+}

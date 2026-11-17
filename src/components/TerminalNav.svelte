@@ -48,6 +48,8 @@
 				</a>
 			{/each}
 
+			<a href="/playground"><span class="dim">~/</span>playground</a>
+
 			<button onclick={toggleTheme} aria-label="Toggle theme" class="theme-btn">
 				{#if isDark}
 					<!-- Sun -->
@@ -148,6 +150,14 @@
 	}
 
 	@media (max-width: 600px) {
+		.inner {
+			flex-wrap: wrap;
+			gap: 14px;
+		}
+
+		.links {
+			flex-wrap: wrap;
+		}
 		.links {
 			gap: 14px;
 			font-size: 11px;

@@ -185,3 +185,37 @@ test('saved snapshots are copied and unknown fields are discarded', () => {
 	source.order.reverse();
 	assert.deepEqual(parsed.order, preference.order);
 });
+
+const ts = require('typescript');
+const {
+	reactLayoutCode,
+	reactPersistenceExamples
+} = require('../src/lib/playground/react-references.ts');
+for (const [name, source] of [
+	...Object.entries(examples).map(([name, example]) => [name, example.react]),
+	['layout', reactLayoutCode],
+	...Object.entries(reactPersistenceExamples).map(([name, example]) => [
+		`persistence-${name}`,
+		example.code
+	])
+]) {
+	test(`React ${name}: example transpiles as JSX without syntax errors`, () => {
+		const result = ts.transpileModule(source, {
+			fileName: `${name}.tsx`,
+			reportDiagnostics: true,
+			compilerOptions: {
+				jsx: ts.JsxEmit.ReactJSX,
+				target: ts.ScriptTarget.ES2022,
+				module: ts.ModuleKind.ESNext
+			}
+		});
+		const errors = (result.diagnostics || []).filter(
+			(d) => d.category === ts.DiagnosticCategory.Error
+		);
+		assert.deepEqual(
+			errors.map((d) => ts.flattenDiagnosticMessageText(d.messageText, '\n')),
+			[]
+		);
+		assert.ok(result.outputText.length > 0);
+	});
+}

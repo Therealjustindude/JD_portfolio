@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { onMount, untrack } from 'svelte';
+	import FrameworkSwitch from './FrameworkSwitch.svelte';
+	import { reactLayoutCode, reactPersistenceExamples } from '$lib/playground/react-references';
 	import {
 		LAYOUT_STORAGE_KEY,
 		parseLayoutPreference,
@@ -18,8 +20,14 @@
 	let {
 		reduced = false,
 		paused = false,
-		resetToken = 0
-	} = $props<{ reduced?: boolean; paused?: boolean; resetToken?: number }>();
+		resetToken = 0,
+		framework = $bindable<'svelte' | 'react'>('svelte')
+	} = $props<{
+		reduced?: boolean;
+		paused?: boolean;
+		resetToken?: number;
+		framework?: 'svelte' | 'react';
+	}>();
 	const cards = [
 		{ id: 'intro', label: 'THE INTRODUCTION', name: 'Introduction', color: '#b6ed91' },
 		{ id: 'project', label: 'SELECTED PROJECT', name: 'Project', color: '#8ab9f0' },
@@ -41,6 +49,9 @@
 	let storageMessage = $state('');
 	let referenceTopic = $state<'motion' | 'storage'>('motion');
 	let storageTab = $state<keyof typeof persistenceExamples>('browser');
+	const storageExample = $derived(
+		framework === 'react' ? reactPersistenceExamples[storageTab] : persistenceExamples[storageTab]
+	);
 	let lastReset: number | undefined;
 	let storageReady = $state(false);
 	let needsSave = false;
@@ -285,10 +296,11 @@ for (const card of cards) {
 // Pointer capture keeps dragging active outside the handle.
 // ResizeObserver recalculates slots when the canvas changes size.
 // Cancel the animation frame and observer on component teardown.`;
+	const motionCode = $derived(framework === 'react' ? reactLayoutCode : code);
 	async function copy() {
 		try {
 			await navigator.clipboard.writeText(
-				referenceTopic === 'motion' ? code : persistenceExamples[storageTab].code
+				referenceTopic === 'motion' ? motionCode : storageExample.code
 			);
 			copied = 'Copied';
 		} catch {
@@ -434,6 +446,13 @@ for (const card of cards) {
 				aria-label="Close layout implementation notes">×</button
 			>
 		</div>
+		<FrameworkSwitch
+			value={framework}
+			onChange={(value) => {
+				framework = value;
+				copied = '';
+			}}
+		/>
 		<div class="storage-tabs" role="group" aria-label="How it works section">
 			<button
 				aria-pressed={referenceTopic === 'motion'}
@@ -457,7 +476,8 @@ for (const card of cards) {
 				pixel geometry for the current viewport.
 			</p>
 			<span role="status">{copied}</span>
-			<pre>{code}</pre>
+			<pre
+				aria-label={`${framework === 'react' ? 'React' : 'Svelte'} layout code`}>{motionCode}</pre>
 		{:else}
 			<div class="storage-tabs" role="group" aria-label="Persistence strategy">
 				{#each Object.entries(persistenceExamples) as [id, example]}
@@ -470,7 +490,7 @@ for (const card of cards) {
 					>
 				{/each}
 			</div>
-			<p>{persistenceExamples[storageTab].description}</p>
+			<p>{storageExample.description}</p>
 			{#if storageTab === 'browser'}<p class="storage-actions">
 					<button onclick={() => persistPreference(snapshot())}>Save current layout</button><button
 						onclick={restorePreference}
@@ -480,7 +500,8 @@ for (const card of cards) {
 					>
 				</p>{/if}
 			<span role="status">{copied || storageMessage}</span>
-			<pre>{persistenceExamples[storageTab].code}</pre>
+			<pre
+				aria-label={`${framework === 'react' ? 'React' : 'Svelte'} persistence code`}>{storageExample.code}</pre>
 		{/if}
 	</dialog>
 </section>

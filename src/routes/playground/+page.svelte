@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import LayoutPlayground from '../../components/playground/LayoutPlayground.svelte';
+	import FrameworkSwitch from '../../components/playground/FrameworkSwitch.svelte';
 	import { advance, getAnchors, enteredWalls, type Wall } from '$lib/playground/physics';
 	import { examples } from '$lib/playground/examples';
 	import {
@@ -25,6 +26,7 @@
 		echoY: number;
 	};
 	let collection = $state<Collection>('basics');
+	let framework = $state<'svelte' | 'react'>('svelte');
 	let layoutReset = $state(0);
 	const sampleText = 'A wall hit will clear this…';
 	let draft = $state(sampleText);
@@ -123,7 +125,9 @@
 	async function copyCode() {
 		const version = ++copyVersion;
 		try {
-			await navigator.clipboard.writeText(examples[selected].code);
+			await navigator.clipboard.writeText(
+				framework === 'react' ? examples[selected].react : examples[selected].code
+			);
 			if (version === copyVersion) copyMessage = 'Copied!';
 		} catch {
 			if (version === copyVersion) copyMessage = 'Select the code and copy it manually.';
@@ -484,6 +488,7 @@
 		>
 	</div>
 	{#if collection === 'layouts'}<LayoutPlayground
+			bind:framework
 			{reduced}
 			{paused}
 			resetToken={layoutReset}
@@ -573,7 +578,7 @@
 				<p>{toy.detail}</p>
 				<small>{toy.technique}</small>
 				<button class="view-code" onclick={() => showCode(toy.id)} aria-haspopup="dialog"
-					>&lt;/&gt; View Svelte example <span aria-hidden="true">↗</span></button
+					>&lt;/&gt; View code example <span aria-hidden="true">↗</span></button
 				>
 				<span class="key-hint">drag to explore · arrow keys to move</span>
 			</aside>
@@ -678,20 +683,33 @@
 			>
 		{/each}
 	</div>
+	<FrameworkSwitch
+		value={framework}
+		onChange={(value) => {
+			framework = value;
+			copyMessage = '';
+			copyVersion++;
+		}}
+	/>
 	<p class="example-note">{examples[selected].note}</p>
 	<div class="code-toolbar">
-		<span>Svelte 5 · standalone component</span><button onclick={copyCode}>Copy code</button>
+		<span>{framework === 'svelte' ? 'Svelte 5' : 'React / JSX'} · standalone component</span><button
+			onclick={copyCode}>Copy code</button
+		>
 	</div>
 	<p class="copy-status" role="status">{copyMessage}</p>
-	{#key selected}
+	{#key `${selected}-${framework}`}
 		<!-- svelte-ignore a11y_no_noninteractive_tabindex (Scrollable code needs keyboard focus.) -->
-		<pre role="region" tabindex="0" aria-label="Svelte component code"><code
-				>{examples[selected].code}</code
+		<pre
+			role="region"
+			tabindex="0"
+			aria-label={`${framework === 'svelte' ? 'Svelte' : 'React'} component code`}><code
+				>{framework === 'react' ? examples[selected].react : examples[selected].code}</code
 			></pre>
 	{/key}
 	<p class="example-footer">
-		Paste into a new .svelte component. Includes pointer capture, keyboard movement, animation
-		cleanup, and reduced-motion support. No extra libraries.
+		Paste into a new {framework === 'svelte' ? '.svelte' : '.jsx'} component. Includes pointer capture,
+		keyboard movement, animation cleanup, and reduced-motion support. No extra libraries.
 	</p>
 </dialog>
 

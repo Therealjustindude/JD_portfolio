@@ -1,4 +1,5 @@
 import type { Feature, Kind } from './experiments';
+import { reactExample } from './react-examples.js';
 
 // Every generated example is a standalone Svelte 5 component.
 // Share the pointer and animation plumbing, keeping each effect easy to compare.
@@ -333,6 +334,7 @@ ${
 		.join('\n');
 	return {
 		note,
+		react: reactExample(features, color, triangle, reaction),
 		code: component({
 			color,
 			trackWalls: !!reaction,
@@ -353,7 +355,7 @@ ${
 	};
 }
 
-export const examples: Record<Kind, { note: string; code: string }> = {
+export const examples: Record<Kind, { note: string; code: string; react: string }> = {
 	edge: example(
 		['edge'],
 		'#b6ed91',
